@@ -3,20 +3,47 @@
 <head>
   <meta charset="utf-8">
   
-  <title>高级Bash编程（001）- 基础 | 舞雩</title>
+  <title>设计模式（00）-基本原则 | 舞雩</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+  <meta name="description" content="单一职责原则（SRP）定义：简单说一个只负责一个职责
+
+开放关闭原则（OCP）定义：对扩展开放，对修改关闭
+
+里氏转换原则（LCP）定义：在能用A的地方都能用B
+
+接口隔离原则（IDP）定义：不要将太多的接口集中在一个抽象类中
+
+依赖倒置原则（DIP）定义：要做到父类依赖子类，而不是子类依赖父类
+
+类与类之间的关系泛化耦合度：对象之间耦合度最大，子类继承父类所有细节；语言表达：接口继承；符号：空心">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高级Bash编程（001）- 基础">
-<meta property="og:url" content="http://yoursite.com/2014/11/17/bash/bash-ch01/index.html">
+<meta property="og:title" content="设计模式（00）-基本原则">
+<meta property="og:url" content="http://yoursite.com/2014/11/17/design_pattern/dp_ch00/index.html">
 <meta property="og:site_name" content="舞雩">
-<meta property="og:description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+<meta property="og:description" content="单一职责原则（SRP）定义：简单说一个只负责一个职责
+
+开放关闭原则（OCP）定义：对扩展开放，对修改关闭
+
+里氏转换原则（LCP）定义：在能用A的地方都能用B
+
+接口隔离原则（IDP）定义：不要将太多的接口集中在一个抽象类中
+
+依赖倒置原则（DIP）定义：要做到父类依赖子类，而不是子类依赖父类
+
+类与类之间的关系泛化耦合度：对象之间耦合度最大，子类继承父类所有细节；语言表达：接口继承；符号：空心">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高级Bash编程（001）- 基础">
-<meta name="twitter:description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+<meta name="twitter:title" content="设计模式（00）-基本原则">
+<meta name="twitter:description" content="单一职责原则（SRP）定义：简单说一个只负责一个职责
+
+开放关闭原则（OCP）定义：对扩展开放，对修改关闭
+
+里氏转换原则（LCP）定义：在能用A的地方都能用B
+
+接口隔离原则（IDP）定义：不要将太多的接口集中在一个抽象类中
+
+依赖倒置原则（DIP）定义：要做到父类依赖子类，而不是子类依赖父类
+
+类与类之间的关系泛化耦合度：对象之间耦合度最大，子类继承父类所有细节；语言表达：接口继承；符号：空心">
   
     <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
   
@@ -66,14 +93,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-bash/bash-ch01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-design_pattern/dp_ch00" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/17/bash/bash-ch01/" class="article-date">
+    <a href="/2014/11/17/design_pattern/dp_ch00/" class="article-date">
   <time datetime="2014-11-17T10:34:26.000Z" itemprop="datePublished">2014-11-17</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
   </div>
 
   </div>
@@ -84,7 +111,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      高级Bash编程（001）- 基础
+      设计模式（00）-基本原则
     </h1>
   
 
@@ -92,17 +119,27 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World !"</span></span><br></pre></td></tr></table></figure></p>
-<p>“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。</p>
-<a id="more"></a>
-<p>运行Shell脚本的方法：<br>1.作为可执行程序：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./<span class="keyword">test</span>.<span class="keyword">sh</span>  #使脚本具有执行权限</span><br><span class="line">./<span class="keyword">test</span>.<span class="keyword">sh</span>  #执行脚本</span><br></pre></td></tr></table></figure></p>
-<p>2.作为解释器参数<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/bin/<span class="keyword">sh</span> <span class="keyword">test</span>.<span class="keyword">sh</span></span><br><span class="line">/bin/php <span class="keyword">test</span>.php</span><br></pre></td></tr></table></figure></p>
-<p>这种方式运行的脚本，不需要在第一行指定解释器信息，写了也没用。</p>
+        <h2 id="单一职责原则（SRP）">单一职责原则（SRP）</h2><p>定义：简单说一个只负责一个职责</p>
+<hr>
+<h2 id="开放关闭原则（OCP）">开放关闭原则（OCP）</h2><p>定义：对扩展开放，对修改关闭</p>
+<hr>
+<h2 id="里氏转换原则（LCP）">里氏转换原则（LCP）</h2><p>定义：在能用A的地方都能用B</p>
+<hr>
+<h2 id="接口隔离原则（IDP）">接口隔离原则（IDP）</h2><p>定义：不要将太多的接口集中在一个抽象类中</p>
+<hr>
+<h2 id="依赖倒置原则（DIP）">依赖倒置原则（DIP）</h2><p>定义：要做到父类依赖子类，而不是子类依赖父类</p>
+<hr>
+<h2 id="类与类之间的关系">类与类之间的关系</h2><h3 id="泛化">泛化</h3><p><code>耦合度</code>：对象之间耦合度最大，子类继承父类所有细节；<br><code>语言表达</code>：接口继承；<br><code>符号</code>：空心三角形、实线，由派生类指向基类。</p>
+<h3 id="实现">实现</h3><p><code>耦合度</code>：对象之间适中，子类实现父类的所有接口；<br><code>语言表达</code>：实现继承；<br><code>符号</code>：空心三角形，虚线，由实现类指向接口类。</p>
+<h3 id="依赖">依赖</h3><p><code>耦合度</code>：对象之间最弱，子类实现父类的所有接口；<br><code>语言表达</code>：一般指局部变量，函数参数，返回值建立的对其他对象的调用关系；<br><code>符号</code>：箭头，虚线，由使用类指向被依赖的类。</p>
+<h3 id="一般关联">一般关联</h3><p><code>耦合度</code>：对象之间的一种引用关系，比如客户类和订单类的关系；<br><code>语言表达</code>：类的属性；<br><code>符号</code>：箭头，实线，由使用类指向被关联的类。</p>
+<h3 id="聚合">聚合</h3><p><code>耦合度</code>：has-a关系，不稳定的关系，较强与一般关联，有局部和整体的关系，没了整体，局部也可以存在，如公司和员工的关系；<br><code>语言表达</code>：无；<br><code>符号</code>：空心菱形、实线，由局部指向整体。</p>
+<h3 id="组合">组合</h3><p><code>耦合度</code>：contains-a的关系，强烈包含关系。部分不能脱离整体存在，如公司和部门的 关系；<br><code>语言表达</code>：类的属性；<br><code>符号</code>：实心菱形，实线，由局部类指向整体类。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/17/bash/bash-ch01/" data-id="ci7vt6vk300007vjx2bnokssa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/17/design_pattern/dp_ch00/" data-id="ci7vt6vle000h7vjxqt7iy7it" class="article-share-link">Share</a>
       
       
     </footer>
@@ -111,15 +148,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/11/17/design_pattern/dp_ch00/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/11/17/data_structure/ds_ch01/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          设计模式（00）-基本原则
+          数据结构（001）-基本概念
         
       </div>
     </a>
   
+  
+    <a href="/2014/11/17/bash/bash-ch01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">高级Bash编程（001）- 基础</div>
+    </a>
   
 </nav>
 

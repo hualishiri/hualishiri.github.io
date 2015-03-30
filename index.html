@@ -65,6 +65,433 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tools/vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/vim/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/vim/">VIM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一_配置文件">一 配置文件</h2><p>vim的配置文件分为两种：系统配置文件：\$VIM/.vimrc，用户配置文件：\$HOME/.vimrc</p>
+<h2 id="二_常用快捷键">二 常用快捷键</h2><h3 id="SHELL下">SHELL下</h3><p><code>vim filename</code> 打开文件<br><code>vim file1 file2 file3</code> 打开多个文件</p>
+<h3 id="CMD模式">CMD模式</h3><p><code>:open file</code> 当前窗口打开文件<br><code>:split file</code> 当前窗口分裂打开<br><code>:vsplit file</code> 垂直分裂<br><code>:hsplit file</code> 水平分裂<br><code>:bn</code> 将缓冲区的下一个文件显示<br><code>:bp</code> 将缓冲区的上一个文件显示<br><code>:args</code> 列出所有的打开窗口<br><code>:e ftp://192.168.10.76/abc.txt</code><br><code>:e \\que\test\1.txt</code><br><code>:e</code>  编辑当前文件，若缓冲区已经修改，该命令无效<br><code>:e!</code> 强制编辑当前文件，放弃当前缓冲区任何修改<br><code>:e file</code> 编辑file文件，若缓冲区已修改，则无效<br><code>:e! file</code> 强制编辑file文件，放弃当前缓冲区任何修改</p>
+<p><code>:sh</code> 暂时退出当前vim,进入shell(使用ctrl+d返回vim)</p>
+<p><code>:tabe file</code> 在新的tab打开文件<br><code>:tabc</code> 关闭文件<br><code>:tabp</code> 切换到前一个tab<br><code>:tabn</code> 切换到下一个tab<br><code>gt</code> 切换到下一个tab<br><code>gT</code> 切换到前一个tab</p>
+<p><code>Ctrl + ww</code> 跳到下一个窗口<br><code>Ctrl + wh</code> 跳到左边窗口<br><code>Ctrl + wj</code> 跳到下边窗口<br><code>Ctrl + wk</code> 跳到上边窗口<br><code>Ctrl + wl</code> 跳到右边窗口</p>
+<h3 id="参数列表">参数列表</h3><pre><code>启动<span class="tag">vim</span>给出多个文件，这些文件将被记住，即参数列表。参数列表和<span class="pseudo">:buffers</span>命令中的缓冲区列表不同。
+</code></pre><p><code>vim one.c two.c three.c</code> 将三个文件加入到参数列表中。<br><code>:next</code> 下一个文件<br><code>:wnext</code> 保存当前文件，下一个文件<br><code>:args</code> 显示当前所有的文件列表<br><code>:previous</code> 上一个文件<br><code>:last</code> 最后一个文件<br><code>:first</code> 地一个文件<br><code>:2next</code> 向后两个文件<br><code>args five.c six.c seven.h</code> 新建一个参数列表<br><code>args *.txt</code>    使用匹配符</p>
+<p><code>Ctrl + 6</code> 在两个文件中快速切换</p>
+<h3 id="缓冲区列表">缓冲区列表</h3><pre><code>缓冲区描述当前的文件，实际缓冲区是你编译文件的副本
+</code></pre><blockquote>
+<ul>
+<li>激活         显示在窗口内，并加载文本</li>
+<li>隐藏         不显示在窗口内，但加载文本</li>
+<li>非激活       不显示在窗口内，不加载文本</li>
+</ul>
+</blockquote>
+<p><code>ls/buffers/files</code> 查看缓冲区列表</p>
+<p><code>u</code> 列表外缓冲区<br><code>%</code> 当前缓冲区<br><code>#</code> 轮换缓冲区<br><code>a</code> 激活缓冲区<br><code>h</code> 隐藏缓冲区<br><code>=</code> 只读缓冲区<br><code>-</code> 不可改缓冲区<br><code>+</code> 已修改缓冲区</p>
+<p><code>:sbuffer 3</code>    在新一个窗口编辑缓冲区</p>
+<p><code>:bnext</code>   编辑下一个缓冲区<br><code>:bprevious</code>   编译上一个缓冲区<br><code>:bfirst</code>   编辑第一个缓冲区<br><code>:blast</code>   编辑最后个缓冲区<br><code>:bdelete num</code> 删除缓冲区</p>
+<p><code>i</code> 插入<br><code>I</code> 行首插入<br><code>a</code> 追加<br><code>A</code> 行为追加<br><code>o</code> 下行空行插入<br><code>O</code> 上行空行插入</p>
+<p><code>/text</code> 正向查找text<br><code>?text</code> 反向查找text<br><code>:set ignorecase</code> 大小写敏感<br><code>:set noignorecase</code> 大小写不敏感</p>
+<p><code>s/old/new/</code> 在本行使用new代替第一次出现的old<br><code>s/old/new/g</code> 在本行使用new代替所有的old<br><code>%s/old/new/</code> 在全文使用new代替第一次出现的old<br><code>%s/old/new/g</code> 在全文使用new代替所有old<br><code>:10,20s/^/    /g</code> 向10到20行首插入4个空格</p>
+<p><code>ddp</code> 交换光标所在行和其下紧邻的一行<br><code>h</code> 左移一个字符<br><code>l</code> 右移一个字符<br><code>k</code> 上移一个字符<br><code>j</code> 下移一个字符<br><code>20j</code> 向下移动20行</p>
+<p><code>^</code> 行首非空白字符上<br><code>0(数字0)</code> 行首<br><code>$</code> 行尾<br><code>gg</code> 文件头<br><code>G</code> 文件尾<br><code>f</code> 争相查找<br><code>F</code> 反响查找</p>
+<p><code>Ctrl + e</code> 向下滚动一行<br><code>Ctrl + y</code> 向上滚动一行<br><code>Ctrl + d</code> 向下滚动半屏<br><code>Ctrl + u</code> 向上滚动半屏<br><code>Ctrl + f</code> 向下滚动一屏<br><code>Ctrl + b</code> 向上滚动一屏</p>
+<p><code>u</code> 撤销<br><code>U</code> 撤销对整行的操作<br><code>Ctrl + r</code> 反撤销</p>
+<p><code>x</code> 删除当前光标所在字符<br><code>3x</code> 删除目标光标开始之后的三个字符<br><code>dl</code> 删除当前字符<br><code>dh</code> 删除上一行<br><code>dd</code> 删除当前行<br><code>dk</code> 删除下一行<br><code>10d</code> 删除当前行开始的10行<br><code>D</code> 删除当前字符到行尾<br><code>d$</code> 删除当前字符之后的所有字符（本行）<br><code>kdgg</code> 删除当前行之前的所有行（不包括当前行）<br><code>jdG</code> 删除当前行之后的所有行（不包括当前行）<br><code>:1,10d</code> 删除1到10行<br><code>:11,$d</code> 删除11到文件尾<br><code>1,$d</code> 删除所有行</p>
+<p><code>zo</code> 展开<br><code>zO</code> 展开（递归）<br><code>zc</code> 折叠<br><code>zC</code> 折叠（递归）</p>
+<p><code>yy</code> 复制当前康<br><code>nyy</code> 复制从当前行开始之后的n行<br><code>p</code> 粘贴到当前光标之后<br><code>shift + p</code> 粘贴到当前行<br><code>1,10 co 20</code> 将1到10行复制一份添加到20行尾部<br><code>1,$ co $</code> 将整个文件复制一份并添加到文件尾部<br><code>ndd</code> 剪切当前行之后的n行<br><code>:1,10d</code> 剪切1到10行<br><code>1,10 m 20</code> 将第1到10行移动到20行后边</p>
+<p><code>:wq</code> 保存并退出<br><code>:ZZ</code> 保存，并退出<br><code>:q!</code> 不保存文件并强制退出<br><code>:e!</code> 强制不保存当前文件，并重新载入<br><code>:f newfilename</code> 将当前文件重命名<br><code>q:</code> 查看历史命令<br><code>qa</code> 录制宏<br><code>:!commond</code> 命令模式，可以输入linux命令</p>
+<p>OmniCppComplete自动补全<br><code>Ctrl + P</code> 向前切换成员<br><code>Ctrl + N</code> 向后切换成员<br><code>Ctrl + E</code> 退出下拉框，并退回到原来录取的文字<br><code>Ctrl + Y</code> 退出下拉框，并接受当前选项</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="ci7vt6vkr00037vjxoo6n13ix" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/irc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/irc/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/irc/">IRC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>/server chat.freenode.net</code> 连接名为chat.freenode.net的服务器<br><code>/nick new_name</code> 以名为new_name的昵称登录<br><code>/msg nickserv register your_password you_email_address</code>向freenode注册你的昵称</p>
+<h3 id="使用一个备用昵称">使用一个备用昵称</h3><p><code>/nick new_name_2</code>  切换到需要备用昵称<br><code>/msg nickserv group</code> 将当前备用昵称注册</p>
+<p><code>/msg nickserv identify acount_name your_password</code> 向nickserv鉴别你的用户名和密码</p>
+<p><code>/msg nickserv info nick_name</code> 查询某个昵称最后的登录信息<br><code>/join #freenode</code> 加入freenode频道</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="ci7vt6vkz00087vjx5jafyqt8" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/git" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/git/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/git/">GIT</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装">安装</h2><p>Ubuntu: sudo apt-get install git<br><code>git config</code> 配置git<a href="[廖雪峰的官方网站][3]">^git</a><br><code>git config --global</code> 配置git的全部配置<br><code>git config --global user.name &quot;You name&quot;</code> 配置当前用户名<br><code>git config --global user.email name@host.com</code> 配置你的Email</p>
+<h2 id="创建版本库">创建版本库</h2><p><code>git init</code> 在需要创建版本库的空目录下创建一个新的版本库<br><code>git add &lt;file&gt;</code> 从工作区添加文件到暂存区，可多次使用<br><code>git commoit -m &quot;commont&quot;</code> 将暂存区所有的文件同步到到仓库</p>
+<h2 id="查看工作区和暂存区的状态">查看工作区和暂存区的状态</h2><p><code>git status</code> 查看当前工作区和暂存区状态</p>
+<blockquote>
+<ul>
+<li>查看工作区下文件是否被管理</li>
+<li>查看工作区下被管理的文件是否被同步到暂存区</li>
+<li>察看暂存区中的文件是否被同步到仓库<br><code>git diff &lt;file&gt;</code> 查看[工作区]文件和[仓库]中文件的差别<h2 id="版本管理">版本管理</h2><h3 id="版本查看">版本查看</h3><code>git log</code> 查看<code>当前版本</code>之前提交的所有版本信息<br><code>git log --pretty=oneline</code> 以简介形式查看<code>当前版本</code>之前提交的所有版本信息</li>
+<li><code>HEAD</code> 表示当前版本</li>
+<li><code>HEAD^</code> 表示上一版本，<code>HEAD^^</code> 表示上上版本，以此类推</li>
+<li><code>HEAD^</code> 等同于 <code>HEAD~1</code>； <code>HEAD^^^^^</code>等同于<code>HEAD~5</code></li>
+<li>git log中会显示版本号：commit id<br><code>git reflog</code> 查看<code>所有提交</code>的版本<h3 id="版本回退">版本回退</h3><code>git reset --hard HEAD^</code> 根据HEAD回退到上一版本<br><code>git reset --hard commitid</code> 根据版本号回退到某一版本<h3 id="工作区和暂存区">工作区和暂存区</h3><code>工作区</code> 你工作的目录<br><code>版本库</code> 你工作目录下的.git文件夹叫版本库，版本库包括<code>暂存区</code>和当前<code>分支</code><br><code>暂存区(stage)</code> git add及把文件修改添加到暂存区<br><code>分支(branch,master)</code> git commit即把文件修改从暂存区添加到当前分支<br><code>HEAD</code> 指向当前活动分支的当前版本<h3 id="GIT管理修改">GIT管理修改</h3>  Git跟踪的并管理修改，而不是文件。什么是修改？必须新增一行，删除一行都是修改。不是管理文件，该特性造成了,工作区和暂存区和当前分支不一致。<h3 id="撤销修改">撤销修改</h3><code>git checkout -- &lt;file&gt;</code> 将工作区的修改恢复到和分支中一致<br><code>git reset HEAD &lt;file&gt;</code> 将暂存区的修改删除（此时工作区的修改还未变动），回到了上一步<h3 id="删除文件">删除文件</h3></li>
+</ul>
+<ol>
+<li><code>rm</code> 首先删除工作区文件</li>
+</ol>
+<ul>
+<li><code>git checkout -- &lt;file&gt;</code> 恢复删除的文件</li>
+</ul>
+<ol>
+<li><code>git rm &lt;file&gt;</code> 将修改提交到暂存区</li>
+</ol>
+<ul>
+<li><code>git reset HEAD &lt;file&gt;</code> 将删除撤销</li>
+</ul>
+<ol>
+<li><code>git commit -m &quot;commonts&quot; 将修改提交到当前分支</code><h2 id="远程仓库">远程仓库</h2><h3 id="设置远程仓库">设置远程仓库</h3></li>
+<li><code>ssh-keygen -t rsa -C &quot;youname@email.com&quot;</code> 在本地Linux产生密钥</li>
+<li>设置github中的密钥<h3 id="添加远程库">添加远程库</h3><code>git remote</code> 查看本地的远程仓库<br><code>git remote -v</code> 查看远程仓库的权限信息<br><code>git remote rm git_name</code> 删除本地的远程仓库<br><code>git remote rename git_name</code> 重命名远程仓库在本地映射的仓库名</li>
+</ol>
+</blockquote>
+<p><code>git remote add origin https://github.com/username/repository_name</code></p>
+<blockquote>
+<ul>
+<li>https,必须使用https协议；</li>
+<li><code>origin</code> 远程库gist在本地的仓库名(不是分支名)，可以和远程仓库名字不同，可以和本地仓库名字不同</li>
+<li><code>username</code> github的用户名,不是电子邮件</li>
+<li><code>repository_name</code> github上的仓库名</li>
+</ul>
+</blockquote>
+<p><code>git push -u origin local_branch_name</code> 使用当前仓库的local_branch_name分支初始化远程origin仓库<br><code>git push origin local_branch_name</code> 将本地版本库当前分支local_brach_name合并到（更新）远程origin库</p>
+<blockquote>
+<ol>
+<li>区分本地<code>仓库名</code>和<code>分支名</code>；</li>
+<li>仓库名即文件夹的名字；</li>
+<li>当前仓库，所有分支的名字：<code>git branch -a</code>；</li>
+<li>local_branch_name 本地仓库中当前分支的名字；</li>
+<li>远程仓库名对于每一个本地仓库是独立的；即一个本地仓库中的远程仓库名不会出现在另外一个本地仓库中。</li>
+</ol>
+</blockquote>
+<h3 id="克隆远程仓库">克隆远程仓库</h3><p><code>git clone https://github.com/username/repository_name</code> 从远程克隆一个仓库到本地（无需建立文件夹）<br><code>git clone [-b branch_name] remote_repositoy_name [local_dir]</code><br>将远程仓库[remote_repository_name]的branch_name分支克隆到本地local_dir的目录下</p>
+<h2 id="分支管理">分支管理</h2><h3 id="创建合并分支">创建合并分支</h3><blockquote>
+<ol>
+<li>每一个仓库都有一个主分支(master)；</li>
+<li>HEAD指向的是当前活动分支的当前活动版本；</li>
+<li>每次提交(commit)到master分支，master就会向前移动一步；</li>
+<li>当创建心的分支dev,则Git会创建新的指针dev指向master指针，同时将HEAD指向指针dev</li>
+<li>提交时，dev向前移动，而master分支则不动；</li>
+<li>合并分支既是master指向dev指针即可，然后可以删除dev分支（删除dev指针）。</li>
+</ol>
+</blockquote>
+<p><code>git branch</code> 查看当前所有分支(不包括远程分支)，当前分支前边有个*<br><code>git branch -a</code> 查看所有分支（包括远程分支）</p>
+<p><code>git branch dev</code> 新建dev分支<br><code>git checkout -b dev</code> 新建dev分支，并将当前切换到dev分支<br><code>git checkout dev</code> 切换当前分支到dev</p>
+<blockquote>
+<ul>
+<li>切换分支，是指切换分支，对当前的工作区和暂存区毫不影响，三个是独立的；</li>
+<li>将暂存区的修改提交到当前分支，在提交之前可以任意切换分支。</li>
+</ul>
+</blockquote>
+<p><code>git branch -d dev</code> 删除dev分支<br><code>git merge dev</code> 将dev分支合并到<strong>当前分支</strong>上，当两个文件可以快速合并的时候<strong>Fast-forwar</strong>指的是通过将<strong>master</strong>指针移动到<strong>dev</strong>指针合并的；</p>
+<h3 id="解决冲突">解决冲突</h3><blockquote>
+<ol>
+<li>当合并出现冲突时，Git会自动合并，如果合并失败，则必须手动合并；</li>
+<li>合并失败是，Git会出于冲突合并状态，Git自动将冲突文件合并为一个<strong>冲突文件</strong>；</li>
+<li>然后修改冲突文件，在对<strong>冲突文件</strong>进行<code>git add</code>和<code>git commit</code>即可解决冲突。</li>
+</ol>
+</blockquote>
+<p><code>git log --graph</code> 查看分支历史信息图信息<br><code>git log --graph --pretty=oneline</code> 查看简化的分支历史信息图信息<br><code>git log --graph --pretty=oneline --abbrev-commit</code> 查看commit id缩写的分支图信息</p>
+<h3 id="分支管理策略">分支管理策略</h3><p><code>git merge --no-ff dev</code> 禁用<strong>Fast-forward</strong>模式，需要在<strong>master</strong>分支上新建立节点，然后将<strong>dev</strong>的下一节点指向<strong>master</strong>建立的节点上。</p>
+<blockquote>
+<ul>
+<li>master分支非常稳定，仅仅用来发布新版本时候用，平时不在上边干活的；</li>
+<li>新建一个dev分支，dev分支不稳定的，需要发布新版本的时候再将dev合并到master；</li>
+<li>然后每个开发人员再从dev分支上建新的分支进行独立开发，开发完后，在合并到dev上。</li>
+</ul>
+</blockquote>
+<h3 id="Bug分支">Bug分支</h3><p><code>git stash</code> 将当前的工作区和暂存区的修改暂时存储起来<br><code>git stash list</code> 现实所有暂存的修改<br><code>git stash pop</code> 用stash最上层的修改恢复当前工作区和暂存区的现场,同时从stash中删除该修改<br><code>git stash apply stash@{n}</code> 将stash中的n恢复当当前的现场，但不从stash中删除<br><code>git stash drop</code> 删除stash栈中最上层的内容</p>
+<p>修复Bug:</p>
+<blockquote>
+<ol>
+<li>保存当前现场：<code>git stash</code></li>
+<li>切换分支：<code>git checkout master</code></li>
+<li>新建修复分支：<code>git checkout -b issue-101</code></li>
+<li>修复Bug：<code>git add &lt;file&gt;</code> <code>git commit -m &quot;issue-101&quot;</code></li>
+<li>合并分支：<code>git checkout master</code> <code>git merge isssue-101</code></li>
+<li>返回现场：<code>git checkout dev</code></li>
+<li>恢复现场：<code>git stash pop</code></li>
+</ol>
+</blockquote>
+<h3 id="Feature分支">Feature分支</h3><blockquote>
+<ol>
+<li>新建feature分支</li>
+<li>开发，提交</li>
+<li>合并到dev分支上</li>
+</ol>
+</blockquote>
+<pre><code>如果在合并dev上之前，需要删除分支feature,使用<span class="escape">`g</span>it branch -d feature<span class="escape">`会</span>失败，因为删除未合并的分支会提示错误，必须使用：<span class="escape">`g</span>it branch -D feature<span class="escape">`.</span>
+</code></pre><p><code>git branch -D feature</code> 删除未合并的分支</p>
+<h3 id="多人协作">多人协作</h3><p><code>git remote</code> 查看远程库信息<br><code>git remote -v</code> 现实更详细信息<br><code>git push origin master</code> 推送本地分支到远程分支上</p>
+<p><code>master</code> 分支是主分支，因此要时刻与远程同步<br><code>dev</code> 开发分支，团队所有成员需要在上边开发，所以需要与远程同步<br><code>bug</code> bug分支之用语修复Bug，没必要推到远程；<br><code>feature</code> feature分支，取决你是否和你的小伙伴合作在上面开发。</p>
+<blockquote>
+<ol>
+<li><code>git clone https://github.com/username/repository.git</code> 克隆远程库；</li>
+<li><code>git checkout -b dev origin/dev</code> 建立远程库origin的dev分支到本地，本地分支名字叫dev；</li>
+<li><code>git commit -m &quot;add evn&quot;</code> 修改本地的dev分支；</li>
+<li><code>git push origin dev</code>将dev分支push到远程和远程的dev分支合并；</li>
+<li>如果第4步推送失败，则说明已经有最新版本，需要进行一下操作：</li>
+</ol>
+<ul>
+<li><code>git pull</code> 将最新的提交从origin/dev拉下来，然后本地合并，然后解决冲突；</li>
+<li><code>git branch --set-upstream dev origin/dev</code> 如果git pull失败，原因是没有指定本地dev分支与远程origen/dev分支的链接</li>
+<li>在git pull</li>
+</ul>
+</blockquote>
+<h2 id="标签管理">标签管理</h2><h3 id="创建标签">创建标签</h3><p><code>git tag</code> 查看所有标签<br><code>git tag &lt;name&gt;</code> 在当前分支上打上一个name标签，可以制定一个commit id<br><code>git tag &lt;name&gt; &lt;hash&gt;</code> 在某个分支上的某个版本打标签<br><code>git show &lt;tagname&gt;</code> 查看某个tag的详细信息<br><code>git tag -a &lt;tagname&gt; -m &quot;comments&quot;</code> 对某个tag制定详细信息<a href="[github官网][1]">^github</a></p>
+<h3 id="操作标签">操作标签</h3><p><code>git tag -d &lt;tagname&gt;</code> 删除本地标签<br><code>git push origin &lt;tagname&gt;</code> 将本地tagname标签同步到远程仓库<br><code>git push origin --tags</code> 一次性推送本地的所有标签<br>删除远程标签</p>
+<blockquote>
+<ol>
+<li><code>git tag -d v0.9</code> 删除本地标签</li>
+<li><code>git push origin :refs/tags/v0.9</code> 从远程删除该标签</li>
+</ol>
+</blockquote>
+<h2 id="使用Github">使用Github</h2><pre><code><span class="escape">`f</span>ork<span class="escape">` </span>可以复制别人的开源项目
+<span class="escape">`c</span>lone<span class="escape">` </span>将自己的项目复制到本地
+</code></pre><h2 id="自定义Git">自定义Git</h2><h3 id="自定义颜色">自定义颜色</h3><p><code>git config --global color.ui true</code></p>
+<h3 id="忽略特殊文件">忽略特殊文件</h3><blockquote>
+<ol>
+<li>工作太配置<code>.gitignore</code>文件；</li>
+<li>提交<code>.gitignore</code>文件到github。</li>
+<li>Github提供的<a href="https://github.com/github/gitignore" target="_blank" rel="external"><code>.gitignore</code>的模版</a><h3 id="配置别名">配置别名</h3><code>git config --global alias.co checkout</code> 将checkout配置成co<br><code>git config --global alias.unstage &#39;reset HEAD&#39;</code> 配置当前文件<br><code>git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;</code> 配置图</li>
+</ol>
+<ul>
+<li><code>--glocal</code>选项对当前用户起作用，否则只对当前仓库起作用</li>
+<li>每个仓库的配置文件位于<code>.git/config</code>,其中alias可以修改映射</li>
+<li>每个用户的配置文件位于主目录下的.gitconfig中，可以修改</li>
+</ul>
+</blockquote>
+<hr>
+<p>参考资料</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="ci7vt6vl1000a7vjxvuywpvsb" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/gdb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/gdb/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/gdb/">GDB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="启动GDB命令">启动GDB命令</h2><p><code>gdb executable</code> 调试可执行文件<br><code>gdb -e executable -c core-file</code> 调试带有core-dump文件的可执行文件</p>
+<h2 id="GDB中使用的命令">GDB中使用的命令</h2><h3 id="查看信息：">查看信息：</h3><p><code>help [topic | comand]</code>  列出gdb帮助</p>
+<p><code>info args</code> 里出运行程序的命令行参数<br><code>info locals</code> 查看局部变量<br><code>bt full</code> 查看所有的变量<br><code>info breakpoints/br [n]</code>  列出断点号,或列出断点号为n的信息<br><code>info watchpoints</code>  列出观察点</p>
+<p><code>where</code> 显示当前的行号和所处的函数</p>
+<h3 id="断点和观察点">断点和观察点</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">break [position] <span class="keyword">if</span> condition</span><br><span class="line">position格式：</span><br><span class="line">    <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">    +<span class="built_in">offset</span></span><br><span class="line">    -<span class="built_in">offset</span></span><br><span class="line">    func</span><br><span class="line">    <span class="built_in">file</span>::func</span><br><span class="line">    <span class="built_in">file</span>::<span class="built_in">number</span>-<span class="built_in">line</span></span><br></pre></td></tr></table></figure>
+<p><code>watch 表达式</code> 当条件满足时设置观察点<br><code>rwatch 表达式</code> 当表达式被读时中断<br><code>awatch 表达式</code> 当表达式被读或写时中断</p>
+<p><code>clear [函数名|行号]</code> 删除断点，无参表示当前断点<br><code>delete(d)  [断点号|断点范围]</code> 删除断点号，无参表示删除所有断点<br><code>disable [断点号|断点范围]</code><br><code>enable [断点号|断点范围]</code></p>
+<h3 id="单步执行">单步执行</h3><p><code>step(s) [n]</code>  进入下一行代码的执行，会进入函数的内部<br><code>next(n) [n]</code>  执行下一行代，不会进入函数内部<br><code>stepi(si) [n]</code> 执行下一条汇编/CPU指令<br><code>nexti(ni) [n]</code></p>
+<p><code>until</code> 继续运行直到到达指定行号，或者地址，函数<br><code>until line-number</code><br><code>until line-number if condition</code></p>
+<p><code>return</code><br><code>return expression</code>   弹出选中的栈帧（stack frame）。如果后面指定参数，则返回表达式的值。</p>
+<p><code>finish</code> 继续执行到函数结束</p>
+<h3 id="程序堆栈">程序堆栈</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [<span class="keyword">n</span>|-<span class="keyword">n</span>|full] 显示当前堆栈的追踪,<span class="keyword">n</span>显示的个数，-<span class="keyword">n</span>显示底层<span class="keyword">n</span>个，full显示所有的局部变量</span><br></pre></td></tr></table></figure>
+<p><code>frame(f) number</code>  选择指定的栈帧<br><code>up [number]</code> 选择的当前栈帧的下一(number)个<br><code>down [number]</code> 选择的当前栈帧的下一(number)个</p>
+<p><code>bt full</code> 打印所有栈中的所有局部变量的值<br><code>info frame [addr]</code> 描述选中的栈帧<br><code>info args</code> 显示选中栈帧的参数，局部变量，异常处理函数。<br><code>info locals</code></p>
+<h3 id="源代码：">源代码：</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span>的形式：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
+<h3 id="打印变量">打印变量</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line"><span class="built_in">format</span>的格式：</span><br><span class="line">  /x  十六进制形式</span><br><span class="line">  /d  有符整数</span><br><span class="line">  /u  无符整数</span><br><span class="line">  /o  十进制</span><br><span class="line">  /t  二进制</span><br><span class="line">  /c  字符</span><br><span class="line">  /f  浮点</span><br><span class="line">  /<span class="operator">a</span>  十六进制地址</span><br><span class="line"><span class="built_in">variable</span>形式：</span><br><span class="line">  <span class="built_in">variable</span>  变量</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> 文件中的变量</span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  文件中的变量</span><br><span class="line">  *array@<span class="built_in">length</span>   数组</span><br></pre></td></tr></table></figure>
+<h3 id="查看内存">查看内存</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu 地址</span><br><span class="line">    <span class="keyword">n</span>   重复<span class="keyword">n</span>次</span><br><span class="line">    f   显示格式。为<span class="keyword">print</span>使用的格式</span><br><span class="line">    <span class="keyword">u</span>   每个单元的大小</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
+<p><code>call expression</code> 类似print,但不打印void</p>
+<h2 id="设置工作文件">设置工作文件</h2><p><code>info files</code>  列出当前文件，共享库<br><code>info share</code></p>
+<p><code>file file</code> 把file当做调试的程序<br><code>core file</code> 把file当作core文件。<br><code>exec file</code> 把exec大概你做可执行程序<br><code>symbol file</code> 从file中读取符号表。<br><code>load file</code> 动态链入file文件，并读取它的符号表<br><code>path directory</code>  把目录directory加入到搜索可执行文件和符号文件的路径中</p>
+<h3 id="控制：">控制：</h3><p><code>run/r</code> 从头开始执行程序<br><code>continue/c</code> 继续执行直到下一个断点或者观察点<br><code>kill</code>  停止程序执行<br><code>quit/q</code>  退出gdb</p>
+<hr>
+<blockquote>
+<p>注意：</p>
+<blockquote>
+<ol>
+<li>编译可执行文件时加上-g选项</li>
+<li>不要用-O,-O2优化选项</li>
+<li>在gdb中执行shell命令使用：shell command</li>
+</ol>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="ci7vt6vl5000c7vjx99v74b5n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/mysql/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/mysql/">MYSQL</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-连接MYSQL">1.连接MYSQL</h2><p><code>mysql -uroot -p</code>        使用密码登录mysql数据库<br><code>mysql -h localhost -uroot -p 123</code>    连接远程服务器</p>
+<h2 id="2-修改密码">2.修改密码</h2><p><code>mysqladmin -uroot -password ab12</code>    给root加个密码<br><code>mysqladmin -uroot -p ab12 -password abce</code>    将root密码改成abce<br><code>update user set password=password(&#39;&#39;) weher user=&#39;root&#39;;</code> 修改user表修改器名称<br><code>flush privileges;</code>    强制刷新权限内存控制</p>
+<h2 id="3-增加新用户">3.增加新用户</h2><p><code>grant select on 数据库.* to 用户名@登录主机 identified by \&quot;密码&quot;</code><br><code>grant select,insert,update,delete on *.* to test1@\&quot;%\&quot; identified by \&quot;abc\&quot;</code> 新增用户;</p>
+<h2 id="4-显示命令">4.显示命令</h2><p><code>show databases;</code>    显示数据库<br><code>use mysql;</code>    使用数据库<br><code>show tables;</code>    显示数据库中的表<br><code>describe 表名;</code>    显示表的描述<br><code>create database 库名;</code>    创建数据库<br><code>use 库名;</code>    使用数据库;<br><code>create table 表名;</code> 创建表</p>
+<p><code>drop database 库名;</code>    删除数据库<br><code>drop table 表名;</code>    删除表</p>
+<p><code>delete from 表名;</code>    将表中的记录清空<br><code>select * from 表名;</code>    查询表</p>
+<h2 id="5-备份数据库">5.备份数据库</h2><p><code>mysqldump --opt school&gt;school.bbb</code>    备份数据库到school.bbb文件中<br><code>msyqldump -uroot -p21center meeting &gt; db_meeting.sql</code> 备份数据库<br><code>mysqldump -uroot -p21center meeting &lt; xxx.sql</code>     恢复数据库</p>
+<h2 id="6-执行sql语句">6.执行sql语句</h2><p><code>mysql -uroot -p &lt; /home/db_meeting.sql</code>     //.sql为大量的sql语句</p>
+<h2 id="7-全局管理权限">7.全局管理权限</h2><p><code>FILE</code> 在MySQL服务器上读写文件。<br><code>PROCESS</code> 显示或杀死属于其它用户的服务线程。<br><code>RELOAD</code> 重载访问控制表，刷新日志等。<br><code>SHUTDOWN</code> 关闭MySQL服务。<br>数据库/数据表/数据列权限：<br><code>ALTER</code> 修改已存在的数据表(例如增加/删除列)和索引。<br><code>CREATE</code> 建立新的数据库或数据表。<br><code>DELETE</code> 删除表的记录。<br><code>DROP</code> 删除数据表或数据库。<br><code>INDEX</code> 建立或删除索引。<br><code>INSERT</code> 增加表的记录。<br><code>SELECT</code> 显示/搜索表的记录。<br><code>UPDATE</code> 修改表中已存在的记录。<br>特别的权限：<br><code>ALL</code> 允许做任何事(和root一样)。<br><code>USAGE</code> 只允许登录–其它什么也不允许做。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="ci7vt6vkw00067vjxf7dpnijf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-bash/bash-ch13" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/11/29/bash/bash-ch13/" class="article-date">
@@ -100,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="ci7vsnhul0003zyjxga1fx2as" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="ci7vt6vlm000m7vjxfhrlbw0j" class="article-share-link">Share</a>
       
       
     </footer>
@@ -147,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="ci7vsnhuq0005zyjxezdy2ayq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="ci7vt6vlq000o7vjx77glf3qk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -187,7 +614,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="ci7vsnhut0007zyjx1oodjoo2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="ci7vt6vlu000q7vjxfe0vcych" class="article-share-link">Share</a>
       
       
     </footer>
@@ -227,7 +654,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="ci7vsnhuw0009zyjx6hhy669t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="ci7vt6vlx000s7vjxb664dv2h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -273,7 +700,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="ci7vsnhv0000bzyjxe48svuvf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="ci7vt6vm2000u7vjxf8ilt6n5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -318,7 +745,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="ci7vsnhv2000dzyjx6rojqnry" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="ci7vt6vm5000w7vjx1e2m3aid" class="article-share-link">Share</a>
       
       
     </footer>
@@ -364,7 +791,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="ci7vsnhv5000fzyjxgwsjssuz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="ci7vt6vm8000y7vjx4xinye5q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -410,7 +837,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="ci7vsnhv8000hzyjxkt8lxc30" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="ci7vt6vmb00107vjx9z4ei73h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -468,7 +895,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="ci7vsnhvh000jzyjxgr8kdj9x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="ci7vt6vmd00127vjxtyh55t24" class="article-share-link">Share</a>
       
       
     </footer>
@@ -514,7 +941,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="ci7vsnhvl000lzyjxgcja8flf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="ci7vt6vmh00147vjxht93dupp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -579,7 +1006,60 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/19/bash/bash-ch03/" data-id="ci7vsnhvr000nzyjxullbzqbz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/19/bash/bash-ch03/" data-id="ci7vt6vmk00167vjxgptph66d" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-design_pattern/dp_ch01" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/18/design_pattern/dp_ch01/" class="article-date">
+  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/18/design_pattern/dp_ch01/">设计模式（01）-单例模式（Singleton）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="要求">要求</h2><blockquote>
+<ul>
+<li>必须单例</li>
+<li>推迟创建</li>
+<li>及时销毁</li>
+</ul>
+</blockquote>
+<h2 id="方法一">方法一</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;iostream&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Singleton&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">static</span> Singleton* Instance()&#123;</span><br><span class="line">            <span class="keyword">if</span>( instance_ == <span class="number">0</span> )&#123;</span><br><span class="line">                instance_ = <span class="keyword">new</span> Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance_;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">static</span> Singleton *instance_;</span><br><span class="line">        Singleton()&#123;&#125;</span><br><span class="line">        Singleton(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line">        Singleton&amp; <span class="keyword">operator</span>==(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line">        ~Singleton();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>缺点：满足<code>必须单例</code>和<code>推迟创建</code>原则，但没有满足及时销毁原则。</p>
+<h2 id="方法二">方法二</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;iostream&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Singleton&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">static</span> Singleton* Instance()&#123;</span><br><span class="line">            <span class="keyword">if</span>( instance_ == <span class="number">0</span> )&#123;</span><br><span class="line">                instance_ = <span class="keyword">new</span> Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance_;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">class</span> Gabor&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">            ~Gabor()&#123; </span><br><span class="line">                <span class="keyword">if</span>(instance_)&#123;</span><br><span class="line">                    <span class="keyword">delete</span> instance_;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">static</span> Singleton *instance_;</span><br><span class="line">        <span class="keyword">static</span> Gabor gabor_;</span><br><span class="line">        Singleton()&#123;&#125;</span><br><span class="line">        Singleton(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line">        Singleton&amp; <span class="keyword">operator</span>==(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"> Singleton* Singleton::instance_ = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
+<p>缺点：使用一个垃圾回收类来实现的，实现了<code>必须单例</code>和<code>延迟创建</code>原则。关于两个static变量哪个先析构，标准未定义。</p>
+<h2 id="方法三">方法三</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;iostream&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Singleton&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">static</span> Singleton* Instance()&#123;</span><br><span class="line">            <span class="keyword">static</span> Singleton singleton;</span><br><span class="line">            <span class="keyword">return</span> &amp;singleton;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        Singleton()&#123;&#125;</span><br><span class="line">        Singleton(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line">        Singleton&amp; <span class="keyword">operator</span>==(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>缺点：满足<code>必须单例</code>和<code>延迟创建</code>，但未满足<code>及时释放</code>原则，同时线程不安全。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/18/design_pattern/dp_ch01/" data-id="ci7vt6vl7000e7vjx3k98blu0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -630,7 +1110,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch02/" data-id="ci7vsnhvt000pzyjxtg3n6q7h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch02/" data-id="ci7vt6vmn00187vjxm13ddnf3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -640,14 +1120,14 @@
 
 
   
-    <article id="post-bash/bash-ch01" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-data_structure/ds_ch01" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/17/bash/bash-ch01/" class="article-date">
+    <a href="/2014/11/17/data_structure/ds_ch01/" class="article-date">
   <time datetime="2014-11-17T10:34:26.000Z" itemprop="datePublished">2014-11-17</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
   </div>
 
   </div>
@@ -658,7 +1138,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/17/bash/bash-ch01/">高级Bash编程（001）- 基础</a>
+      <a class="article-title" href="/2014/11/17/data_structure/ds_ch01/">数据结构（001）-基本概念</a>
     </h1>
   
 
@@ -666,17 +1146,226 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World !"</span></span><br></pre></td></tr></table></figure></p>
-<p>“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。</p>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/17/bash/bash-ch01/#more">Read More</a>
-          </p>
-        
+        <hr>
+<h2 id="基本概念">基本概念</h2><blockquote>
+<ol>
+<li>数据：描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。</li>
+<li>数据元素：是组成数据的，有一定意义的基本单位，在计算机中通常作为整体处理。也被称为记录。</li>
+<li>数据项：一个数据元素可以由若干个数据项组成。数据项是数据不可分割的最小单位。</li>
+<li>数据对象：是性质相同的数据元素的集合，是数据的子集。</li>
+<li>逻辑结构：指数据对象中数据元素之间的互相关系</li>
+</ol>
+<ul>
+<li>集合结构</li>
+<li>线性结构</li>
+<li>树形结构</li>
+<li>图形结构</li>
+</ul>
+<ol>
+<li>物理结构：数据的逻辑结构在计算机中存储形式</li>
+</ol>
+<ul>
+<li>顺序存储结构</li>
+<li>链式存储结构</li>
+</ul>
+</blockquote>
+<h2 id="算法">算法</h2><blockquote>
+<ol>
+<li>算法的五个特性：输入，输出，有穷性，确定性和可行性</li>
+<li>算法的时间复杂度：算法的时间复杂度，记作：T(n)=O(f(n))。它表示随问题规模n的增大，算法执行时间的增长率和f(n)的增长率相同。</li>
+<li>算法的空间复杂度：记作：S(n)=O(f(n))，n为问题的规模，f(n)为语句关于n所占存储空间的函数。</li>
+</ol>
+</blockquote>
+<h2 id="线性表">线性表</h2><pre><code>线性表（<span class="built_in">List</span>）：零个或多个数据元素的有限序列。
+</code></pre><blockquote>
+<ol>
+<li>一个线性表需要支持的操作：</li>
+</ol>
+<ul>
+<li>初始化</li>
+<li>判断是否为空</li>
+<li>清除表</li>
+<li>获得L中第i个位置的元素</li>
+<li>根据给定值，查找元素</li>
+<li>插入</li>
+<li>删除</li>
+<li>长度</li>
+</ul>
+<ol>
+<li><strong>头指针和头节点的异同</strong></li>
+</ol>
+<ul>
+<li>头指针是链表指向第一个节点的指针，若链表有头节点，则是指向头节点的指针。</li>
+<li>头指针具有表示作用，所以常用头指针冠以链表的名字；</li>
+<li>无论链表是否为空，头指针均不为空。头指针是链表的必要元素。</li>
+<li>头结点是为了同意和方便而设立的，放在第一元素的结点之前，其数据域一般无意义。</li>
+<li>有了头节点，对在第一元素节点钱插入节点和删除节点其操作和其他节点的操作就统一了。</li>
+<li>头节点不一定是链表必须要素。</li>
+</ul>
+<ol>
+<li>线性表</li>
+</ol>
+<ul>
+<li>顺序存储结构</li>
+<li>链式存储结构</li>
+<li>单链表</li>
+<li>静态链表</li>
+<li>循环链表</li>
+<li>双向链表</li>
+</ul>
+</blockquote>
+<h2 id="栈与队列">栈与队列</h2><blockquote>
+<ol>
+<li>桟支持的操作</li>
+</ol>
+<ul>
+<li>初始化</li>
+<li>销毁</li>
+<li>清空</li>
+<li>判断空</li>
+<li>返回栈顶元素</li>
+<li>压桟</li>
+<li>弹桟</li>
+</ul>
+<ol>
+<li>桟的实现：顺序桟和链桟</li>
+<li>队列支持的操作</li>
+</ol>
+<ul>
+<li>初始化</li>
+<li>销毁</li>
+<li>清空</li>
+<li>是否为空</li>
+<li>得到队头元素</li>
+<li>插入新元素</li>
+<li>删除队列头元素</li>
+<li>返回队列长度</li>
+</ul>
+<ol>
+<li>队列的实现：顺序队列，链队列和循环队列</li>
+</ol>
+</blockquote>
+<h2 id="串">串</h2><blockquote>
+<ol>
+<li>c串：串是由零个或多个字符组成的有限序列，又叫字符串。</li>
+</ol>
+</blockquote>
+<h2 id="树">树</h2><h3 id="定义">定义</h3><pre><code>树是<span class="function"><span class="title">n</span><span class="params">(n&gt;=<span class="number">0</span>)</span></span>个节点的有限集。n=<span class="number">0</span>时称为空树。在任意一颗非空树：(<span class="number">1</span>)有且仅有一个特定的称为根的结点；（<span class="number">2</span>）当n&gt;<span class="number">1</span>时，其余结点可分为<span class="function"><span class="title">m</span><span class="params">(m&gt;<span class="number">0</span>)</span></span>个互不相交的有限集T1，T2..<span class="class">.Tn</span>,其中每一个集合本身又是一颗树，并且称为根的子树。
+</code></pre><blockquote>
+<ol>
+<li>树的表示方式：</li>
+</ol>
+<ul>
+<li>双亲表示法</li>
+<li>孩子表示法</li>
+<li>孩子兄弟表示法<h3 id="二叉树">二叉树</h3></li>
+</ul>
+<ol>
+<li>定义：二叉树是n(n&gt;=0)个结点的有限集合，该集合或者为空集（称为空二叉树），或者又一个跟结点和两颗互不相交的，分别称为根结点的左子树和右子树的二叉树组成。</li>
+<li>五种形态</li>
+</ol>
+<ul>
+<li>空</li>
+<li>只有一个根结点</li>
+<li>根结点只有左子树</li>
+<li>根结点只有右子树</li>
+<li>根结点既有左子树又有右子树</li>
+</ul>
+<ol>
+<li>特殊二叉树</li>
+</ol>
+<ul>
+<li>斜树：所有的结点都只有左子树的二叉树叫左斜树。所有结点都是只有右子树的二叉树叫右斜树。</li>
+<li>满二叉树：所有分支结点都存在左子树和右子树，并且所有叶子结点都在同一层上。</li>
+<li>完全二叉树：对于可以具有n个结点的二叉树按层序编号，如果编号为i(1&lt;=i&lt;=n)的结点与同样深度的满二叉树中编号为i的结点在二叉树中位置完全相同，则该二叉树称为完全二叉树。</li>
+</ul>
+<ol>
+<li>二叉树的性质</li>
+</ol>
+<ul>
+<li>第i层上最多2^(i-1)个结点</li>
+<li>深度为k的二叉树最多有2^k-1个结点</li>
+<li>n0 = n2 + 1</li>
+<li>n个结点的完全二叉树的深度为：floor(log2(n))+1</li>
+<li>对于n个结点的完全二叉树，从1开始编号，从上到下，从左到右：i = 1,则i为二叉树的根结点；若2i&gt;n,则结点i无左孩子，否则左孩子是结点2i；若2i+1&gt;n,则结点i无右孩子，否则其右孩子是结点2i+1。</li>
+</ul>
+<ol>
+<li>二叉树的存储结构：顺序存储，链式存储</li>
+<li>二叉树的遍历方式：</li>
+</ol>
+<ul>
+<li>前序遍历</li>
+<li>中序遍历</li>
+<li>后序遍历</li>
+<li>层次遍历</li>
+</ul>
+<ol>
+<li>线索二叉树</li>
+<li>二叉树，树和森林的转换</li>
+<li>赫夫曼树</li>
+</ol>
+</blockquote>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/17/bash/bash-ch01/" data-id="ci7vsnhtz0000zyjxxqjiipsy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/17/data_structure/ds_ch01/" data-id="ci7vt6vli000j7vjxr7ilrn5j" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-design_pattern/dp_ch00" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/17/design_pattern/dp_ch00/" class="article-date">
+  <time datetime="2014-11-17T10:34:26.000Z" itemprop="datePublished">2014-11-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计模式/">设计模式</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/17/design_pattern/dp_ch00/">设计模式（00）-基本原则</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="单一职责原则（SRP）">单一职责原则（SRP）</h2><p>定义：简单说一个只负责一个职责</p>
+<hr>
+<h2 id="开放关闭原则（OCP）">开放关闭原则（OCP）</h2><p>定义：对扩展开放，对修改关闭</p>
+<hr>
+<h2 id="里氏转换原则（LCP）">里氏转换原则（LCP）</h2><p>定义：在能用A的地方都能用B</p>
+<hr>
+<h2 id="接口隔离原则（IDP）">接口隔离原则（IDP）</h2><p>定义：不要将太多的接口集中在一个抽象类中</p>
+<hr>
+<h2 id="依赖倒置原则（DIP）">依赖倒置原则（DIP）</h2><p>定义：要做到父类依赖子类，而不是子类依赖父类</p>
+<hr>
+<h2 id="类与类之间的关系">类与类之间的关系</h2><h3 id="泛化">泛化</h3><p><code>耦合度</code>：对象之间耦合度最大，子类继承父类所有细节；<br><code>语言表达</code>：接口继承；<br><code>符号</code>：空心三角形、实线，由派生类指向基类。</p>
+<h3 id="实现">实现</h3><p><code>耦合度</code>：对象之间适中，子类实现父类的所有接口；<br><code>语言表达</code>：实现继承；<br><code>符号</code>：空心三角形，虚线，由实现类指向接口类。</p>
+<h3 id="依赖">依赖</h3><p><code>耦合度</code>：对象之间最弱，子类实现父类的所有接口；<br><code>语言表达</code>：一般指局部变量，函数参数，返回值建立的对其他对象的调用关系；<br><code>符号</code>：箭头，虚线，由使用类指向被依赖的类。</p>
+<h3 id="一般关联">一般关联</h3><p><code>耦合度</code>：对象之间的一种引用关系，比如客户类和订单类的关系；<br><code>语言表达</code>：类的属性；<br><code>符号</code>：箭头，实线，由使用类指向被关联的类。</p>
+<h3 id="聚合">聚合</h3><p><code>耦合度</code>：has-a关系，不稳定的关系，较强与一般关联，有局部和整体的关系，没了整体，局部也可以存在，如公司和员工的关系；<br><code>语言表达</code>：无；<br><code>符号</code>：空心菱形、实线，由局部指向整体。</p>
+<h3 id="组合">组合</h3><p><code>耦合度</code>：contains-a的关系，强烈包含关系。部分不能脱离整体存在，如公司和部门的 关系；<br><code>语言表达</code>：类的属性；<br><code>符号</code>：实心菱形，实线，由局部类指向整体类。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/17/design_pattern/dp_ch00/" data-id="ci7vt6vle000h7vjxqt7iy7it" class="article-share-link">Share</a>
       
       
     </footer>
@@ -687,6 +1376,10 @@
 
   
   
+    <nav id="page-nav">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    </nav>
+  
 </section>
         
           <aside id="sidebar">
@@ -695,7 +1388,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/常用工具/">常用工具</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
     </div>
   </div>
 
@@ -708,7 +1401,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">13</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">16</span></li></ul>
     </div>
   </div>
 
@@ -720,23 +1413,23 @@
       <ul>
         
           <li>
-            <a href="/2014/11/29/bash/bash-ch13/">高级Bash编程（013）- curl</a>
+            <a href="/2014/12/16/tools/vim/">VIM</a>
           </li>
         
           <li>
-            <a href="/2014/11/28/bash/bash-ch12/">高级Bash编程（012）- 常用linux命令</a>
+            <a href="/2014/12/16/tools/irc/">IRC</a>
           </li>
         
           <li>
-            <a href="/2014/11/27/bash/bash-ch11/">高级Bash编程（011）- awk和sed</a>
+            <a href="/2014/12/16/tools/git/">GIT</a>
           </li>
         
           <li>
-            <a href="/2014/11/26/bash/bash-ch10/">高级Bash编程（010）- 输入输出重定向</a>
+            <a href="/2014/12/16/tools/gdb/">GDB</a>
           </li>
         
           <li>
-            <a href="/2014/11/25/bash/bash-ch09/">高级Bash编程（009）- 函数</a>
+            <a href="/2014/12/16/tools/mysql/">MYSQL</a>
           </li>
         
       </ul>

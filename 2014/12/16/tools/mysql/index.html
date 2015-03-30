@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>高级Bash编程（001）- 基础 | 舞雩</title>
+  <title>MYSQL | 舞雩</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+  <meta name="description" content="1.连接MYSQLmysql -uroot -p        使用密码登录mysql数据库mysql -h localhost -uroot -p 123    连接远程服务器
+2.修改密码mysqladmin -uroot -password ab12    给root加个密码mysqladmin -uroot -p ab12 -password abce    将root密码改成abceup">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高级Bash编程（001）- 基础">
-<meta property="og:url" content="http://yoursite.com/2014/11/17/bash/bash-ch01/index.html">
+<meta property="og:title" content="MYSQL">
+<meta property="og:url" content="http://yoursite.com/2014/12/16/tools/mysql/index.html">
 <meta property="og:site_name" content="舞雩">
-<meta property="og:description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+<meta property="og:description" content="1.连接MYSQLmysql -uroot -p        使用密码登录mysql数据库mysql -h localhost -uroot -p 123    连接远程服务器
+2.修改密码mysqladmin -uroot -password ab12    给root加个密码mysqladmin -uroot -p ab12 -password abce    将root密码改成abceup">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高级Bash编程（001）- 基础">
-<meta name="twitter:description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+<meta name="twitter:title" content="MYSQL">
+<meta name="twitter:description" content="1.连接MYSQLmysql -uroot -p        使用密码登录mysql数据库mysql -h localhost -uroot -p 123    连接远程服务器
+2.修改密码mysqladmin -uroot -password ab12    给root加个密码mysqladmin -uroot -p ab12 -password abce    将root密码改成abceup">
   
     <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
   
@@ -66,14 +66,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-bash/bash-ch01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-tools/mysql" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/17/bash/bash-ch01/" class="article-date">
-  <time datetime="2014-11-17T10:34:26.000Z" itemprop="datePublished">2014-11-17</time>
+    <a href="/2014/12/16/tools/mysql/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
   </div>
 
   </div>
@@ -84,7 +84,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      高级Bash编程（001）- 基础
+      MYSQL
     </h1>
   
 
@@ -92,17 +92,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World !"</span></span><br></pre></td></tr></table></figure></p>
-<p>“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。</p>
-<a id="more"></a>
-<p>运行Shell脚本的方法：<br>1.作为可执行程序：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./<span class="keyword">test</span>.<span class="keyword">sh</span>  #使脚本具有执行权限</span><br><span class="line">./<span class="keyword">test</span>.<span class="keyword">sh</span>  #执行脚本</span><br></pre></td></tr></table></figure></p>
-<p>2.作为解释器参数<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/bin/<span class="keyword">sh</span> <span class="keyword">test</span>.<span class="keyword">sh</span></span><br><span class="line">/bin/php <span class="keyword">test</span>.php</span><br></pre></td></tr></table></figure></p>
-<p>这种方式运行的脚本，不需要在第一行指定解释器信息，写了也没用。</p>
+        <h2 id="1-连接MYSQL">1.连接MYSQL</h2><p><code>mysql -uroot -p</code>        使用密码登录mysql数据库<br><code>mysql -h localhost -uroot -p 123</code>    连接远程服务器</p>
+<h2 id="2-修改密码">2.修改密码</h2><p><code>mysqladmin -uroot -password ab12</code>    给root加个密码<br><code>mysqladmin -uroot -p ab12 -password abce</code>    将root密码改成abce<br><code>update user set password=password(&#39;&#39;) weher user=&#39;root&#39;;</code> 修改user表修改器名称<br><code>flush privileges;</code>    强制刷新权限内存控制</p>
+<h2 id="3-增加新用户">3.增加新用户</h2><p><code>grant select on 数据库.* to 用户名@登录主机 identified by \&quot;密码&quot;</code><br><code>grant select,insert,update,delete on *.* to test1@\&quot;%\&quot; identified by \&quot;abc\&quot;</code> 新增用户;</p>
+<h2 id="4-显示命令">4.显示命令</h2><p><code>show databases;</code>    显示数据库<br><code>use mysql;</code>    使用数据库<br><code>show tables;</code>    显示数据库中的表<br><code>describe 表名;</code>    显示表的描述<br><code>create database 库名;</code>    创建数据库<br><code>use 库名;</code>    使用数据库;<br><code>create table 表名;</code> 创建表</p>
+<p><code>drop database 库名;</code>    删除数据库<br><code>drop table 表名;</code>    删除表</p>
+<p><code>delete from 表名;</code>    将表中的记录清空<br><code>select * from 表名;</code>    查询表</p>
+<h2 id="5-备份数据库">5.备份数据库</h2><p><code>mysqldump --opt school&gt;school.bbb</code>    备份数据库到school.bbb文件中<br><code>msyqldump -uroot -p21center meeting &gt; db_meeting.sql</code> 备份数据库<br><code>mysqldump -uroot -p21center meeting &lt; xxx.sql</code>     恢复数据库</p>
+<h2 id="6-执行sql语句">6.执行sql语句</h2><p><code>mysql -uroot -p &lt; /home/db_meeting.sql</code>     //.sql为大量的sql语句</p>
+<h2 id="7-全局管理权限">7.全局管理权限</h2><p><code>FILE</code> 在MySQL服务器上读写文件。<br><code>PROCESS</code> 显示或杀死属于其它用户的服务线程。<br><code>RELOAD</code> 重载访问控制表，刷新日志等。<br><code>SHUTDOWN</code> 关闭MySQL服务。<br>数据库/数据表/数据列权限：<br><code>ALTER</code> 修改已存在的数据表(例如增加/删除列)和索引。<br><code>CREATE</code> 建立新的数据库或数据表。<br><code>DELETE</code> 删除表的记录。<br><code>DROP</code> 删除数据表或数据库。<br><code>INDEX</code> 建立或删除索引。<br><code>INSERT</code> 增加表的记录。<br><code>SELECT</code> 显示/搜索表的记录。<br><code>UPDATE</code> 修改表中已存在的记录。<br>特别的权限：<br><code>ALL</code> 允许做任何事(和root一样)。<br><code>USAGE</code> 只允许登录–其它什么也不允许做。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/17/bash/bash-ch01/" data-id="ci7vt6vk300007vjx2bnokssa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="ci7vt6vkw00067vjxf7dpnijf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -111,15 +114,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/11/17/design_pattern/dp_ch00/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/12/16/tools/gdb/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          设计模式（00）-基本原则
+          GDB
         
       </div>
     </a>
   
+  
+    <a href="/2014/11/29/bash/bash-ch13/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">高级Bash编程（013）- curl</div>
+    </a>
   
 </nav>
 

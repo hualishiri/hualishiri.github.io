@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>GDB | 舞雩</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="启动GDB命令gdb executable 调试可执行文件gdb -e executable -c core-file 调试带有core-dump文件的可执行文件
+GDB中使用的命令查看信息：help [topic | comand]  列出gdb帮助
+info args 里出运行程序的命令行参数info locals 查看局部变量bt full 查看所有的变量info breakpoints/b">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GDB">
+<meta property="og:url" content="http://yoursite.com/2014/12/16/tools/gdb/index.html">
+<meta property="og:site_name" content="舞雩">
+<meta property="og:description" content="启动GDB命令gdb executable 调试可执行文件gdb -e executable -c core-file 调试带有core-dump文件的可执行文件
+GDB中使用的命令查看信息：help [topic | comand]  列出gdb帮助
+info args 里出运行程序的命令行参数info locals 查看局部变量bt full 查看所有的变量info breakpoints/b">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="GDB">
+<meta name="twitter:description" content="启动GDB命令gdb executable 调试可执行文件gdb -e executable -c core-file 调试带有core-dump文件的可执行文件
+GDB中使用的命令查看信息：help [topic | comand]  列出gdb帮助
+info args 里出运行程序的命令行参数info locals 查看局部变量bt full 查看所有的变量info breakpoints/b">
+  
+    <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">舞雩</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">暮春者，春服既成，冠者五六人，童子六七人，浴乎沂，风乎舞雩，咏而归</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-tools/gdb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/gdb/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      GDB
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="启动GDB命令">启动GDB命令</h2><p><code>gdb executable</code> 调试可执行文件<br><code>gdb -e executable -c core-file</code> 调试带有core-dump文件的可执行文件</p>
+<h2 id="GDB中使用的命令">GDB中使用的命令</h2><h3 id="查看信息：">查看信息：</h3><p><code>help [topic | comand]</code>  列出gdb帮助</p>
+<p><code>info args</code> 里出运行程序的命令行参数<br><code>info locals</code> 查看局部变量<br><code>bt full</code> 查看所有的变量<br><code>info breakpoints/br [n]</code>  列出断点号,或列出断点号为n的信息<br><code>info watchpoints</code>  列出观察点</p>
+<p><code>where</code> 显示当前的行号和所处的函数</p>
+<h3 id="断点和观察点">断点和观察点</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">break [position] <span class="keyword">if</span> condition</span><br><span class="line">position格式：</span><br><span class="line">    <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">    +<span class="built_in">offset</span></span><br><span class="line">    -<span class="built_in">offset</span></span><br><span class="line">    func</span><br><span class="line">    <span class="built_in">file</span>::func</span><br><span class="line">    <span class="built_in">file</span>::<span class="built_in">number</span>-<span class="built_in">line</span></span><br></pre></td></tr></table></figure>
+<p><code>watch 表达式</code> 当条件满足时设置观察点<br><code>rwatch 表达式</code> 当表达式被读时中断<br><code>awatch 表达式</code> 当表达式被读或写时中断</p>
+<p><code>clear [函数名|行号]</code> 删除断点，无参表示当前断点<br><code>delete(d)  [断点号|断点范围]</code> 删除断点号，无参表示删除所有断点<br><code>disable [断点号|断点范围]</code><br><code>enable [断点号|断点范围]</code></p>
+<h3 id="单步执行">单步执行</h3><p><code>step(s) [n]</code>  进入下一行代码的执行，会进入函数的内部<br><code>next(n) [n]</code>  执行下一行代，不会进入函数内部<br><code>stepi(si) [n]</code> 执行下一条汇编/CPU指令<br><code>nexti(ni) [n]</code></p>
+<p><code>until</code> 继续运行直到到达指定行号，或者地址，函数<br><code>until line-number</code><br><code>until line-number if condition</code></p>
+<p><code>return</code><br><code>return expression</code>   弹出选中的栈帧（stack frame）。如果后面指定参数，则返回表达式的值。</p>
+<p><code>finish</code> 继续执行到函数结束</p>
+<h3 id="程序堆栈">程序堆栈</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [<span class="keyword">n</span>|-<span class="keyword">n</span>|full] 显示当前堆栈的追踪,<span class="keyword">n</span>显示的个数，-<span class="keyword">n</span>显示底层<span class="keyword">n</span>个，full显示所有的局部变量</span><br></pre></td></tr></table></figure>
+<p><code>frame(f) number</code>  选择指定的栈帧<br><code>up [number]</code> 选择的当前栈帧的下一(number)个<br><code>down [number]</code> 选择的当前栈帧的下一(number)个</p>
+<p><code>bt full</code> 打印所有栈中的所有局部变量的值<br><code>info frame [addr]</code> 描述选中的栈帧<br><code>info args</code> 显示选中栈帧的参数，局部变量，异常处理函数。<br><code>info locals</code></p>
+<h3 id="源代码：">源代码：</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span>的形式：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
+<h3 id="打印变量">打印变量</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line"><span class="built_in">format</span>的格式：</span><br><span class="line">  /x  十六进制形式</span><br><span class="line">  /d  有符整数</span><br><span class="line">  /u  无符整数</span><br><span class="line">  /o  十进制</span><br><span class="line">  /t  二进制</span><br><span class="line">  /c  字符</span><br><span class="line">  /f  浮点</span><br><span class="line">  /<span class="operator">a</span>  十六进制地址</span><br><span class="line"><span class="built_in">variable</span>形式：</span><br><span class="line">  <span class="built_in">variable</span>  变量</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> 文件中的变量</span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  文件中的变量</span><br><span class="line">  *array@<span class="built_in">length</span>   数组</span><br></pre></td></tr></table></figure>
+<h3 id="查看内存">查看内存</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu 地址</span><br><span class="line">    <span class="keyword">n</span>   重复<span class="keyword">n</span>次</span><br><span class="line">    f   显示格式。为<span class="keyword">print</span>使用的格式</span><br><span class="line">    <span class="keyword">u</span>   每个单元的大小</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
+<p><code>call expression</code> 类似print,但不打印void</p>
+<h2 id="设置工作文件">设置工作文件</h2><p><code>info files</code>  列出当前文件，共享库<br><code>info share</code></p>
+<p><code>file file</code> 把file当做调试的程序<br><code>core file</code> 把file当作core文件。<br><code>exec file</code> 把exec大概你做可执行程序<br><code>symbol file</code> 从file中读取符号表。<br><code>load file</code> 动态链入file文件，并读取它的符号表<br><code>path directory</code>  把目录directory加入到搜索可执行文件和符号文件的路径中</p>
+<h3 id="控制：">控制：</h3><p><code>run/r</code> 从头开始执行程序<br><code>continue/c</code> 继续执行直到下一个断点或者观察点<br><code>kill</code>  停止程序执行<br><code>quit/q</code>  退出gdb</p>
+<hr>
+<blockquote>
+<p>注意：</p>
+<blockquote>
+<ol>
+<li>编译可执行文件时加上-g选项</li>
+<li>不要用-O,-O2优化选项</li>
+<li>在gdb中执行shell命令使用：shell command</li>
+</ol>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="ci7vt6vl5000c7vjx99v74b5n" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/12/16/tools/git/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          GIT
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2014/12/16/tools/mysql/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MYSQL</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/常用工具/">常用工具</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">16</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/16/tools/vim/">VIM</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/16/tools/irc/">IRC</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/16/tools/git/">GIT</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/16/tools/gdb/">GDB</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/16/tools/mysql/">MYSQL</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Shiri.Huali<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
