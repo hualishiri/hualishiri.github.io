@@ -6,44 +6,29 @@
   <title>数据结构（001）-基本概念 | 舞雩</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="基本概念
-
 数据：描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。
 数据元素：是组成数据的，有一定意义的基本单位，在计算机中通常作为整体处理。也被称为记录。
 数据项：一个数据元素可以由若干个数据项组成。数据项是数据不可分割的最小单位。
 数据对象：是性质相同的数据元素的集合，是数据的子集。
-逻辑结构：指数据对象中数据元素之间的互相关系
-
-
-集合结构
-线性">
+逻辑结构：指数据对象中数据元素之间的互相关系集合结构线性结构树形结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构（001）-基本概念">
 <meta property="og:url" content="http://yoursite.com/2014/11/17/data_structure/ds_ch01/index.html">
 <meta property="og:site_name" content="舞雩">
 <meta property="og:description" content="基本概念
-
 数据：描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。
 数据元素：是组成数据的，有一定意义的基本单位，在计算机中通常作为整体处理。也被称为记录。
 数据项：一个数据元素可以由若干个数据项组成。数据项是数据不可分割的最小单位。
 数据对象：是性质相同的数据元素的集合，是数据的子集。
-逻辑结构：指数据对象中数据元素之间的互相关系
-
-
-集合结构
-线性">
+逻辑结构：指数据对象中数据元素之间的互相关系集合结构线性结构树形结">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构（001）-基本概念">
 <meta name="twitter:description" content="基本概念
-
 数据：描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。
 数据元素：是组成数据的，有一定意义的基本单位，在计算机中通常作为整体处理。也被称为记录。
 数据项：一个数据元素可以由若干个数据项组成。数据项是数据不可分割的最小单位。
 数据对象：是性质相同的数据元素的集合，是数据的子集。
-逻辑结构：指数据对象中数据元素之间的互相关系
-
-
-集合结构
-线性">
+逻辑结构：指数据对象中数据元素之间的互相关系集合结构线性结构树形结">
   
     <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
   
@@ -119,61 +104,25 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="基本概念">基本概念</h2><blockquote>
-<ol>
+        <h2 id="基本概念">基本概念</h2><ol>
 <li>数据：描述客观事物的符号，是计算机中可以操作的对象，是能被计算机识别，并输入给计算机处理的符号集合。</li>
 <li>数据元素：是组成数据的，有一定意义的基本单位，在计算机中通常作为整体处理。也被称为记录。</li>
 <li>数据项：一个数据元素可以由若干个数据项组成。数据项是数据不可分割的最小单位。</li>
 <li>数据对象：是性质相同的数据元素的集合，是数据的子集。</li>
-<li>逻辑结构：指数据对象中数据元素之间的互相关系</li>
+<li>逻辑结构：指数据对象中数据元素之间的互相关系<br>集合结构<br>线性结构<br>树形结构<br>图形结构</li>
+<li>物理结构：数据的逻辑结构在计算机中存储形式<br>顺序存储结构<br>链式存储结构</li>
 </ol>
-<ul>
-<li>集合结构</li>
-<li>线性结构</li>
-<li>树形结构</li>
-<li>图形结构</li>
-</ul>
-<ol>
-<li>物理结构：数据的逻辑结构在计算机中存储形式</li>
-</ol>
-<ul>
-<li>顺序存储结构</li>
-<li>链式存储结构</li>
-</ul>
-</blockquote>
-<h2 id="算法">算法</h2><blockquote>
-<ol>
+<h2 id="算法">算法</h2><ol>
 <li>算法的五个特性：输入，输出，有穷性，确定性和可行性</li>
 <li>算法的时间复杂度：算法的时间复杂度，记作：T(n)=O(f(n))。它表示随问题规模n的增大，算法执行时间的增长率和f(n)的增长率相同。</li>
 <li>算法的空间复杂度：记作：S(n)=O(f(n))，n为问题的规模，f(n)为语句关于n所占存储空间的函数。</li>
 </ol>
-</blockquote>
 <h2 id="线性表">线性表</h2><pre><code>线性表（<span class="built_in">List</span>）：零个或多个数据元素的有限序列。
-</code></pre><blockquote>
-<ol>
-<li>一个线性表需要支持的操作：</li>
+</code></pre><ol>
+<li>一个线性表需要支持的操作：<br>初始化<br>判断是否为空<br>清除表<br>获得L中第i个位置的元素<br>根据给定值，查找元素<br>插入<br>删除<br>长度</li>
+<li><strong>头指针和头节点的异同</strong><br>头指针是链表指向第一个节点的指针，若链表有头节点，则是指向头节点的指针。<br>头指针具有表示作用，所以常用头指针冠以链表的名字；<br>无论链表是否为空，头指针均不为空。头指针是链表的必要元素。<br>头结点是为了同意和方便而设立的，放在第一元素的结点之前，其数据域一般无意义。<br>有了头节点，对在第一元素节点钱插入节点和删除节点其操作和其他节点的操作就统一了。<br>头节点不一定是链表必须要素。</li>
 </ol>
-<ul>
-<li>初始化</li>
-<li>判断是否为空</li>
-<li>清除表</li>
-<li>获得L中第i个位置的元素</li>
-<li>根据给定值，查找元素</li>
-<li>插入</li>
-<li>删除</li>
-<li>长度</li>
-</ul>
-<ol>
-<li><strong>头指针和头节点的异同</strong></li>
-</ol>
-<ul>
-<li>头指针是链表指向第一个节点的指针，若链表有头节点，则是指向头节点的指针。</li>
-<li>头指针具有表示作用，所以常用头指针冠以链表的名字；</li>
-<li>无论链表是否为空，头指针均不为空。头指针是链表的必要元素。</li>
-<li>头结点是为了同意和方便而设立的，放在第一元素的结点之前，其数据域一般无意义。</li>
-<li>有了头节点，对在第一元素节点钱插入节点和删除节点其操作和其他节点的操作就统一了。</li>
-<li>头节点不一定是链表必须要素。</li>
-</ul>
+<blockquote>
 <ol>
 <li>线性表</li>
 </ol>
@@ -281,7 +230,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/17/data_structure/ds_ch01/" data-id="ci7vtp7mo000wdrjx6p4wvvrj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/17/data_structure/ds_ch01/" data-id="ci7vtv2te000wgijx3rjy6t33" class="article-share-link">Share</a>
       
       
     </footer>
