@@ -3,20 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>高级Bash编程（001）- 基础 | 舞雩</title>
+  <title>数据结构（005）-冒泡插入排序 | 舞雩</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+  <meta name="description" content="1234567891011121314151617181920int BubbleSort(int R[], int n) &amp;#123;  if ( NULL == R || n &amp;lt; 0 )    return -1;  int i, j, flag;  int temp;  for ( i=n-1; i!=0; --i ) &amp;#123;    flag = 0;	for ( j=0; j!">
 <meta property="og:type" content="article">
-<meta property="og:title" content="高级Bash编程（001）- 基础">
-<meta property="og:url" content="http://yoursite.com/2014/11/17/bash/bash-ch01/index.html">
+<meta property="og:title" content="数据结构（005）-冒泡插入排序">
+<meta property="og:url" content="http://yoursite.com/2014/11/21/data_structure/ds_ch05/index.html">
 <meta property="og:site_name" content="舞雩">
-<meta property="og:description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+<meta property="og:description" content="1234567891011121314151617181920int BubbleSort(int R[], int n) &amp;#123;  if ( NULL == R || n &amp;lt; 0 )    return -1;  int i, j, flag;  int temp;  for ( i=n-1; i!=0; --i ) &amp;#123;    flag = 0;	for ( j=0; j!">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="高级Bash编程（001）- 基础">
-<meta name="twitter:description" content="实例：12#!/bin/bashecho &quot;Hello World !&quot;
-“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。">
+<meta name="twitter:title" content="数据结构（005）-冒泡插入排序">
+<meta name="twitter:description" content="1234567891011121314151617181920int BubbleSort(int R[], int n) &amp;#123;  if ( NULL == R || n &amp;lt; 0 )    return -1;  int i, j, flag;  int temp;  for ( i=n-1; i!=0; --i ) &amp;#123;    flag = 0;	for ( j=0; j!">
   
     <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
   
@@ -66,14 +63,14 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-bash/bash-ch01" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-data_structure/ds_ch05" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/17/bash/bash-ch01/" class="article-date">
-  <time datetime="2014-11-17T10:34:26.000Z" itemprop="datePublished">2014-11-17</time>
+    <a href="/2014/11/21/data_structure/ds_ch05/" class="article-date">
+  <time datetime="2014-11-21T10:34:26.000Z" itemprop="datePublished">2014-11-21</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
   </div>
 
   </div>
@@ -84,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      高级Bash编程（001）- 基础
+      数据结构（005）-冒泡插入排序
     </h1>
   
 
@@ -92,17 +89,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World !"</span></span><br></pre></td></tr></table></figure></p>
-<p>“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。</p>
-<a id="more"></a>
-<p>运行Shell脚本的方法：<br>1.作为可执行程序：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./<span class="keyword">test</span>.<span class="keyword">sh</span>  #使脚本具有执行权限</span><br><span class="line">./<span class="keyword">test</span>.<span class="keyword">sh</span>  #执行脚本</span><br></pre></td></tr></table></figure></p>
-<p>2.作为解释器参数<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/bin/<span class="keyword">sh</span> <span class="keyword">test</span>.<span class="keyword">sh</span></span><br><span class="line">/bin/php <span class="keyword">test</span>.php</span><br></pre></td></tr></table></figure></p>
-<p>这种方式运行的脚本，不需要在第一行指定解释器信息，写了也没用。</p>
+        <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BubbleSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( NULL == R || n &lt; <span class="number">0</span> )</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> i, j, flag;</span><br><span class="line">  <span class="keyword">int</span> temp;</span><br><span class="line">  <span class="keyword">for</span> ( i=n-<span class="number">1</span>; i!=<span class="number">0</span>; --i ) &#123;</span><br><span class="line">    flag = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> ( j=<span class="number">0</span>; j!=i; ++j ) &#123;</span><br><span class="line">	  <span class="keyword">if</span> ( R[j] &gt; R[j+<span class="number">1</span>] ) &#123;</span><br><span class="line">	    temp = R[j];</span><br><span class="line">	    R[j] = R[j+<span class="number">1</span>];</span><br><span class="line">	    R[j+<span class="number">1</span>] = temp;</span><br><span class="line">	    flag = <span class="number">1</span>;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (!flag)</span><br><span class="line">	  <span class="keyword">break</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/17/bash/bash-ch01/" data-id="ci7vtneij0000cxjxha2bt8yx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="ci7vtnekb000ocxjx6frpup4i" class="article-share-link">Share</a>
       
       
     </footer>
@@ -111,15 +103,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2014/11/17/design_pattern/dp_ch00/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2014/11/21/bash/bash-ch05/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          设计模式（00）-基本原则
+          高级Bash编程（005）- 字符串和数组
         
       </div>
     </a>
   
+  
+    <a href="/2014/11/20/bash/bash-ch04/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">高级Bash编程（004）- Shell运算符</div>
+    </a>
   
 </nav>
 
