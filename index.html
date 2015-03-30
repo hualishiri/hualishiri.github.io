@@ -128,7 +128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch08/" data-id="ci7vqvbzw000f79jx1owxv5op" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch08/" data-id="ci7vr4qg5000facjxuihnbcxi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,9 +138,9 @@
 
 
   
-    <article id="post-bash/bash-ch01" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-bash/bash-ch02" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/03/30/bash/bash-ch01/" class="article-date">
+    <a href="/2015/03/30/bash/bash-ch02/" class="article-date">
   <time datetime="2015-03-30T10:24:36.000Z" itemprop="datePublished">2015-03-30</time>
 </a>
     
@@ -156,7 +156,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/03/30/bash/bash-ch01/">高级Bash编程（001）- 基础</a>
+      <a class="article-title" href="/2015/03/30/bash/bash-ch02/">高级Bash编程（002）- Shell变量</a>
     </h1>
   
 
@@ -164,16 +164,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Hello World !"</span></span><br></pre></td></tr></table></figure></p>
-<p>“#!” 是一个约定的标记，它告诉系统这个脚本需要什么解释器来执行，即使用哪一种Shell。</p>
-<p>运行Shell脚本的方法：<br>1.作为可执行程序：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod +x ./<span class="keyword">test</span>.<span class="keyword">sh</span>  #使脚本具有执行权限</span><br><span class="line">./<span class="keyword">test</span>.<span class="keyword">sh</span>  #执行脚本</span><br></pre></td></tr></table></figure></p>
-<p>2.作为解释器参数<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/bin/<span class="keyword">sh</span> <span class="keyword">test</span>.<span class="keyword">sh</span></span><br><span class="line">/bin/php <span class="keyword">test</span>.php</span><br></pre></td></tr></table></figure></p>
-<p>这种方式运行的脚本，不需要在第一行指定解释器信息，写了也没用。</p>
+        <p>定义变量时，变量名不加美元符号（$）<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">your_name=<span class="value"><span class="string">"w3cschool.cc"</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：</p>
+<pre><code>&gt;<span class="keyword">*</span> 首个字符必须为字母（a-z，A-Z）。
+&gt;<span class="keyword">*</span> 中间不能有空格，可以使用下划线（_）。
+&gt;<span class="keyword">*</span> 不能使用标点符号。
+&gt;<span class="keyword">*</span> 不能使用bash里的关键字（可用help命令查看保留关键字）。
+</code></pre><hr>
+<p>除了显式地直接赋值，还可以用语句给变量赋值，如：<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="keyword">file</span> <span class="keyword">in</span> <span class="string">`ls /etc`</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>只读变量：readonly命令可以将变量定义为只读变量，只读变量的值不能被改变<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">myUrl=<span class="string">"http://see.xidian.edu.cn/cpp/shell/"</span></span><br><span class="line"><span class="built_in">readonly</span> myUrl</span><br><span class="line">myUrl=<span class="string">"http://see.xidian.edu.cn/cpp/danpianji/"</span></span><br></pre></td></tr></table></figure></p>
+<p>提示，错误</p>
+<p>删除变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> variable_name</span><br></pre></td></tr></table></figure></p>
+<p>变量类型：</p>
+<blockquote>
+<ol>
+<li>局部变量<br> 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序能访问局部变量。</li>
+<li>环境变量<br> 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。</li>
+<li>shell变量<br> shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行</li>
+</ol>
+</blockquote>
+<p>使用一个定义过的变量，只要在变量名前面加美元符号即可，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">your_name=<span class="string">"qinjx"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$your_name</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;your_name&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>特殊变量：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="variable">$$</span>	<span class="comment">//显示当前的shell进程的ID，即PID</span></span><br><span class="line"><span class="variable">$0</span>	 当前脚本的文件名</span><br><span class="line"><span class="variable">$n</span>	 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是<span class="variable">$1</span>，第二个参数是<span class="variable">$2</span>。</span><br><span class="line"><span class="variable">$#</span>	 传递给脚本或函数的参数个数。</span><br><span class="line"><span class="variable">$*</span>	 传递给脚本或函数的所有参数。</span><br><span class="line"><span class="variable">$@</span>	 传递给脚本或函数的所有参数。被双引号(<span class="string">" "</span>)包含时，与 <span class="variable">$*</span> 稍有不同，下面将会讲到。</span><br><span class="line"><span class="variable">$?</span>	 上个命令的退出状态，或函数的返回值。</span><br><span class="line"><span class="variable">$$</span>	 当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。</span><br></pre></td></tr></table></figure>
+<p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"File Name: <span class="variable">$0</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"First Parameter : <span class="variable">$1</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"First Parameter : <span class="variable">$2</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Quoted Values: <span class="variable">$@</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Quoted Values: $*"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Total Number of Parameters : <span class="variable">$#</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$./test.sh Zara Ali</span><br><span class="line">File <span class="string">Name :</span> ./test.sh</span><br><span class="line">First <span class="string">Parameter :</span> Zara</span><br><span class="line">Second <span class="string">Parameter :</span> Ali</span><br><span class="line">Quoted <span class="string">Values:</span> Zara Ali</span><br><span class="line">Quoted <span class="string">Values:</span> Zara Ali</span><br><span class="line">Total Number of <span class="string">Parameters :</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><code>$* 和 $@ 的区别</code></p>
+<blockquote>
+<ul>
+<li>\$* 和 \$@ 都表示传递给函数或脚本的所有参数，不被双引号(“ “)包含时，都以”\$1” “\$2” … “\$n” 的形式输出所有参数。</li>
+<li>但是当它们被双引号(“ “)包含时，”\$*” 会将所有的参数作为一个整体，以”\$1 \$2 … \$n”的形式输出所有参数；”\$@” 会将各个参数分开，以”\$1” “\$2” … “\$n” 的形式输出所有参数。</li>
+</ul>
+</blockquote>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch01/" data-id="ci7vqvbyn000079jxizrpqjay" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch02/" data-id="ci7vr4qgy000racjxhmqdk27z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -225,7 +253,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch13/" data-id="ci7vqvbze000579jx2kzr21y9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch13/" data-id="ci7vr4qfo0005acjxe4m06xia" class="article-share-link">Share</a>
       
       
     </footer>
@@ -317,7 +345,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch12/" data-id="ci7vqvbzi000779jxg0ka4ttf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch12/" data-id="ci7vr4qfr0007acjxadm805bt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -357,7 +385,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch11/" data-id="ci7vqvbzm000979jxafth00bh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch11/" data-id="ci7vr4qfx0009acjx3bt7dfou" class="article-share-link">Share</a>
       
       
     </footer>
@@ -397,7 +425,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch10/" data-id="ci7vqvbzq000b79jx7rizcxez" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch10/" data-id="ci7vr4qg0000bacjx0xcp86a9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -471,7 +499,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch09/" data-id="ci7vqvbzt000d79jxzqmyvzuf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch09/" data-id="ci7vr4qg3000dacjxtnjns89e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -536,7 +564,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch03/" data-id="ci7vqvc0m000p79jxl281ip5j" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch03/" data-id="ci7vr4qgt000pacjx1vkwv981" class="article-share-link">Share</a>
       
       
     </footer>
@@ -601,7 +629,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch07/" data-id="ci7vqvc00000h79jxg5g4539z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch07/" data-id="ci7vr4qg7000hacjx783k93ny" class="article-share-link">Share</a>
       
       
     </footer>
@@ -662,7 +690,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch06/" data-id="ci7vqvc09000j79jxutkpccvl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch06/" data-id="ci7vr4qgf000jacjxolxtd2gw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -714,7 +742,7 @@
           </li>
         
           <li>
-            <a href="/2015/03/30/bash/bash-ch01/">高级Bash编程（001）- 基础</a>
+            <a href="/2015/03/30/bash/bash-ch02/">高级Bash编程（002）- Shell变量</a>
           </li>
         
           <li>
