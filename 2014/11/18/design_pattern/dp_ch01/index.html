@@ -5,23 +5,17 @@
   
   <title>设计模式（01）-单例模式（Singleton） | 舞雩</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="要求
- 必须单例 推迟创建 及时销毁
-
+  <meta name="description" content="要求  必须单例  推迟创建  及时销毁
 方法一1234567891011121314151617#include&amp;lt;iostream&amp;gt;class Singleton&amp;#123;    public:        static Singleton* Instance()&amp;#123;            if( instance_ == 0 )&amp;#123;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式（01）-单例模式（Singleton）">
 <meta property="og:url" content="http://yoursite.com/2014/11/18/design_pattern/dp_ch01/index.html">
 <meta property="og:site_name" content="舞雩">
-<meta property="og:description" content="要求
- 必须单例 推迟创建 及时销毁
-
+<meta property="og:description" content="要求  必须单例  推迟创建  及时销毁
 方法一1234567891011121314151617#include&amp;lt;iostream&amp;gt;class Singleton&amp;#123;    public:        static Singleton* Instance()&amp;#123;            if( instance_ == 0 )&amp;#123;">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式（01）-单例模式（Singleton）">
-<meta name="twitter:description" content="要求
- 必须单例 推迟创建 及时销毁
-
+<meta name="twitter:description" content="要求  必须单例  推迟创建  及时销毁
 方法一1234567891011121314151617#include&amp;lt;iostream&amp;gt;class Singleton&amp;#123;    public:        static Singleton* Instance()&amp;#123;            if( instance_ == 0 )&amp;#123;">
   
     <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
@@ -98,9 +92,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="要求">要求</h2><blockquote>
-<p> 必须单例<br> 推迟创建<br> 及时销毁</p>
-</blockquote>
+        <h2 id="要求">要求</h2><p>  必须单例<br>  推迟创建<br>  及时销毁</p>
 <h2 id="方法一">方法一</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;iostream&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Singleton&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">static</span> Singleton* Instance()&#123;</span><br><span class="line">            <span class="keyword">if</span>( instance_ == <span class="number">0</span> )&#123;</span><br><span class="line">                instance_ = <span class="keyword">new</span> Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance_;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">static</span> Singleton *instance_;</span><br><span class="line">        Singleton()&#123;&#125;</span><br><span class="line">        Singleton(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line">        Singleton&amp; <span class="keyword">operator</span>==(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line">        ~Singleton();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>缺点：满足<code>必须单例</code>和<code>推迟创建</code>原则，但没有满足及时销毁原则。</p>
 <h2 id="方法二">方法二</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#<span class="keyword">include</span>&lt;iostream&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Singleton&#123;</span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">        <span class="keyword">static</span> Singleton* Instance()&#123;</span><br><span class="line">            <span class="keyword">if</span>( instance_ == <span class="number">0</span> )&#123;</span><br><span class="line">                instance_ = <span class="keyword">new</span> Singleton();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> instance_;</span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">private</span>:</span><br><span class="line">        <span class="keyword">class</span> Gabor&#123;</span><br><span class="line">        <span class="keyword">public</span>:</span><br><span class="line">            ~Gabor()&#123; </span><br><span class="line">                <span class="keyword">if</span>(instance_)&#123;</span><br><span class="line">                    <span class="keyword">delete</span> instance_;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">        <span class="keyword">static</span> Singleton *instance_;</span><br><span class="line">        <span class="keyword">static</span> Gabor gabor_;</span><br><span class="line">        Singleton()&#123;&#125;</span><br><span class="line">        Singleton(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line">        Singleton&amp; <span class="keyword">operator</span>==(<span class="keyword">const</span> Singleton&amp;);</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"> Singleton* Singleton::instance_ = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
@@ -111,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/design_pattern/dp_ch01/" data-id="ci7vtv2sh000egijxk1bncyn9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/18/design_pattern/dp_ch01/" data-id="ci7vu12qq000ei7jxnzrimngp" class="article-share-link">Share</a>
       
       
     </footer>
