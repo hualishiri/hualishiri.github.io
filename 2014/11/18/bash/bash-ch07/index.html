@@ -6,20 +6,17 @@
   <title>高级Bash编程（007）- if和case语句 | 舞雩</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="if语句格式：12345678if...fiif...else...fiif...elif...else...fiif [ expr ]then	statefi
-注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。
-实例：1234567891011#!/bin/sha=10b=20if [ $a == $b ]then   echo &quot;a is equal to b&quot;f">
+注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高级Bash编程（007）- if和case语句">
 <meta property="og:url" content="http://yoursite.com/2014/11/18/bash/bash-ch07/index.html">
 <meta property="og:site_name" content="舞雩">
 <meta property="og:description" content="if语句格式：12345678if...fiif...else...fiif...elif...else...fiif [ expr ]then	statefi
-注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。
-实例：1234567891011#!/bin/sha=10b=20if [ $a == $b ]then   echo &quot;a is equal to b&quot;f">
+注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高级Bash编程（007）- if和case语句">
 <meta name="twitter:description" content="if语句格式：12345678if...fiif...else...fiif...elif...else...fiif [ expr ]then	statefi
-注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。
-实例：1234567891011#!/bin/sha=10b=20if [ $a == $b ]then   echo &quot;a is equal to b&quot;f">
+注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。">
   
     <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
   
@@ -96,8 +93,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="if语句">if语句</h2><p>格式：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>..<span class="class">.fi</span></span><br><span class="line"><span class="keyword">if</span>..<span class="class">.else</span>..<span class="class">.fi</span></span><br><span class="line"><span class="keyword">if</span>..<span class="class">.elif</span>..<span class="class">.else</span>..<span class="class">.fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ expr ]</span><br><span class="line">then</span><br><span class="line">	state</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
-<p>注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。</p>
-<p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line">a=<span class="number">10</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> == <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"a is equal to b"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> != <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"a is not equal to b"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
+<p>注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。<br><a id="more"></a><br>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line">a=<span class="number">10</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> == <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"a is equal to b"</span></span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> != <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"a is not equal to b"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
 <p>结果：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">equal</span> <span class="keyword">to</span> b</span><br></pre></td></tr></table></figure></p>
 <hr>
 <p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/sh</span></span><br><span class="line">a=<span class="number">10</span></span><br><span class="line">b=<span class="number">20</span></span><br><span class="line"><span class="keyword">if</span> [ <span class="variable">$a</span> == <span class="variable">$b</span> ]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"a is equal to b"</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"a is not equal to b"</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure></p>
@@ -124,7 +120,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch07/" data-id="ci7vrrhrd000fj3jxymepwh2v" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch07/" data-id="ci7vruec0000fkyjxfpizrqpp" class="article-share-link">Share</a>
       
       
     </footer>

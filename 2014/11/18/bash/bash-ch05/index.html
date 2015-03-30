@@ -18,11 +18,7 @@
 
 
 双引号里可以有变量
-双引号里可以出现转义字符
-
-
-
-拼接字符串：1234your_name=&quot;qinjx&quot;greeting=">
+双引号里可以出现转义字符">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高级Bash编程（005）- 字符串和数组">
 <meta property="og:url" content="http://yoursite.com/2014/11/18/bash/bash-ch05/index.html">
@@ -40,11 +36,7 @@
 
 
 双引号里可以有变量
-双引号里可以出现转义字符
-
-
-
-拼接字符串：1234your_name=&quot;qinjx&quot;greeting=">
+双引号里可以出现转义字符">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高级Bash编程（005）- 字符串和数组">
 <meta name="twitter:description" content="Shell字符串：字符串可以用单引号，也可以用双引号，也可以不用引号。单双引号的区别跟PHP类似。
@@ -60,11 +52,7 @@
 
 
 双引号里可以有变量
-双引号里可以出现转义字符
-
-
-
-拼接字符串：1234your_name=&quot;qinjx&quot;greeting=">
+双引号里可以出现转义字符">
   
     <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
   
@@ -153,11 +141,12 @@
 <blockquote>
 <ul>
 <li>双引号里可以有变量</li>
-<li>双引号里可以出现转义字符</li>
+<li>双引号里可以出现转义字符<a id="more"></a>
+拼接字符串：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">your_name=<span class="string">"qinjx"</span></span><br><span class="line">greeting=<span class="string">"hello, "</span><span class="variable">$your_name</span><span class="string">" !"</span></span><br><span class="line">greeting_1=<span class="string">"hello, <span class="variable">$&#123;your_name&#125;</span> !"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$greeting</span> <span class="variable">$greeting_1</span></span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 </blockquote>
 </blockquote>
-<p>拼接字符串：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">your_name=<span class="string">"qinjx"</span></span><br><span class="line">greeting=<span class="string">"hello, "</span><span class="variable">$your_name</span><span class="string">" !"</span></span><br><span class="line">greeting_1=<span class="string">"hello, <span class="variable">$&#123;your_name&#125;</span> !"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$greeting</span> <span class="variable">$greeting_1</span></span><br></pre></td></tr></table></figure></p>
 <p>获取字符串长度：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">string=<span class="string">"abcd"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;#string&#125;</span> <span class="comment">#输出 4</span></span><br></pre></td></tr></table></figure></p>
 <p>提取子字符串<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">string</span>=<span class="string">"alibaba is a great company"</span></span><br><span class="line">echo $&#123;<span class="type">string</span>:<span class="number">1</span>:<span class="number">4</span>&#125; <span class="comment">#输出liba</span></span><br></pre></td></tr></table></figure></p>
 <p>查找子字符串<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>=<span class="string">"alibaba is a great company"</span></span><br><span class="line"><span class="keyword">echo</span> \`expr <span class="built_in">index</span> <span class="string">"$string"</span> <span class="keyword">is</span>\`</span><br></pre></td></tr></table></figure></p>
@@ -176,7 +165,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch05/" data-id="ci7vrrhrn000jj3jxu9n9nqwl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch05/" data-id="ci7vrueca000jkyjxj9gvmkil" class="article-share-link">Share</a>
       
       
     </footer>

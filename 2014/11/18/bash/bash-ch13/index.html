@@ -90,6 +90,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">curl url</span><br><span class="line">  -<span class="ruby">o filename,将下载的文件保存为filename</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">O</span>,下载文件到本地，文件名为默认</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">O</span> url1, -<span class="constant">O</span> url2,同时下载多个文件</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">L</span>,强制重定向</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">C</span>,断点续传</span><br><span class="line"></span>  -<span class="ruby">-limit-rate rate,对最大网络限速</span><br><span class="line"></span>  -<span class="ruby">u <span class="symbol">username:</span>password,curl授权</span><br><span class="line"></span>  -<span class="ruby">u username,</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">T</span>,上传文件</span><br><span class="line"></span>  -<span class="ruby">d/--data “key1=value1&amp;key2=value2”,使用post请求数据</span><br><span class="line"></span>  -<span class="ruby">-form <span class="string">"fileupload=@filename"</span>，上传文件</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#下载单个文件，直接stdout显示</span></span><br><span class="line">curl http:<span class="comment">//www.baidu.com</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#下载文件保存到本地为local<span class="class">.txt</span></span><br><span class="line">curl -o local<span class="class">.txt</span> https:<span class="comment">//github.com/index.html</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="preprocessor">#下载文件保存到本地为默认名</span></span><br><span class="line">curl -O http:<span class="comment">//github.com/index.html</span></span><br></pre></td></tr></table></figure>
@@ -105,7 +106,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch13/" data-id="ci7vrrhqt0003j3jx5g15xhmc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch13/" data-id="ci7vruebe0003kyjx6uxyuagh" class="article-share-link">Share</a>
       
       
     </footer>

@@ -6,35 +6,35 @@
   <title>高级Bash编程（003）- 转义字符和变量替换 | 舞雩</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="转义字符的替换实例：123#!/bin/basha=10echo -e &quot;Value of a is $a \n&quot;
-结果：1Value of a is 10
+结果：12Value of a is 10&amp;lt;!--more--&amp;gt;
 如果不是使用-e 则：1Value of a is 10\n
 面的转义字符都可以用在 echo 中：
 
 转义字符含义
 
-\\     反斜杠\a     警报，响铃\b     退格（删除键）\f     换页(FF)，将当前位置移到下页开头">
+\\     反斜杠\a     警报，响铃\b     退格（删除键）\f">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高级Bash编程（003）- 转义字符和变量替换">
 <meta property="og:url" content="http://yoursite.com/2014/11/18/bash/bash-ch03/index.html">
 <meta property="og:site_name" content="舞雩">
 <meta property="og:description" content="转义字符的替换实例：123#!/bin/basha=10echo -e &quot;Value of a is $a \n&quot;
-结果：1Value of a is 10
+结果：12Value of a is 10&amp;lt;!--more--&amp;gt;
 如果不是使用-e 则：1Value of a is 10\n
 面的转义字符都可以用在 echo 中：
 
 转义字符含义
 
-\\     反斜杠\a     警报，响铃\b     退格（删除键）\f     换页(FF)，将当前位置移到下页开头">
+\\     反斜杠\a     警报，响铃\b     退格（删除键）\f">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高级Bash编程（003）- 转义字符和变量替换">
 <meta name="twitter:description" content="转义字符的替换实例：123#!/bin/basha=10echo -e &quot;Value of a is $a \n&quot;
-结果：1Value of a is 10
+结果：12Value of a is 10&amp;lt;!--more--&amp;gt;
 如果不是使用-e 则：1Value of a is 10\n
 面的转义字符都可以用在 echo 中：
 
 转义字符含义
 
-\\     反斜杠\a     警报，响铃\b     退格（删除键）\f     换页(FF)，将当前位置移到下页开头">
+\\     反斜杠\a     警报，响铃\b     退格（删除键）\f">
   
     <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
   
@@ -111,7 +111,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="转义字符的替换">转义字符的替换</h2><p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">a=<span class="number">10</span></span><br><span class="line"><span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"Value of a is <span class="variable">$a</span> \n"</span></span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Value <span class="keyword">of</span> a <span class="keyword">is</span> <span class="number">10</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value of a is 10</span><br><span class="line"><span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>如果不是使用-e 则：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Value <span class="keyword">of</span> a <span class="keyword">is</span> <span class="number">10</span><span class="string">\n</span></span><br></pre></td></tr></table></figure></p>
 <p>面的转义字符都可以用在 echo 中：</p>
 <blockquote>
@@ -139,7 +139,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch03/" data-id="ci7vrrhs0000nj3jxkrbay7ug" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch03/" data-id="ci7vruecj000nkyjxzef8sqqh" class="article-share-link">Share</a>
       
       
     </footer>
