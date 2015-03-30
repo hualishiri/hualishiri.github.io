@@ -65,10 +65,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-bash/bash-ch08" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-bash/bash-ch13" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch08/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
+    <a href="/2014/11/29/bash/bash-ch13/" class="article-date">
+  <time datetime="2014-11-29T10:34:26.000Z" itemprop="datePublished">2014-11-29</time>
 </a>
     
   <div class="article-category">
@@ -83,7 +83,225 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch08/">高级Bash编程（008）- 循环语句</a>
+      <a class="article-title" href="/2014/11/29/bash/bash-ch13/">高级Bash编程（013）- curl</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">curl url</span><br><span class="line">  -<span class="ruby">o filename,将下载的文件保存为filename</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">O</span>,下载文件到本地，文件名为默认</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">O</span> url1, -<span class="constant">O</span> url2,同时下载多个文件</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">L</span>,强制重定向</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">C</span>,断点续传</span><br><span class="line"></span>  -<span class="ruby">-limit-rate rate,对最大网络限速</span><br><span class="line"></span>  -<span class="ruby">u <span class="symbol">username:</span>password,curl授权</span><br><span class="line"></span>  -<span class="ruby">u username,</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">T</span>,上传文件</span><br><span class="line"></span>  -<span class="ruby">d/--data “key1=value1&amp;key2=value2”,使用post请求数据</span><br><span class="line"></span>  -<span class="ruby">-form <span class="string">"fileupload=@filename"</span>，上传文件</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/29/bash/bash-ch13/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="ci7vsnhul0003zyjxga1fx2as" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch12" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/28/bash/bash-ch12/" class="article-date">
+  <time datetime="2014-11-28T10:34:26.000Z" itemprop="datePublished">2014-11-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/28/bash/bash-ch12/">高级Bash编程（012）- 常用linux命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="单横杠（-）和双横杠（—）区别">单横杠（-）和双横杠（—）区别</h4><pre><code>命令行选项可以分为短命令行选项和长命令行选项两种。短命令行选项是由字母组成，长命令行选项是由单词组成。短命令行选项在选项前使用单横杠“-”，长命令行选项前使用双横杠“<span class="comment">--”。如果选项后面需要输入选项的参数，短命令行选项和参数之间使用空格分隔，而长命令行选项使用等号“=”连接选项和参数。</span>
+</code></pre><hr>
+<h4 id="CPU相关的命令">CPU相关的命令</h4><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uptime</span>  ;系统运行时间，平均负载</span><br><span class="line"><span class="built_in">ps</span>      ;<span class="constant">Pocess</span> <span class="constant">Status</span>每个进程所占用<span class="constant">C</span>PU百分比</span><br><span class="line">top/atop/htop   ;和<span class="built_in">ps</span>功能相同，但可以了解<span class="constant">C</span>PU消耗，根据用户指定的时间来更新</span><br><span class="line">mpstat          ;可以查看所有的<span class="constant">C</span>PU，也可以查看单个<span class="constant">C</span>PU的消耗</span><br><span class="line">pidstat         ;显示某个进程的状态，消耗时间等</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/28/bash/bash-ch12/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="ci7vsnhuq0005zyjxezdy2ayq" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch11" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/27/bash/bash-ch11/" class="article-date">
+  <time datetime="2014-11-27T10:34:26.000Z" itemprop="datePublished">2014-11-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/27/bash/bash-ch11/">高级Bash编程（011）- awk和sed</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="ci7vsnhut0007zyjx1oodjoo2" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch10" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/26/bash/bash-ch10/" class="article-date">
+  <time datetime="2014-11-26T10:34:26.000Z" itemprop="datePublished">2014-11-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/26/bash/bash-ch10/">高级Bash编程（010）- 输入输出重定向</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="ci7vsnhuw0009zyjx6hhy669t" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch09" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/25/bash/bash-ch09/" class="article-date">
+  <time datetime="2014-11-25T10:34:26.000Z" itemprop="datePublished">2014-11-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/25/bash/bash-ch09/">高级Bash编程（009）- 函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="函数定义：">函数定义：</h2><p>语法：<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function_name <span class="literal">()</span> &#123;</span><br><span class="line">    <span class="built_in">list</span> <span class="keyword">of</span> commands</span><br><span class="line">    [ return <span class="keyword">value</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/25/bash/bash-ch09/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="ci7vsnhv0000bzyjxe48svuvf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch08" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/24/bash/bash-ch08/" class="article-date">
+  <time datetime="2014-11-24T10:34:26.000Z" itemprop="datePublished">2014-11-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/24/bash/bash-ch08/">高级Bash编程（008）- 循环语句</a>
     </h1>
   
 
@@ -94,13 +312,274 @@
         <h2 id="for循环的格式：">for循环的格式：</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> 变量 <span class="keyword">in</span> 列表</span><br><span class="line">do</span><br><span class="line">    command1</span><br><span class="line">    command2</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    commandN</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
         
           <p class="article-more-link">
-            <a href="/2014/11/18/bash/bash-ch08/#more">Read More</a>
+            <a href="/2014/11/24/bash/bash-ch08/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch08/" data-id="ci7vsko4w000dvxjx1c7px98y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="ci7vsnhv2000dzyjx6rojqnry" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch07" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/23/bash/bash-ch07/" class="article-date">
+  <time datetime="2014-11-23T10:34:26.000Z" itemprop="datePublished">2014-11-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/23/bash/bash-ch07/">高级Bash编程（007）- if和case语句</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="if语句">if语句</h2><p>格式：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>..<span class="class">.fi</span></span><br><span class="line"><span class="keyword">if</span>..<span class="class">.else</span>..<span class="class">.fi</span></span><br><span class="line"><span class="keyword">if</span>..<span class="class">.elif</span>..<span class="class">.else</span>..<span class="class">.fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ expr ]</span><br><span class="line">then</span><br><span class="line">	state</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
+<p>注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。<br>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/23/bash/bash-ch07/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="ci7vsnhv5000fzyjxgwsjssuz" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch06" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/22/bash/bash-ch06/" class="article-date">
+  <time datetime="2014-11-22T10:34:26.000Z" itemprop="datePublished">2014-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/22/bash/bash-ch06/">高级Bash编程（006）- echo和sprintf语句</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="echo命令">echo命令</h2><p>显示转义字符<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"\"</span>It is <span class="literal">a</span> test\<span class="string">""</span></span><br></pre></td></tr></table></figure></p>
+<p>结果重定向<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"It is a test"</span> &gt; myfile</span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/22/bash/bash-ch06/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="ci7vsnhv8000hzyjxkt8lxc30" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch05" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/21/bash/bash-ch05/" class="article-date">
+  <time datetime="2014-11-21T10:34:26.000Z" itemprop="datePublished">2014-11-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/21/bash/bash-ch05/">高级Bash编程（005）- 字符串和数组</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Shell字符串：">Shell字符串：</h2><p>字符串可以用单引号，也可以用双引号，也可以不用引号。单双引号的区别跟PHP类似。</p>
+<blockquote>
+<p>单引号字符串的限制：</p>
+<blockquote>
+<ul>
+<li>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；</li>
+<li>单引号字串中不能出现单引号（对单引号使用转义符后也不行）。</li>
+</ul>
+</blockquote>
+<p>双引号的优点：</p>
+<blockquote>
+<ul>
+<li>双引号里可以有变量</li>
+<li>双引号里可以出现转义字符
+        
+          <p class="article-more-link">
+            <a href="/2014/11/21/bash/bash-ch05/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="ci7vsnhvh000jzyjxgr8kdj9x" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch04" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/20/bash/bash-ch04/" class="article-date">
+  <time datetime="2014-11-20T10:34:26.000Z" itemprop="datePublished">2014-11-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/20/bash/bash-ch04/">高级Bash编程（004）- Shell运算符</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。<br>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">val=`expr <span class="number">2</span> + <span class="number">2</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Total value : <span class="variable">$val</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Total <span class="keyword">value</span> : <span class="number">4</span></span><br></pre></td></tr></table></figure></p>
+        
+          <p class="article-more-link">
+            <a href="/2014/11/20/bash/bash-ch04/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="ci7vsnhvl000lzyjxgcja8flf" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-bash/bash-ch03" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/19/bash/bash-ch03/" class="article-date">
+  <time datetime="2014-11-19T10:34:26.000Z" itemprop="datePublished">2014-11-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/19/bash/bash-ch03/">高级Bash编程（003）- 转义字符和变量替换</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="转义字符的替换">转义字符的替换</h2><p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">a=<span class="number">10</span></span><br><span class="line"><span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"Value of a is <span class="variable">$a</span> \n"</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value of a is 10</span><br><span class="line"><span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果不是使用-e 则：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Value <span class="keyword">of</span> a <span class="keyword">is</span> <span class="number">10</span><span class="string">\n</span></span><br></pre></td></tr></table></figure></p>
+<p>面的转义字符都可以用在 echo 中：</p>
+<blockquote>
+<p>转义字符含义</p>
+<blockquote>
+<p>\\     反斜杠<br>\a     警报，响铃<br>\b     退格（删除键）<br>\f     换页(FF)，将当前位置移到下页开头<br>\n     换行<br>\r     回车<br>\t     水平制表符（tab键）<br>\v     垂直制表符<br>可以使用 echo 命令的 -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。</p>
+</blockquote>
+</blockquote>
+<hr>
+<p>命令替换：命令替换是指Shell可以先执行命令，将输出结果暂时保存，在适当的地方输出。<br>语法：`commond`<br>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">DATE=`date`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Date is <span class="variable">$DATE</span>"</span></span><br><span class="line">USERS=`who | wc <span class="operator">-l</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Logged in user are <span class="variable">$USERS</span>"</span></span><br><span class="line">UP=`date ; uptime`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Uptime is <span class="variable">$UP</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Date</span> <span class="tag">is</span> <span class="tag">Thu</span> <span class="tag">Jul</span>  2 03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">MST</span> 2009</span><br><span class="line"><span class="tag">Logged</span> <span class="tag">in</span> <span class="tag">user</span> <span class="tag">are</span> 1</span><br><span class="line"><span class="tag">Uptime</span> <span class="tag">is</span> <span class="tag">Thu</span> <span class="tag">Jul</span>  2 03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">MST</span> 2009</span><br><span class="line">03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">up</span> 20 <span class="tag">days</span>, 14<span class="pseudo">:03</span>,  1 <span class="tag">user</span>,  <span class="tag">load</span> <span class="tag">avg</span>: 0<span class="class">.13</span>, 0<span class="class">.07</span>, 0<span class="class">.15</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="变量替换">变量替换</h2><p>形式     说明</p>
+<blockquote>
+<ol>
+<li>\${var}<br>变量本来的值</li>
+<li>\${var:-word}<br>如果变量 var 为空或已被删除(unset)，那么返回 word，但不改变 var 的值。</li>
+<li>\${var:=word}<br>如果变量 var 为空或已被删除(unset)，那么返回 word，并将 var 的值设置为 word。</li>
+<li>\${var:?message}<br>如果变量 var 为空或已被删除(unset)，那么将消息 message 送到标准错误输出，可以用来检测变量 var 是否可以被正常赋值。<br>若此替换出现在Shell脚本中，那么脚本将停止运行。</li>
+<li>\${var:+word}<br>如果变量 var 被定义，那么返回 word，但不改变 var 的值。</li>
+</ol>
+</blockquote>
+<p>实例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo $&#123;var:-"Variable is not <span class="operator"><span class="keyword">set</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">1</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span><br><span class="line"></span><br><span class="line">echo $&#123;var:="</span>Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">2</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span><br><span class="line"></span><br><span class="line">unset var</span><br><span class="line">echo $&#123;var:+"</span>This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">3</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $<span class="keyword">var</span><span class="string">"</span><br><span class="line"></span><br><span class="line">var="</span>Prefix<span class="string">"</span><br><span class="line">echo $&#123;var:+"</span>This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">4</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $<span class="keyword">var</span><span class="string">"</span><br><span class="line"></span><br><span class="line">echo $&#123;var:?"</span>Print this message<span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">5</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span></span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Variable is not <span class="operator"><span class="keyword">set</span></span><br><span class="line"><span class="number">1</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span></span><br><span class="line">Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span></span><br><span class="line"><span class="number">2</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span></span><br><span class="line"><span class="number">3</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span></span><br><span class="line">This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span></span><br><span class="line"><span class="number">4</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Prefix</span><br><span class="line">Prefix</span><br><span class="line"><span class="number">5</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Prefix</span></span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/19/bash/bash-ch03/" data-id="ci7vsnhvr000nzyjxullbzqbz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -151,486 +630,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch02/" data-id="ci7vsko5l000pvxjx4xkilfnz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch12" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch12/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch12/">高级Bash编程（012）- 常用linux命令</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h4 id="单横杠（-）和双横杠（—）区别">单横杠（-）和双横杠（—）区别</h4><pre><code>命令行选项可以分为短命令行选项和长命令行选项两种。短命令行选项是由字母组成，长命令行选项是由单词组成。短命令行选项在选项前使用单横杠“-”，长命令行选项前使用双横杠“<span class="comment">--”。如果选项后面需要输入选项的参数，短命令行选项和参数之间使用空格分隔，而长命令行选项使用等号“=”连接选项和参数。</span>
-</code></pre><hr>
-<h4 id="CPU相关的命令">CPU相关的命令</h4><figure class="highlight puppet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">uptime</span>  ;系统运行时间，平均负载</span><br><span class="line"><span class="built_in">ps</span>      ;<span class="constant">Pocess</span> <span class="constant">Status</span>每个进程所占用<span class="constant">C</span>PU百分比</span><br><span class="line">top/atop/htop   ;和<span class="built_in">ps</span>功能相同，但可以了解<span class="constant">C</span>PU消耗，根据用户指定的时间来更新</span><br><span class="line">mpstat          ;可以查看所有的<span class="constant">C</span>PU，也可以查看单个<span class="constant">C</span>PU的消耗</span><br><span class="line">pidstat         ;显示某个进程的状态，消耗时间等</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/18/bash/bash-ch12/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch12/" data-id="ci7vsko4j0005vxjx8ox32aq7" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch11" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch11/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch11/">高级Bash编程（011）- awk和sed</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch11/" data-id="ci7vsko4n0007vxjx7pzjmw3n" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch10" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch10/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch10/">高级Bash编程（010）- 输入输出重定向</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch10/" data-id="ci7vsko4p0009vxjx2cgu12hk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch09" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch09/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch09/">高级Bash编程（009）- 函数</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="函数定义：">函数定义：</h2><p>语法：<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function_name <span class="literal">()</span> &#123;</span><br><span class="line">    <span class="built_in">list</span> <span class="keyword">of</span> commands</span><br><span class="line">    [ return <span class="keyword">value</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>或<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/18/bash/bash-ch09/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch09/" data-id="ci7vsko4t000bvxjxulpddy0z" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch13" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch13/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch13/">高级Bash编程（013）- curl</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">curl url</span><br><span class="line">  -<span class="ruby">o filename,将下载的文件保存为filename</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">O</span>,下载文件到本地，文件名为默认</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">O</span> url1, -<span class="constant">O</span> url2,同时下载多个文件</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">L</span>,强制重定向</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">C</span>,断点续传</span><br><span class="line"></span>  -<span class="ruby">-limit-rate rate,对最大网络限速</span><br><span class="line"></span>  -<span class="ruby">u <span class="symbol">username:</span>password,curl授权</span><br><span class="line"></span>  -<span class="ruby">u username,</span><br><span class="line"></span>  -<span class="ruby"><span class="constant">T</span>,上传文件</span><br><span class="line"></span>  -<span class="ruby">d/--data “key1=value1&amp;key2=value2”,使用post请求数据</span><br><span class="line"></span>  -<span class="ruby">-form <span class="string">"fileupload=@filename"</span>，上传文件</span></span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/18/bash/bash-ch13/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch13/" data-id="ci7vsko4f0003vxjxixcsmdxy" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch07" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch07/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch07/">高级Bash编程（007）- if和case语句</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="if语句">if语句</h2><p>格式：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>..<span class="class">.fi</span></span><br><span class="line"><span class="keyword">if</span>..<span class="class">.else</span>..<span class="class">.fi</span></span><br><span class="line"><span class="keyword">if</span>..<span class="class">.elif</span>..<span class="class">.else</span>..<span class="class">.fi</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ expr ]</span><br><span class="line">then</span><br><span class="line">	state</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
-<p>注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。<br>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/18/bash/bash-ch07/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch07/" data-id="ci7vsko4z000fvxjx1gcpbj5z" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch06" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch06/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch06/">高级Bash编程（006）- echo和sprintf语句</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="echo命令">echo命令</h2><p>显示转义字符<br><figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="string">"\"</span>It is <span class="literal">a</span> test\<span class="string">""</span></span><br></pre></td></tr></table></figure></p>
-<p>结果重定向<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">"It is a test"</span> &gt; myfile</span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/18/bash/bash-ch06/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch06/" data-id="ci7vsko51000hvxjxj9kzcltr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch05" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch05/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch05/">高级Bash编程（005）- 字符串和数组</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="Shell字符串：">Shell字符串：</h2><p>字符串可以用单引号，也可以用双引号，也可以不用引号。单双引号的区别跟PHP类似。</p>
-<blockquote>
-<p>单引号字符串的限制：</p>
-<blockquote>
-<ul>
-<li>单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的；</li>
-<li>单引号字串中不能出现单引号（对单引号使用转义符后也不行）。</li>
-</ul>
-</blockquote>
-<p>双引号的优点：</p>
-<blockquote>
-<ul>
-<li>双引号里可以有变量</li>
-<li>双引号里可以出现转义字符
-        
-          <p class="article-more-link">
-            <a href="/2014/11/18/bash/bash-ch05/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch05/" data-id="ci7vsko56000jvxjxiibgrn7p" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch04" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch04/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch04/">高级Bash编程（004）- Shell运算符</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>原生bash不支持简单的数学运算，但是可以通过其他命令来实现，例如 awk 和 expr，expr 最常用。<br>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">val=`expr <span class="number">2</span> + <span class="number">2</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Total value : <span class="variable">$val</span>"</span></span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Total <span class="keyword">value</span> : <span class="number">4</span></span><br></pre></td></tr></table></figure></p>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/18/bash/bash-ch04/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch04/" data-id="ci7vsko5c000lvxjxdmmjhpil" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-bash/bash-ch03" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/18/bash/bash-ch03/" class="article-date">
-  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/18/bash/bash-ch03/">高级Bash编程（003）- 转义字符和变量替换</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="转义字符的替换">转义字符的替换</h2><p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">a=<span class="number">10</span></span><br><span class="line"><span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"Value of a is <span class="variable">$a</span> \n"</span></span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value of a is 10</span><br><span class="line"><span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>如果不是使用-e 则：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Value <span class="keyword">of</span> a <span class="keyword">is</span> <span class="number">10</span><span class="string">\n</span></span><br></pre></td></tr></table></figure></p>
-<p>面的转义字符都可以用在 echo 中：</p>
-<blockquote>
-<p>转义字符含义</p>
-<blockquote>
-<p>\\     反斜杠<br>\a     警报，响铃<br>\b     退格（删除键）<br>\f     换页(FF)，将当前位置移到下页开头<br>\n     换行<br>\r     回车<br>\t     水平制表符（tab键）<br>\v     垂直制表符<br>可以使用 echo 命令的 -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。</p>
-</blockquote>
-</blockquote>
-<hr>
-<p>命令替换：命令替换是指Shell可以先执行命令，将输出结果暂时保存，在适当的地方输出。<br>语法：`commond`<br>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">DATE=`date`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Date is <span class="variable">$DATE</span>"</span></span><br><span class="line">USERS=`who | wc <span class="operator">-l</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Logged in user are <span class="variable">$USERS</span>"</span></span><br><span class="line">UP=`date ; uptime`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Uptime is <span class="variable">$UP</span>"</span></span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Date</span> <span class="tag">is</span> <span class="tag">Thu</span> <span class="tag">Jul</span>  2 03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">MST</span> 2009</span><br><span class="line"><span class="tag">Logged</span> <span class="tag">in</span> <span class="tag">user</span> <span class="tag">are</span> 1</span><br><span class="line"><span class="tag">Uptime</span> <span class="tag">is</span> <span class="tag">Thu</span> <span class="tag">Jul</span>  2 03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">MST</span> 2009</span><br><span class="line">03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">up</span> 20 <span class="tag">days</span>, 14<span class="pseudo">:03</span>,  1 <span class="tag">user</span>,  <span class="tag">load</span> <span class="tag">avg</span>: 0<span class="class">.13</span>, 0<span class="class">.07</span>, 0<span class="class">.15</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="变量替换">变量替换</h2><p>形式     说明</p>
-<blockquote>
-<ol>
-<li>\${var}<br>变量本来的值</li>
-<li>\${var:-word}<br>如果变量 var 为空或已被删除(unset)，那么返回 word，但不改变 var 的值。</li>
-<li>\${var:=word}<br>如果变量 var 为空或已被删除(unset)，那么返回 word，并将 var 的值设置为 word。</li>
-<li>\${var:?message}<br>如果变量 var 为空或已被删除(unset)，那么将消息 message 送到标准错误输出，可以用来检测变量 var 是否可以被正常赋值。<br>若此替换出现在Shell脚本中，那么脚本将停止运行。</li>
-<li>\${var:+word}<br>如果变量 var 被定义，那么返回 word，但不改变 var 的值。</li>
-</ol>
-</blockquote>
-<p>实例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo $&#123;var:-"Variable is not <span class="operator"><span class="keyword">set</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">1</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span><br><span class="line"></span><br><span class="line">echo $&#123;var:="</span>Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">2</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span><br><span class="line"></span><br><span class="line">unset var</span><br><span class="line">echo $&#123;var:+"</span>This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">3</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $<span class="keyword">var</span><span class="string">"</span><br><span class="line"></span><br><span class="line">var="</span>Prefix<span class="string">"</span><br><span class="line">echo $&#123;var:+"</span>This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">4</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $<span class="keyword">var</span><span class="string">"</span><br><span class="line"></span><br><span class="line">echo $&#123;var:?"</span>Print this message<span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">5</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span></span></span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Variable is not <span class="operator"><span class="keyword">set</span></span><br><span class="line"><span class="number">1</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span></span><br><span class="line">Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span></span><br><span class="line"><span class="number">2</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span></span><br><span class="line"><span class="number">3</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span></span><br><span class="line">This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span></span><br><span class="line"><span class="number">4</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Prefix</span><br><span class="line">Prefix</span><br><span class="line"><span class="number">5</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Prefix</span></span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch03/" data-id="ci7vsko5h000nvxjxwif4e86w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch02/" data-id="ci7vsnhvt000pzyjxtg3n6q7h" class="article-share-link">Share</a>
       
       
     </footer>
@@ -676,7 +676,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/17/bash/bash-ch01/" data-id="ci7vsko3s0000vxjxzzrwsm90" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/17/bash/bash-ch01/" data-id="ci7vsnhtz0000zyjxxqjiipsy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -720,23 +720,23 @@
       <ul>
         
           <li>
-            <a href="/2014/11/18/bash/bash-ch08/">高级Bash编程（008）- 循环语句</a>
+            <a href="/2014/11/29/bash/bash-ch13/">高级Bash编程（013）- curl</a>
           </li>
         
           <li>
-            <a href="/2014/11/18/bash/bash-ch02/">高级Bash编程（002）- Shell变量</a>
+            <a href="/2014/11/28/bash/bash-ch12/">高级Bash编程（012）- 常用linux命令</a>
           </li>
         
           <li>
-            <a href="/2014/11/18/bash/bash-ch12/">高级Bash编程（012）- 常用linux命令</a>
+            <a href="/2014/11/27/bash/bash-ch11/">高级Bash编程（011）- awk和sed</a>
           </li>
         
           <li>
-            <a href="/2014/11/18/bash/bash-ch11/">高级Bash编程（011）- awk和sed</a>
+            <a href="/2014/11/26/bash/bash-ch10/">高级Bash编程（010）- 输入输出重定向</a>
           </li>
         
           <li>
-            <a href="/2014/11/18/bash/bash-ch10/">高级Bash编程（010）- 输入输出重定向</a>
+            <a href="/2014/11/25/bash/bash-ch09/">高级Bash编程（009）- 函数</a>
           </li>
         
       </ul>
