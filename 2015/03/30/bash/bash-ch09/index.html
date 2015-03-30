@@ -3,17 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Shiri.Huali | 飞雪飘舞</title>
+  <title>高级Bash编程（009）- 函数 | 飞雪飘舞</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="函数定义：语法：1234function_name () &amp;#123;    list of commands    [ return value ]&amp;#125;
+或1234function function_name () &amp;#123;    list of commands    [ return value ]&amp;#125;
+
+
+函数返回值，可以显式增加return语句；如果不加，会将最后一条">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shiri.Huali">
+<meta property="og:title" content="高级Bash编程（009）- 函数">
 <meta property="og:url" content="http://yoursite.com/2015/03/30/bash/bash-ch09/index.html">
 <meta property="og:site_name" content="飞雪飘舞">
-<meta property="og:description">
+<meta property="og:description" content="函数定义：语法：1234function_name () &amp;#123;    list of commands    [ return value ]&amp;#125;
+或1234function function_name () &amp;#123;    list of commands    [ return value ]&amp;#125;
+
+
+函数返回值，可以显式增加return语句；如果不加，会将最后一条">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shiri.Huali">
-<meta name="twitter:description">
+<meta name="twitter:title" content="高级Bash编程（009）- 函数">
+<meta name="twitter:description" content="函数定义：语法：1234function_name () &amp;#123;    list of commands    [ return value ]&amp;#125;
+或1234function function_name () &amp;#123;    list of commands    [ return value ]&amp;#125;
+
+
+函数返回值，可以显式增加return语句；如果不加，会将最后一条">
   
     <link rel="alternative" href="/atom.xml" title="飞雪飘舞" type="application/atom+xml">
   
@@ -66,9 +78,13 @@
         <section id="main"><article id="post-bash/bash-ch09" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/03/30/bash/bash-ch09/" class="article-date">
-  <time datetime="2015-03-30T10:25:25.000Z" itemprop="datePublished">2015-03-30</time>
+  <time datetime="2015-03-30T10:24:36.000Z" itemprop="datePublished">2015-03-30</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -77,7 +93,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Shiri.Huali
+      高级Bash编程（009）- 函数
     </h1>
   
 
@@ -85,11 +101,45 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="函数定义：">函数定义：</h2><p>语法：<br><figure class="highlight ocaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function_name <span class="literal">()</span> &#123;</span><br><span class="line">    <span class="built_in">list</span> <span class="keyword">of</span> commands</span><br><span class="line">    [ return <span class="keyword">value</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>或<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">function_name</span> () &#123;</span></span><br><span class="line">    list <span class="operator">of</span> commands</span><br><span class="line">    [ <span class="constant">return</span> <span class="built_in">value</span> ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<ol>
+<li>函数返回值，可以显式增加return语句；如果不加，会将最后一条命令运行结果作为返回值。</li>
+<li>Shell 函数返回值只能是整数，一般用来表示函数执行成功与否，0表示成功，其他值表示失败。如果 return 其他数据，比如一个字符串，往往会得到错误提示：“numeric argument required”。</li>
+<li>如果一定要让函数返回字符串，那么可以先定义一个变量，用来接收函数的计算结果，脚本在需要的时候访问这个变量来获得函数返回值。</li>
+</ol>
+</blockquote>
+<hr>
+<p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Define your function here</span></span><br><span class="line"><span class="function"><span class="title">Hello</span></span> () &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"Url is http://see.xidian.edu.cn/cpp/shell/"</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># Invoke your function</span></span><br><span class="line">Hello</span><br></pre></td></tr></table></figure></p>
+<p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="function"><span class="title">funWithReturn</span></span>()&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The function is to get the sum of two numbers..."</span></span><br><span class="line">    <span class="built_in">echo</span> -n <span class="string">"Input first number: "</span></span><br><span class="line">    <span class="built_in">read</span> aNum</span><br><span class="line">    <span class="built_in">echo</span> -n <span class="string">"Input another number: "</span></span><br><span class="line">    <span class="built_in">read</span> anotherNum</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The two numbers are <span class="variable">$aNum</span> and <span class="variable">$anotherNum</span> !"</span></span><br><span class="line">    <span class="built_in">return</span> $((<span class="variable">$aNum</span>+<span class="variable">$anotherNum</span>))</span><br><span class="line">&#125;</span><br><span class="line">funWithReturn</span><br><span class="line"><span class="comment"># Capture value returnd by last command</span></span><br><span class="line">ret=$?</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"The sum of two numbers is <span class="variable">$ret</span> !"</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">The function <span class="keyword">is</span> <span class="keyword">to</span> <span class="keyword">get</span> <span class="keyword">the</span> sum <span class="keyword">of</span> two numbers...</span><br><span class="line">Input <span class="keyword">first</span> <span class="type">number</span>: <span class="number">25</span></span><br><span class="line">Input another <span class="type">number</span>: <span class="number">50</span></span><br><span class="line">The two numbers are <span class="number">25</span> <span class="keyword">and</span> <span class="number">50</span> !</span><br><span class="line">The sum <span class="keyword">of</span> two numbers <span class="keyword">is</span> <span class="number">75</span> !</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="comment"># Calling one function from another</span></span><br><span class="line"><span class="function"><span class="title">number_one</span></span> () &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"Url_1 is http://see.xidian.edu.cn/cpp/shell/"</span></span><br><span class="line">   number_two</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">number_two</span></span> () &#123;</span><br><span class="line">   <span class="built_in">echo</span> <span class="string">"Url_2 is http://see.xidian.edu.cn/cpp/u/xitong/"</span></span><br><span class="line">&#125;</span><br><span class="line">number_one</span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Url_1 <span class="keyword">is</span> http:<span class="comment">//see.xidian.edu.cn/cpp/shell/</span></span><br><span class="line">Url_2 <span class="keyword">is</span> http:<span class="comment">//see.xidian.edu.cn/cpp/u/xitong/</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="删除函数：">删除函数：</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$unset</span> <span class="class">.f</span> function_name</span><br></pre></td></tr></table></figure>
+<p>像删除变量一样，删除函数也可以使用 unset 命令，不过要加上 .f 选项</p>
+<pre><code>如果你希望直接从终端调用函数，可以将函数定义在主目录下的 <span class="class">.profile</span> 文件，这样每次登录后，在命令提示符后面输入函数名字就可以立即调用。
+</code></pre><hr>
+<h2 id="函数参数：">函数参数：</h2><p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line"><span class="function"><span class="title">funWithParam</span></span>()&#123;</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The value of the first parameter is <span class="variable">$1</span> !"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The value of the second parameter is <span class="variable">$2</span> !"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The value of the tenth parameter is <span class="variable">$10</span> !"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The value of the tenth parameter is <span class="variable">$&#123;10&#125;</span> !"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The value of the eleventh parameter is <span class="variable">$&#123;11&#125;</span> !"</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The amount of the parameters is <span class="variable">$#</span> !"</span>  <span class="comment"># 参数个数</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"The string of the parameters is $* !"</span>  <span class="comment"># 传递给函数的所有参数</span></span><br><span class="line">&#125;</span><br><span class="line">funWithParam <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">34</span> <span class="number">73</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">The <span class="built_in">value</span> <span class="operator">of</span> <span class="operator">the</span> <span class="keyword">first</span> parameter is <span class="number">1</span> !</span><br><span class="line">The <span class="built_in">value</span> <span class="operator">of</span> <span class="operator">the</span> <span class="keyword">second</span> parameter is <span class="number">2</span> !</span><br><span class="line">The <span class="built_in">value</span> <span class="operator">of</span> <span class="operator">the</span> <span class="keyword">tenth</span> parameter is <span class="number">10</span> !</span><br><span class="line">The <span class="built_in">value</span> <span class="operator">of</span> <span class="operator">the</span> <span class="keyword">tenth</span> parameter is <span class="number">34</span> !</span><br><span class="line">The <span class="built_in">value</span> <span class="operator">of</span> <span class="operator">the</span> eleventh parameter is <span class="number">73</span> !</span><br><span class="line">The amount <span class="operator">of</span> <span class="operator">the</span> parameters is <span class="number">12</span> !</span><br><span class="line">The <span class="keyword">string</span> <span class="operator">of</span> <span class="operator">the</span> parameters is <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">34</span> <span class="number">73</span> !<span class="string">"</span></span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>注意，<code>\$10</code> 不能获取第十个参数，获取第十个参数需要<code>\${10}</code>。当n&gt;=10时，需要使用<code>\${n}</code>来获取参数。<br>特殊变量     说明</p>
+<blockquote>
+<ul>
+<li><code>\$#</code>     传递给函数的参数个数。</li>
+<li><code>\$*</code>     显示所有传递给函数的参数。</li>
+<li><code>\$@</code>     与\$*相同，但是略有区别，请查看Shell特殊变量。</li>
+<li><code>\$?</code>     函数的返回值。</li>
+</ul>
+</blockquote>
+</blockquote>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch09/" data-id="ci7vqdaxe00080ijxh6ot6hu1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2015/03/30/bash/bash-ch09/" data-id="ci7vqs0sr000d5vjxyzo1kefw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -102,15 +152,15 @@
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Shiri.Huali
+          高级Bash编程（010）- 输入输出重定向
         
       </div>
     </a>
   
   
-    <a href="/2015/03/30/bash/bash-ch08/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/03/30/bash/bash-ch03/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Shiri.Huali</div>
+      <div class="article-nav-title">高级Bash编程（003）- 转义字符和变量替换</div>
     </a>
   
 </nav>
@@ -126,7 +176,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">1</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">14</span></li></ul>
     </div>
   </div>
 
@@ -151,23 +201,23 @@
       <ul>
         
           <li>
-            <a href="/2015/03/30/bash/bash-ch13/">Shiri.Huali</a>
+            <a href="/2015/03/30/bash/bash-ch08/">高级Bash编程（008）- 循环语句</a>
           </li>
         
           <li>
-            <a href="/2015/03/30/bash/bash-ch12/">Shiri.Huali</a>
+            <a href="/2015/03/30/bash/bash-ch01/">高级Bash编程（001）- 基础</a>
           </li>
         
           <li>
-            <a href="/2015/03/30/bash/bash-ch11/">Shiri.Huali</a>
+            <a href="/2015/03/30/bash/bash-ch13/">高级Bash编程（009）- 函数</a>
           </li>
         
           <li>
-            <a href="/2015/03/30/bash/bash-ch10/">Shiri.Huali</a>
+            <a href="/2015/03/30/bash/bash-ch12/">(no title)</a>
           </li>
         
           <li>
-            <a href="/2015/03/30/bash/bash-ch09/">Shiri.Huali</a>
+            <a href="/2015/03/30/bash/bash-ch11/">(no title)</a>
           </li>
         
       </ul>
