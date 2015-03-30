@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>高级Bash编程（002）- Shell变量 | 舞雩</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="定义变量时，变量名不加美元符号（$）1your_name=&quot;w3cschool.cc&quot;
+注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：
+&amp;gt;* 首个字符必须为字母（a-z，A-Z）。
+&amp;gt;* 中间不能有空格，可以使用下划线（_）。
+&amp;gt;* 不能使用标点符号。
+&amp;gt;* 不能使用bash里的关键字（可用help命令查看保留关键">
+<meta property="og:type" content="article">
+<meta property="og:title" content="高级Bash编程（002）- Shell变量">
+<meta property="og:url" content="http://yoursite.com/2014/11/18/bash/bash-ch02/index.html">
+<meta property="og:site_name" content="舞雩">
+<meta property="og:description" content="定义变量时，变量名不加美元符号（$）1your_name=&quot;w3cschool.cc&quot;
+注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：
+&amp;gt;* 首个字符必须为字母（a-z，A-Z）。
+&amp;gt;* 中间不能有空格，可以使用下划线（_）。
+&amp;gt;* 不能使用标点符号。
+&amp;gt;* 不能使用bash里的关键字（可用help命令查看保留关键">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="高级Bash编程（002）- Shell变量">
+<meta name="twitter:description" content="定义变量时，变量名不加美元符号（$）1your_name=&quot;w3cschool.cc&quot;
+注意，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：
+&amp;gt;* 首个字符必须为字母（a-z，A-Z）。
+&amp;gt;* 中间不能有空格，可以使用下划线（_）。
+&amp;gt;* 不能使用标点符号。
+&amp;gt;* 不能使用bash里的关键字（可用help命令查看保留关键">
+  
+    <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">舞雩</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">暮春者，春服既成，冠者五六人，童子六七人，浴乎沂，风乎舞雩，咏而归</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="q" value="site:http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-bash/bash-ch02" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/18/bash/bash-ch02/" class="article-date">
+  <time datetime="2014-11-18T10:34:26.000Z" itemprop="datePublished">2014-11-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      高级Bash编程（002）- Shell变量
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>定义变量时，变量名不加美元符号（$）<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="setting">your_name=<span class="value"><span class="string">"w3cschool.cc"</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p><strong>注意</strong>，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：</p>
+<pre><code>&gt;<span class="keyword">*</span> 首个字符必须为字母（a-z，A-Z）。
+&gt;<span class="keyword">*</span> 中间不能有空格，可以使用下划线（_）。
+&gt;<span class="keyword">*</span> 不能使用标点符号。
+&gt;<span class="keyword">*</span> 不能使用bash里的关键字（可用help命令查看保留关键字）。
+</code></pre><hr>
+<p>除了显式地直接赋值，还可以用语句给变量赋值，如：<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> <span class="keyword">file</span> <span class="keyword">in</span> <span class="string">`ls /etc`</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>只读变量：readonly命令可以将变量定义为只读变量，只读变量的值不能被改变<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">myUrl=<span class="string">"http://see.xidian.edu.cn/cpp/shell/"</span></span><br><span class="line"><span class="built_in">readonly</span> myUrl</span><br><span class="line">myUrl=<span class="string">"http://see.xidian.edu.cn/cpp/danpianji/"</span></span><br></pre></td></tr></table></figure></p>
+<p>提示，错误</p>
+<p>删除变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">unset</span> variable_name</span><br></pre></td></tr></table></figure></p>
+<p>变量类型：</p>
+<blockquote>
+<ol>
+<li>局部变量<br> 局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序能访问局部变量。</li>
+<li>环境变量<br> 所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。</li>
+<li>shell变量<br> shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行</li>
+</ol>
+</blockquote>
+<p>使用一个定义过的变量，只要在变量名前面加美元符号即可，如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">your_name=<span class="string">"qinjx"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$your_name</span></span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$&#123;your_name&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>特殊变量：</p>
+<figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">echo <span class="variable">$$</span>	<span class="comment">//显示当前的shell进程的ID，即PID</span></span><br><span class="line"><span class="variable">$0</span>	 当前脚本的文件名</span><br><span class="line"><span class="variable">$n</span>	 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是<span class="variable">$1</span>，第二个参数是<span class="variable">$2</span>。</span><br><span class="line"><span class="variable">$#</span>	 传递给脚本或函数的参数个数。</span><br><span class="line"><span class="variable">$*</span>	 传递给脚本或函数的所有参数。</span><br><span class="line"><span class="variable">$@</span>	 传递给脚本或函数的所有参数。被双引号(<span class="string">" "</span>)包含时，与 <span class="variable">$*</span> 稍有不同，下面将会讲到。</span><br><span class="line"><span class="variable">$?</span>	 上个命令的退出状态，或函数的返回值。</span><br><span class="line"><span class="variable">$$</span>	 当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。</span><br></pre></td></tr></table></figure>
+<p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"File Name: <span class="variable">$0</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"First Parameter : <span class="variable">$1</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"First Parameter : <span class="variable">$2</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Quoted Values: <span class="variable">$@</span>"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Quoted Values: $*"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Total Number of Parameters : <span class="variable">$#</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$./test.sh Zara Ali</span><br><span class="line">File <span class="string">Name :</span> ./test.sh</span><br><span class="line">First <span class="string">Parameter :</span> Zara</span><br><span class="line">Second <span class="string">Parameter :</span> Ali</span><br><span class="line">Quoted <span class="string">Values:</span> Zara Ali</span><br><span class="line">Quoted <span class="string">Values:</span> Zara Ali</span><br><span class="line">Total Number of <span class="string">Parameters :</span> <span class="number">2</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<p><code>$* 和 $@ 的区别</code></p>
+<blockquote>
+<ul>
+<li>\$* 和 \$@ 都表示传递给函数或脚本的所有参数，不被双引号(“ “)包含时，都以”\$1” “\$2” … “\$n” 的形式输出所有参数。</li>
+<li>但是当它们被双引号(“ “)包含时，”\$*” 会将所有的参数作为一个整体，以”\$1 \$2 … \$n”的形式输出所有参数；”\$@” 会将各个参数分开，以”\$1” “\$2” … “\$n” 的形式输出所有参数。</li>
+</ul>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/18/bash/bash-ch02/" data-id="ci7vrqhjt000pihjxvxe80hkd" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2014/11/18/bash/bash-ch03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          高级Bash编程（003）- 转义字符和变量替换
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">13</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recents</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/11/18/bash/bash-ch08/">高级Bash编程（008）- 循环语句</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/18/bash/bash-ch01/">高级Bash编程（001）- 基础</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/18/bash/bash-ch12/">高级Bash编程（012）- 常用linux命令</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/18/bash/bash-ch11/">高级Bash编程（011）- awk和sed</a>
+          </li>
+        
+          <li>
+            <a href="/2014/11/18/bash/bash-ch10/">高级Bash编程（010）- 输入输出重定向</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2015 Shiri.Huali<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+  </div>
+</body>
+</html>
