@@ -65,200 +65,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-tools/mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/16/tools/mysql/" class="article-date">
-  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/16/tools/mysql/">MYSQL</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-连接MYSQL">1.连接MYSQL</h2><p><code>mysql -uroot -p</code>        使用密码登录mysql数据库<br><code>mysql -h localhost -uroot -p 123</code>    连接远程服务器</p>
-<h2 id="2-修改密码">2.修改密码</h2><p><code>mysqladmin -uroot -password ab12</code>    给root加个密码<br><code>mysqladmin -uroot -p ab12 -password abce</code>    将root密码改成abce<br><code>update user set password=password(&#39;&#39;) weher user=&#39;root&#39;;</code> 修改user表修改器名称<br><code>flush privileges;</code>    强制刷新权限内存控制</p>
-<h2 id="3-增加新用户">3.增加新用户</h2><p><code>grant select on 数据库.* to 用户名@登录主机 identified by \&quot;密码&quot;</code><br><code>grant select,insert,update,delete on *.* to test1@\&quot;%\&quot; identified by \&quot;abc\&quot;</code> 新增用户;</p>
-<h2 id="4-显示命令">4.显示命令</h2><p><code>show databases;</code>    显示数据库<br><code>use mysql;</code>    使用数据库<br><code>show tables;</code>    显示数据库中的表<br><code>describe 表名;</code>    显示表的描述<br><code>create database 库名;</code>    创建数据库<br><code>use 库名;</code>    使用数据库;<br><code>create table 表名;</code> 创建表</p>
-<p><code>drop database 库名;</code>    删除数据库<br><code>drop table 表名;</code>    删除表</p>
-<p><code>delete from 表名;</code>    将表中的记录清空<br><code>select * from 表名;</code>    查询表</p>
-<h2 id="5-备份数据库">5.备份数据库</h2><p><code>mysqldump --opt school&gt;school.bbb</code>    备份数据库到school.bbb文件中<br><code>msyqldump -uroot -p21center meeting &gt; db_meeting.sql</code> 备份数据库<br><code>mysqldump -uroot -p21center meeting &lt; xxx.sql</code>     恢复数据库</p>
-<h2 id="6-执行sql语句">6.执行sql语句</h2><p><code>mysql -uroot -p &lt; /home/db_meeting.sql</code>     //.sql为大量的sql语句</p>
-<h2 id="7-全局管理权限">7.全局管理权限</h2><p><code>FILE</code> 在MySQL服务器上读写文件。<br><code>PROCESS</code> 显示或杀死属于其它用户的服务线程。<br><code>RELOAD</code> 重载访问控制表，刷新日志等。<br><code>SHUTDOWN</code> 关闭MySQL服务。<br>数据库/数据表/数据列权限：<br><code>ALTER</code> 修改已存在的数据表(例如增加/删除列)和索引。<br><code>CREATE</code> 建立新的数据库或数据表。<br><code>DELETE</code> 删除表的记录。<br><code>DROP</code> 删除数据表或数据库。<br><code>INDEX</code> 建立或删除索引。<br><code>INSERT</code> 增加表的记录。<br><code>SELECT</code> 显示/搜索表的记录。<br><code>UPDATE</code> 修改表中已存在的记录。<br>特别的权限：<br><code>ALL</code> 允许做任何事(和root一样)。<br><code>USAGE</code> 只允许登录–其它什么也不允许做。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="ci7x89rly00067ijxa6wg3rni" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tools/gdb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/16/tools/gdb/" class="article-date">
-  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/16/tools/gdb/">GDB</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="启动GDB命令">启动GDB命令</h2><p><code>gdb executable</code> 调试可执行文件<br><code>gdb -e executable -c core-file</code> 调试带有core-dump文件的可执行文件</p>
-<h2 id="GDB中使用的命令">GDB中使用的命令</h2><h3 id="查看信息：">查看信息：</h3><p><code>help [topic | comand]</code>  列出gdb帮助</p>
-<p><code>info args</code> 里出运行程序的命令行参数<br><code>info locals</code> 查看局部变量<br><code>bt full</code> 查看所有的变量<br><code>info breakpoints/br [n]</code>  列出断点号,或列出断点号为n的信息<br><code>info watchpoints</code>  列出观察点</p>
-<p><code>where</code> 显示当前的行号和所处的函数</p>
-<h3 id="断点和观察点">断点和观察点</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">break [position] <span class="keyword">if</span> condition</span><br><span class="line">position格式：</span><br><span class="line">    <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">    +<span class="built_in">offset</span></span><br><span class="line">    -<span class="built_in">offset</span></span><br><span class="line">    func</span><br><span class="line">    <span class="built_in">file</span>::func</span><br><span class="line">    <span class="built_in">file</span>::<span class="built_in">number</span>-<span class="built_in">line</span></span><br></pre></td></tr></table></figure>
-<p><code>watch 表达式</code> 当条件满足时设置观察点<br><code>rwatch 表达式</code> 当表达式被读时中断<br><code>awatch 表达式</code> 当表达式被读或写时中断</p>
-<p><code>clear [函数名|行号]</code> 删除断点，无参表示当前断点<br><code>delete(d)  [断点号|断点范围]</code> 删除断点号，无参表示删除所有断点<br><code>disable [断点号|断点范围]</code><br><code>enable [断点号|断点范围]</code></p>
-<h3 id="单步执行">单步执行</h3><p><code>step(s) [n]</code>  进入下一行代码的执行，会进入函数的内部<br><code>next(n) [n]</code>  执行下一行代，不会进入函数内部<br><code>stepi(si) [n]</code> 执行下一条汇编/CPU指令<br><code>nexti(ni) [n]</code></p>
-<p><code>until</code> 继续运行直到到达指定行号，或者地址，函数<br><code>until line-number</code><br><code>until line-number if condition</code></p>
-<p><code>return</code><br><code>return expression</code>   弹出选中的栈帧（stack frame）。如果后面指定参数，则返回表达式的值。</p>
-<p><code>finish</code> 继续执行到函数结束</p>
-<h3 id="程序堆栈">程序堆栈</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [<span class="keyword">n</span>|-<span class="keyword">n</span>|full] 显示当前堆栈的追踪,<span class="keyword">n</span>显示的个数，-<span class="keyword">n</span>显示底层<span class="keyword">n</span>个，full显示所有的局部变量</span><br></pre></td></tr></table></figure>
-<p><code>frame(f) number</code>  选择指定的栈帧<br><code>up [number]</code> 选择的当前栈帧的下一(number)个<br><code>down [number]</code> 选择的当前栈帧的下一(number)个</p>
-<p><code>bt full</code> 打印所有栈中的所有局部变量的值<br><code>info frame [addr]</code> 描述选中的栈帧<br><code>info args</code> 显示选中栈帧的参数，局部变量，异常处理函数。<br><code>info locals</code></p>
-<h3 id="源代码：">源代码：</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span>的形式：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
-<h3 id="打印变量">打印变量</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line"><span class="built_in">format</span>的格式：</span><br><span class="line">  /x  十六进制形式</span><br><span class="line">  /d  有符整数</span><br><span class="line">  /u  无符整数</span><br><span class="line">  /o  十进制</span><br><span class="line">  /t  二进制</span><br><span class="line">  /c  字符</span><br><span class="line">  /f  浮点</span><br><span class="line">  /<span class="operator">a</span>  十六进制地址</span><br><span class="line"><span class="built_in">variable</span>形式：</span><br><span class="line">  <span class="built_in">variable</span>  变量</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> 文件中的变量</span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  文件中的变量</span><br><span class="line">  *array@<span class="built_in">length</span>   数组</span><br></pre></td></tr></table></figure>
-<h3 id="查看内存">查看内存</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu 地址</span><br><span class="line">    <span class="keyword">n</span>   重复<span class="keyword">n</span>次</span><br><span class="line">    f   显示格式。为<span class="keyword">print</span>使用的格式</span><br><span class="line">    <span class="keyword">u</span>   每个单元的大小</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
-<p><code>call expression</code> 类似print,但不打印void</p>
-<h2 id="设置工作文件">设置工作文件</h2><p><code>info files</code>  列出当前文件，共享库<br><code>info share</code></p>
-<p><code>file file</code> 把file当做调试的程序<br><code>core file</code> 把file当作core文件。<br><code>exec file</code> 把exec大概你做可执行程序<br><code>symbol file</code> 从file中读取符号表。<br><code>load file</code> 动态链入file文件，并读取它的符号表<br><code>path directory</code>  把目录directory加入到搜索可执行文件和符号文件的路径中</p>
-<h3 id="控制：">控制：</h3><p><code>run/r</code> 从头开始执行程序<br><code>continue/c</code> 继续执行直到下一个断点或者观察点<br><code>kill</code>  停止程序执行<br><code>quit/q</code>  退出gdb</p>
-<hr>
-<blockquote>
-<p>注意：</p>
-<blockquote>
-<ol>
-<li>编译可执行文件时加上-g选项</li>
-<li>不要用-O,-O2优化选项</li>
-<li>在gdb中执行shell命令使用：shell command</li>
-</ol>
-</blockquote>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="ci7x89rm8000c7ijxm53x30cp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tools/vim" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/16/tools/vim/" class="article-date">
-  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/16/tools/vim/">VIM</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一_配置文件">一 配置文件</h2><p>vim的配置文件分为两种：系统配置文件：\$VIM/.vimrc，用户配置文件：\$HOME/.vimrc</p>
-<h2 id="二_常用快捷键">二 常用快捷键</h2><h3 id="SHELL下">SHELL下</h3><p><code>vim filename</code> 打开文件<br><code>vim file1 file2 file3</code> 打开多个文件</p>
-<h3 id="CMD模式">CMD模式</h3><p><code>:open file</code> 当前窗口打开文件<br><code>:split file</code> 当前窗口分裂打开<br><code>:vsplit file</code> 垂直分裂<br><code>:hsplit file</code> 水平分裂<br><code>:bn</code> 将缓冲区的下一个文件显示<br><code>:bp</code> 将缓冲区的上一个文件显示<br><code>:args</code> 列出所有的打开窗口<br><code>:e ftp://192.168.10.76/abc.txt</code><br><code>:e \\que\test\1.txt</code><br><code>:e</code>  编辑当前文件，若缓冲区已经修改，该命令无效<br><code>:e!</code> 强制编辑当前文件，放弃当前缓冲区任何修改<br><code>:e file</code> 编辑file文件，若缓冲区已修改，则无效<br><code>:e! file</code> 强制编辑file文件，放弃当前缓冲区任何修改</p>
-<p><code>:sh</code> 暂时退出当前vim,进入shell(使用ctrl+d返回vim)</p>
-<p><code>:tabe file</code> 在新的tab打开文件<br><code>:tabc</code> 关闭文件<br><code>:tabp</code> 切换到前一个tab<br><code>:tabn</code> 切换到下一个tab<br><code>gt</code> 切换到下一个tab<br><code>gT</code> 切换到前一个tab</p>
-<p><code>Ctrl + ww</code> 跳到下一个窗口<br><code>Ctrl + wh</code> 跳到左边窗口<br><code>Ctrl + wj</code> 跳到下边窗口<br><code>Ctrl + wk</code> 跳到上边窗口<br><code>Ctrl + wl</code> 跳到右边窗口</p>
-<h3 id="参数列表">参数列表</h3><pre><code>启动<span class="tag">vim</span>给出多个文件，这些文件将被记住，即参数列表。参数列表和<span class="pseudo">:buffers</span>命令中的缓冲区列表不同。
-</code></pre><p><code>vim one.c two.c three.c</code> 将三个文件加入到参数列表中。<br><code>:next</code> 下一个文件<br><code>:wnext</code> 保存当前文件，下一个文件<br><code>:args</code> 显示当前所有的文件列表<br><code>:previous</code> 上一个文件<br><code>:last</code> 最后一个文件<br><code>:first</code> 地一个文件<br><code>:2next</code> 向后两个文件<br><code>args five.c six.c seven.h</code> 新建一个参数列表<br><code>args *.txt</code>    使用匹配符</p>
-<p><code>Ctrl + 6</code> 在两个文件中快速切换</p>
-<h3 id="缓冲区列表">缓冲区列表</h3><pre><code>缓冲区描述当前的文件，实际缓冲区是你编译文件的副本
-</code></pre><blockquote>
-<ul>
-<li>激活         显示在窗口内，并加载文本</li>
-<li>隐藏         不显示在窗口内，但加载文本</li>
-<li>非激活       不显示在窗口内，不加载文本</li>
-</ul>
-</blockquote>
-<p><code>ls/buffers/files</code> 查看缓冲区列表</p>
-<p><code>u</code> 列表外缓冲区<br><code>%</code> 当前缓冲区<br><code>#</code> 轮换缓冲区<br><code>a</code> 激活缓冲区<br><code>h</code> 隐藏缓冲区<br><code>=</code> 只读缓冲区<br><code>-</code> 不可改缓冲区<br><code>+</code> 已修改缓冲区</p>
-<p><code>:sbuffer 3</code>    在新一个窗口编辑缓冲区</p>
-<p><code>:bnext</code>   编辑下一个缓冲区<br><code>:bprevious</code>   编译上一个缓冲区<br><code>:bfirst</code>   编辑第一个缓冲区<br><code>:blast</code>   编辑最后个缓冲区<br><code>:bdelete num</code> 删除缓冲区</p>
-<p><code>i</code> 插入<br><code>I</code> 行首插入<br><code>a</code> 追加<br><code>A</code> 行为追加<br><code>o</code> 下行空行插入<br><code>O</code> 上行空行插入</p>
-<p><code>/text</code> 正向查找text<br><code>?text</code> 反向查找text<br><code>:set ignorecase</code> 大小写敏感<br><code>:set noignorecase</code> 大小写不敏感</p>
-<p><code>s/old/new/</code> 在本行使用new代替第一次出现的old<br><code>s/old/new/g</code> 在本行使用new代替所有的old<br><code>%s/old/new/</code> 在全文使用new代替第一次出现的old<br><code>%s/old/new/g</code> 在全文使用new代替所有old<br><code>:10,20s/^/    /g</code> 向10到20行首插入4个空格</p>
-<p><code>ddp</code> 交换光标所在行和其下紧邻的一行<br><code>h</code> 左移一个字符<br><code>l</code> 右移一个字符<br><code>k</code> 上移一个字符<br><code>j</code> 下移一个字符<br><code>20j</code> 向下移动20行</p>
-<p><code>^</code> 行首非空白字符上<br><code>0(数字0)</code> 行首<br><code>$</code> 行尾<br><code>gg</code> 文件头<br><code>G</code> 文件尾<br><code>f</code> 争相查找<br><code>F</code> 反响查找</p>
-<p><code>Ctrl + e</code> 向下滚动一行<br><code>Ctrl + y</code> 向上滚动一行<br><code>Ctrl + d</code> 向下滚动半屏<br><code>Ctrl + u</code> 向上滚动半屏<br><code>Ctrl + f</code> 向下滚动一屏<br><code>Ctrl + b</code> 向上滚动一屏</p>
-<p><code>u</code> 撤销<br><code>U</code> 撤销对整行的操作<br><code>Ctrl + r</code> 反撤销</p>
-<p><code>x</code> 删除当前光标所在字符<br><code>3x</code> 删除目标光标开始之后的三个字符<br><code>dl</code> 删除当前字符<br><code>dh</code> 删除上一行<br><code>dd</code> 删除当前行<br><code>dk</code> 删除下一行<br><code>10d</code> 删除当前行开始的10行<br><code>D</code> 删除当前字符到行尾<br><code>d$</code> 删除当前字符之后的所有字符（本行）<br><code>kdgg</code> 删除当前行之前的所有行（不包括当前行）<br><code>jdG</code> 删除当前行之后的所有行（不包括当前行）<br><code>:1,10d</code> 删除1到10行<br><code>:11,$d</code> 删除11到文件尾<br><code>1,$d</code> 删除所有行</p>
-<p><code>zo</code> 展开<br><code>zO</code> 展开（递归）<br><code>zc</code> 折叠<br><code>zC</code> 折叠（递归）</p>
-<p><code>yy</code> 复制当前康<br><code>nyy</code> 复制从当前行开始之后的n行<br><code>p</code> 粘贴到当前光标之后<br><code>shift + p</code> 粘贴到当前行<br><code>1,10 co 20</code> 将1到10行复制一份添加到20行尾部<br><code>1,$ co $</code> 将整个文件复制一份并添加到文件尾部<br><code>ndd</code> 剪切当前行之后的n行<br><code>:1,10d</code> 剪切1到10行<br><code>1,10 m 20</code> 将第1到10行移动到20行后边</p>
-<p><code>:wq</code> 保存并退出<br><code>:ZZ</code> 保存，并退出<br><code>:q!</code> 不保存文件并强制退出<br><code>:e!</code> 强制不保存当前文件，并重新载入<br><code>:f newfilename</code> 将当前文件重命名<br><code>q:</code> 查看历史命令<br><code>qa</code> 录制宏<br><code>:!commond</code> 命令模式，可以输入linux命令</p>
-<p>OmniCppComplete自动补全<br><code>Ctrl + P</code> 向前切换成员<br><code>Ctrl + N</code> 向后切换成员<br><code>Ctrl + E</code> 退出下拉框，并退回到原来录取的文字<br><code>Ctrl + Y</code> 退出下拉框，并接受当前选项</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="ci7x89rlt00037ijxv3iaogxk" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-tools/irc" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/16/tools/irc/" class="article-date">
@@ -293,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="ci7x89rm000087ijx4uwa1wdy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="ci7x922cq0008hwjx4rxp78uv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -482,7 +288,201 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="ci7x89rm5000a7ijx05zne31a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="ci7x922cv000ahwjxacwtw1an" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/gdb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/gdb/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/gdb/">GDB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="启动GDB命令">启动GDB命令</h2><p><code>gdb executable</code> 调试可执行文件<br><code>gdb -e executable -c core-file</code> 调试带有core-dump文件的可执行文件</p>
+<h2 id="GDB中使用的命令">GDB中使用的命令</h2><h3 id="查看信息：">查看信息：</h3><p><code>help [topic | comand]</code>  列出gdb帮助</p>
+<p><code>info args</code> 里出运行程序的命令行参数<br><code>info locals</code> 查看局部变量<br><code>bt full</code> 查看所有的变量<br><code>info breakpoints/br [n]</code>  列出断点号,或列出断点号为n的信息<br><code>info watchpoints</code>  列出观察点</p>
+<p><code>where</code> 显示当前的行号和所处的函数</p>
+<h3 id="断点和观察点">断点和观察点</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">break [position] <span class="keyword">if</span> condition</span><br><span class="line">position格式：</span><br><span class="line">    <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">    +<span class="built_in">offset</span></span><br><span class="line">    -<span class="built_in">offset</span></span><br><span class="line">    func</span><br><span class="line">    <span class="built_in">file</span>::func</span><br><span class="line">    <span class="built_in">file</span>::<span class="built_in">number</span>-<span class="built_in">line</span></span><br></pre></td></tr></table></figure>
+<p><code>watch 表达式</code> 当条件满足时设置观察点<br><code>rwatch 表达式</code> 当表达式被读时中断<br><code>awatch 表达式</code> 当表达式被读或写时中断</p>
+<p><code>clear [函数名|行号]</code> 删除断点，无参表示当前断点<br><code>delete(d)  [断点号|断点范围]</code> 删除断点号，无参表示删除所有断点<br><code>disable [断点号|断点范围]</code><br><code>enable [断点号|断点范围]</code></p>
+<h3 id="单步执行">单步执行</h3><p><code>step(s) [n]</code>  进入下一行代码的执行，会进入函数的内部<br><code>next(n) [n]</code>  执行下一行代，不会进入函数内部<br><code>stepi(si) [n]</code> 执行下一条汇编/CPU指令<br><code>nexti(ni) [n]</code></p>
+<p><code>until</code> 继续运行直到到达指定行号，或者地址，函数<br><code>until line-number</code><br><code>until line-number if condition</code></p>
+<p><code>return</code><br><code>return expression</code>   弹出选中的栈帧（stack frame）。如果后面指定参数，则返回表达式的值。</p>
+<p><code>finish</code> 继续执行到函数结束</p>
+<h3 id="程序堆栈">程序堆栈</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [<span class="keyword">n</span>|-<span class="keyword">n</span>|full] 显示当前堆栈的追踪,<span class="keyword">n</span>显示的个数，-<span class="keyword">n</span>显示底层<span class="keyword">n</span>个，full显示所有的局部变量</span><br></pre></td></tr></table></figure>
+<p><code>frame(f) number</code>  选择指定的栈帧<br><code>up [number]</code> 选择的当前栈帧的下一(number)个<br><code>down [number]</code> 选择的当前栈帧的下一(number)个</p>
+<p><code>bt full</code> 打印所有栈中的所有局部变量的值<br><code>info frame [addr]</code> 描述选中的栈帧<br><code>info args</code> 显示选中栈帧的参数，局部变量，异常处理函数。<br><code>info locals</code></p>
+<h3 id="源代码：">源代码：</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span>的形式：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
+<h3 id="打印变量">打印变量</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line"><span class="built_in">format</span>的格式：</span><br><span class="line">  /x  十六进制形式</span><br><span class="line">  /d  有符整数</span><br><span class="line">  /u  无符整数</span><br><span class="line">  /o  十进制</span><br><span class="line">  /t  二进制</span><br><span class="line">  /c  字符</span><br><span class="line">  /f  浮点</span><br><span class="line">  /<span class="operator">a</span>  十六进制地址</span><br><span class="line"><span class="built_in">variable</span>形式：</span><br><span class="line">  <span class="built_in">variable</span>  变量</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> 文件中的变量</span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  文件中的变量</span><br><span class="line">  *array@<span class="built_in">length</span>   数组</span><br></pre></td></tr></table></figure>
+<h3 id="查看内存">查看内存</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu 地址</span><br><span class="line">    <span class="keyword">n</span>   重复<span class="keyword">n</span>次</span><br><span class="line">    f   显示格式。为<span class="keyword">print</span>使用的格式</span><br><span class="line">    <span class="keyword">u</span>   每个单元的大小</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
+<p><code>call expression</code> 类似print,但不打印void</p>
+<h2 id="设置工作文件">设置工作文件</h2><p><code>info files</code>  列出当前文件，共享库<br><code>info share</code></p>
+<p><code>file file</code> 把file当做调试的程序<br><code>core file</code> 把file当作core文件。<br><code>exec file</code> 把exec大概你做可执行程序<br><code>symbol file</code> 从file中读取符号表。<br><code>load file</code> 动态链入file文件，并读取它的符号表<br><code>path directory</code>  把目录directory加入到搜索可执行文件和符号文件的路径中</p>
+<h3 id="控制：">控制：</h3><p><code>run/r</code> 从头开始执行程序<br><code>continue/c</code> 继续执行直到下一个断点或者观察点<br><code>kill</code>  停止程序执行<br><code>quit/q</code>  退出gdb</p>
+<hr>
+<blockquote>
+<p>注意：</p>
+<blockquote>
+<ol>
+<li>编译可执行文件时加上-g选项</li>
+<li>不要用-O,-O2优化选项</li>
+<li>在gdb中执行shell命令使用：shell command</li>
+</ol>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="ci7x922cz000chwjxdgg9h1wr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/vim" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/vim/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/vim/">VIM</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一_配置文件">一 配置文件</h2><p>vim的配置文件分为两种：系统配置文件：\$VIM/.vimrc，用户配置文件：\$HOME/.vimrc</p>
+<h2 id="二_常用快捷键">二 常用快捷键</h2><h3 id="SHELL下">SHELL下</h3><p><code>vim filename</code> 打开文件<br><code>vim file1 file2 file3</code> 打开多个文件</p>
+<h3 id="CMD模式">CMD模式</h3><p><code>:open file</code> 当前窗口打开文件<br><code>:split file</code> 当前窗口分裂打开<br><code>:vsplit file</code> 垂直分裂<br><code>:hsplit file</code> 水平分裂<br><code>:bn</code> 将缓冲区的下一个文件显示<br><code>:bp</code> 将缓冲区的上一个文件显示<br><code>:args</code> 列出所有的打开窗口<br><code>:e ftp://192.168.10.76/abc.txt</code><br><code>:e \\que\test\1.txt</code><br><code>:e</code>  编辑当前文件，若缓冲区已经修改，该命令无效<br><code>:e!</code> 强制编辑当前文件，放弃当前缓冲区任何修改<br><code>:e file</code> 编辑file文件，若缓冲区已修改，则无效<br><code>:e! file</code> 强制编辑file文件，放弃当前缓冲区任何修改</p>
+<p><code>:sh</code> 暂时退出当前vim,进入shell(使用ctrl+d返回vim)</p>
+<p><code>:tabe file</code> 在新的tab打开文件<br><code>:tabc</code> 关闭文件<br><code>:tabp</code> 切换到前一个tab<br><code>:tabn</code> 切换到下一个tab<br><code>gt</code> 切换到下一个tab<br><code>gT</code> 切换到前一个tab</p>
+<p><code>Ctrl + ww</code> 跳到下一个窗口<br><code>Ctrl + wh</code> 跳到左边窗口<br><code>Ctrl + wj</code> 跳到下边窗口<br><code>Ctrl + wk</code> 跳到上边窗口<br><code>Ctrl + wl</code> 跳到右边窗口</p>
+<h3 id="参数列表">参数列表</h3><pre><code>启动<span class="tag">vim</span>给出多个文件，这些文件将被记住，即参数列表。参数列表和<span class="pseudo">:buffers</span>命令中的缓冲区列表不同。
+</code></pre><p><code>vim one.c two.c three.c</code> 将三个文件加入到参数列表中。<br><code>:next</code> 下一个文件<br><code>:wnext</code> 保存当前文件，下一个文件<br><code>:args</code> 显示当前所有的文件列表<br><code>:previous</code> 上一个文件<br><code>:last</code> 最后一个文件<br><code>:first</code> 地一个文件<br><code>:2next</code> 向后两个文件<br><code>args five.c six.c seven.h</code> 新建一个参数列表<br><code>args *.txt</code>    使用匹配符</p>
+<p><code>Ctrl + 6</code> 在两个文件中快速切换</p>
+<h3 id="缓冲区列表">缓冲区列表</h3><pre><code>缓冲区描述当前的文件，实际缓冲区是你编译文件的副本
+</code></pre><blockquote>
+<ul>
+<li>激活         显示在窗口内，并加载文本</li>
+<li>隐藏         不显示在窗口内，但加载文本</li>
+<li>非激活       不显示在窗口内，不加载文本</li>
+</ul>
+</blockquote>
+<p><code>ls/buffers/files</code> 查看缓冲区列表</p>
+<p><code>u</code> 列表外缓冲区<br><code>%</code> 当前缓冲区<br><code>#</code> 轮换缓冲区<br><code>a</code> 激活缓冲区<br><code>h</code> 隐藏缓冲区<br><code>=</code> 只读缓冲区<br><code>-</code> 不可改缓冲区<br><code>+</code> 已修改缓冲区</p>
+<p><code>:sbuffer 3</code>    在新一个窗口编辑缓冲区</p>
+<p><code>:bnext</code>   编辑下一个缓冲区<br><code>:bprevious</code>   编译上一个缓冲区<br><code>:bfirst</code>   编辑第一个缓冲区<br><code>:blast</code>   编辑最后个缓冲区<br><code>:bdelete num</code> 删除缓冲区</p>
+<p><code>i</code> 插入<br><code>I</code> 行首插入<br><code>a</code> 追加<br><code>A</code> 行为追加<br><code>o</code> 下行空行插入<br><code>O</code> 上行空行插入</p>
+<p><code>/text</code> 正向查找text<br><code>?text</code> 反向查找text<br><code>:set ignorecase</code> 大小写敏感<br><code>:set noignorecase</code> 大小写不敏感</p>
+<p><code>s/old/new/</code> 在本行使用new代替第一次出现的old<br><code>s/old/new/g</code> 在本行使用new代替所有的old<br><code>%s/old/new/</code> 在全文使用new代替第一次出现的old<br><code>%s/old/new/g</code> 在全文使用new代替所有old<br><code>:10,20s/^/    /g</code> 向10到20行首插入4个空格</p>
+<p><code>ddp</code> 交换光标所在行和其下紧邻的一行<br><code>h</code> 左移一个字符<br><code>l</code> 右移一个字符<br><code>k</code> 上移一个字符<br><code>j</code> 下移一个字符<br><code>20j</code> 向下移动20行</p>
+<p><code>^</code> 行首非空白字符上<br><code>0(数字0)</code> 行首<br><code>$</code> 行尾<br><code>gg</code> 文件头<br><code>G</code> 文件尾<br><code>f</code> 争相查找<br><code>F</code> 反响查找</p>
+<p><code>Ctrl + e</code> 向下滚动一行<br><code>Ctrl + y</code> 向上滚动一行<br><code>Ctrl + d</code> 向下滚动半屏<br><code>Ctrl + u</code> 向上滚动半屏<br><code>Ctrl + f</code> 向下滚动一屏<br><code>Ctrl + b</code> 向上滚动一屏</p>
+<p><code>u</code> 撤销<br><code>U</code> 撤销对整行的操作<br><code>Ctrl + r</code> 反撤销</p>
+<p><code>x</code> 删除当前光标所在字符<br><code>3x</code> 删除目标光标开始之后的三个字符<br><code>dl</code> 删除当前字符<br><code>dh</code> 删除上一行<br><code>dd</code> 删除当前行<br><code>dk</code> 删除下一行<br><code>10d</code> 删除当前行开始的10行<br><code>D</code> 删除当前字符到行尾<br><code>d$</code> 删除当前字符之后的所有字符（本行）<br><code>kdgg</code> 删除当前行之前的所有行（不包括当前行）<br><code>jdG</code> 删除当前行之后的所有行（不包括当前行）<br><code>:1,10d</code> 删除1到10行<br><code>:11,$d</code> 删除11到文件尾<br><code>1,$d</code> 删除所有行</p>
+<p><code>zo</code> 展开<br><code>zO</code> 展开（递归）<br><code>zc</code> 折叠<br><code>zC</code> 折叠（递归）</p>
+<p><code>yy</code> 复制当前康<br><code>nyy</code> 复制从当前行开始之后的n行<br><code>p</code> 粘贴到当前光标之后<br><code>shift + p</code> 粘贴到当前行<br><code>1,10 co 20</code> 将1到10行复制一份添加到20行尾部<br><code>1,$ co $</code> 将整个文件复制一份并添加到文件尾部<br><code>ndd</code> 剪切当前行之后的n行<br><code>:1,10d</code> 剪切1到10行<br><code>1,10 m 20</code> 将第1到10行移动到20行后边</p>
+<p><code>:wq</code> 保存并退出<br><code>:ZZ</code> 保存，并退出<br><code>:q!</code> 不保存文件并强制退出<br><code>:e!</code> 强制不保存当前文件，并重新载入<br><code>:f newfilename</code> 将当前文件重命名<br><code>q:</code> 查看历史命令<br><code>qa</code> 录制宏<br><code>:!commond</code> 命令模式，可以输入linux命令</p>
+<p>OmniCppComplete自动补全<br><code>Ctrl + P</code> 向前切换成员<br><code>Ctrl + N</code> 向后切换成员<br><code>Ctrl + E</code> 退出下拉框，并退回到原来录取的文字<br><code>Ctrl + Y</code> 退出下拉框，并接受当前选项</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="ci7x922ci0003hwjxieuftt0g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/mysql/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/mysql/">MYSQL</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-连接MYSQL">1.连接MYSQL</h2><p><code>mysql -uroot -p</code>        使用密码登录mysql数据库<br><code>mysql -h localhost -uroot -p 123</code>    连接远程服务器</p>
+<h2 id="2-修改密码">2.修改密码</h2><p><code>mysqladmin -uroot -password ab12</code>    给root加个密码<br><code>mysqladmin -uroot -p ab12 -password abce</code>    将root密码改成abce<br><code>update user set password=password(&#39;&#39;) weher user=&#39;root&#39;;</code> 修改user表修改器名称<br><code>flush privileges;</code>    强制刷新权限内存控制</p>
+<h2 id="3-增加新用户">3.增加新用户</h2><p><code>grant select on 数据库.* to 用户名@登录主机 identified by \&quot;密码&quot;</code><br><code>grant select,insert,update,delete on *.* to test1@\&quot;%\&quot; identified by \&quot;abc\&quot;</code> 新增用户;</p>
+<h2 id="4-显示命令">4.显示命令</h2><p><code>show databases;</code>    显示数据库<br><code>use mysql;</code>    使用数据库<br><code>show tables;</code>    显示数据库中的表<br><code>describe 表名;</code>    显示表的描述<br><code>create database 库名;</code>    创建数据库<br><code>use 库名;</code>    使用数据库;<br><code>create table 表名;</code> 创建表</p>
+<p><code>drop database 库名;</code>    删除数据库<br><code>drop table 表名;</code>    删除表</p>
+<p><code>delete from 表名;</code>    将表中的记录清空<br><code>select * from 表名;</code>    查询表</p>
+<h2 id="5-备份数据库">5.备份数据库</h2><p><code>mysqldump --opt school&gt;school.bbb</code>    备份数据库到school.bbb文件中<br><code>msyqldump -uroot -p21center meeting &gt; db_meeting.sql</code> 备份数据库<br><code>mysqldump -uroot -p21center meeting &lt; xxx.sql</code>     恢复数据库</p>
+<h2 id="6-执行sql语句">6.执行sql语句</h2><p><code>mysql -uroot -p &lt; /home/db_meeting.sql</code>     //.sql为大量的sql语句</p>
+<h2 id="7-全局管理权限">7.全局管理权限</h2><p><code>FILE</code> 在MySQL服务器上读写文件。<br><code>PROCESS</code> 显示或杀死属于其它用户的服务线程。<br><code>RELOAD</code> 重载访问控制表，刷新日志等。<br><code>SHUTDOWN</code> 关闭MySQL服务。<br>数据库/数据表/数据列权限：<br><code>ALTER</code> 修改已存在的数据表(例如增加/删除列)和索引。<br><code>CREATE</code> 建立新的数据库或数据表。<br><code>DELETE</code> 删除表的记录。<br><code>DROP</code> 删除数据表或数据库。<br><code>INDEX</code> 建立或删除索引。<br><code>INSERT</code> 增加表的记录。<br><code>SELECT</code> 显示/搜索表的记录。<br><code>UPDATE</code> 修改表中已存在的记录。<br>特别的权限：<br><code>ALL</code> 允许做任何事(和root一样)。<br><code>USAGE</code> 只允许登录–其它什么也不允许做。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="ci7x922cn0006hwjxnybqlmsr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -527,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="ci7x89rng00117ijxu1tp9f7l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="ci7x922fd001dhwjxt3nxrotx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -574,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="ci7x89rni00137ijxi2kwv8rj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="ci7x922fg001fhwjx8l5v032w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -614,7 +614,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="ci7x89rnl00157ijxpz6xrfo8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="ci7x922fo001hhwjxb866pf47" class="article-share-link">Share</a>
       
       
     </footer>
@@ -654,7 +654,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="ci7x89rnq00177ijxy7jve11o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="ci7x922fv001jhwjx2ckaej8l" class="article-share-link">Share</a>
       
       
     </footer>
@@ -700,7 +700,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="ci7x89rnv00197ijxyywvyvxz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="ci7x922fy001lhwjxuuyt5sbc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -745,48 +745,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="ci7x89ro2001b7ijxafynzf0j" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-data_structure/ds_ch07" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/23/data_structure/ds_ch07/" class="article-date">
-  <time datetime="2014-11-23T10:34:26.000Z" itemprop="datePublished">2014-11-23</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/23/data_structure/ds_ch07/">数据结构（007）-简单选择排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SelectSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (NULL == R || n &lt; <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> i, j, k, temp;</span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">0</span>; i!=n; ++i) &#123;</span><br><span class="line">    k = i;</span><br><span class="line">	<span class="keyword">for</span> (j=i+<span class="number">1</span>; j!=n; ++j)</span><br><span class="line">	  <span class="keyword">if</span> (R[j] &lt; R[k])</span><br><span class="line">	    k = j;</span><br><span class="line">	temp = R[i];</span><br><span class="line">	R[i] = R[k];</span><br><span class="line">	R[k] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="ci7x89rmu000m7ijxfqlww7hg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="ci7x922g7001nhwjx44d7ve18" class="article-share-link">Share</a>
       
       
     </footer>
@@ -832,7 +791,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="ci7x89ro6001d7ijxc9qod4rt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="ci7x922ga001phwjxyzvlqlvu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -842,10 +801,10 @@
 
 
   
-    <article id="post-data_structure/ds_ch06" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-data_structure/ds_ch07" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/22/data_structure/ds_ch06/" class="article-date">
-  <time datetime="2014-11-22T10:34:26.000Z" itemprop="datePublished">2014-11-22</time>
+    <a href="/2014/11/23/data_structure/ds_ch07/" class="article-date">
+  <time datetime="2014-11-23T10:34:26.000Z" itemprop="datePublished">2014-11-23</time>
 </a>
     
   <div class="article-category">
@@ -860,7 +819,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/22/data_structure/ds_ch06/">数据结构（006）-快速排序</a>
+      <a class="article-title" href="/2014/11/23/data_structure/ds_ch07/">数据结构（007）-简单选择排序</a>
     </h1>
   
 
@@ -868,12 +827,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( NULL == R || l &lt; <span class="number">0</span> || r &lt; <span class="number">0</span> )</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  QuickSortInternal(R, l, r);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSortInternal</span> <span class="params">( <span class="keyword">int</span> R[], <span class="keyword">int</span> l, <span class="keyword">int</span> r )</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> temp;</span><br><span class="line">  <span class="keyword">int</span> i = l, j = r;</span><br><span class="line">  <span class="keyword">if</span> (l &lt; r ) &#123;</span><br><span class="line">    temp = R[l];</span><br><span class="line">	<span class="keyword">while</span> ( i != j ) &#123;</span><br><span class="line">	  <span class="keyword">while</span> ( j &gt; i &amp;&amp; R[j] &gt; temp ) --j;</span><br><span class="line">	  <span class="keyword">if</span> ( i &lt; j ) &#123;</span><br><span class="line">	    R[i] = R[j];</span><br><span class="line">		++i;</span><br><span class="line">	  &#125;</span><br><span class="line">	  <span class="keyword">while</span> ( i &lt; j &amp;&amp; R[i] &lt; temp ) ++i;</span><br><span class="line">	  <span class="keyword">if</span> ( i &lt; j ) &#123;</span><br><span class="line">	    R[j] = R[i];</span><br><span class="line">		--j;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	R[i] = temp;</span><br><span class="line">	QuickSort(R, l, i-<span class="number">1</span>);</span><br><span class="line">	QuickSort(R, i+<span class="number">1</span>, r);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SelectSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (NULL == R || n &lt; <span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> i, j, k, temp;</span><br><span class="line">  <span class="keyword">for</span> (i=<span class="number">0</span>; i!=n; ++i) &#123;</span><br><span class="line">    k = i;</span><br><span class="line">	<span class="keyword">for</span> (j=i+<span class="number">1</span>; j!=n; ++j)</span><br><span class="line">	  <span class="keyword">if</span> (R[j] &lt; R[k])</span><br><span class="line">	    k = j;</span><br><span class="line">	temp = R[i];</span><br><span class="line">	R[i] = R[k];</span><br><span class="line">	R[k] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="ci7x89rmx000p7ijxi05qte9a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="ci7x922ej000yhwjxorlya3w7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -919,7 +878,48 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="ci7x89ro8001f7ijxoirpl55r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="ci7x922gd001rhwjxhk7uwf2c" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-data_structure/ds_ch06" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/22/data_structure/ds_ch06/" class="article-date">
+  <time datetime="2014-11-22T10:34:26.000Z" itemprop="datePublished">2014-11-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/22/data_structure/ds_ch06/">数据结构（006）-快速排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">QuickSort</span><span class="params">(<span class="keyword">int</span> R[], <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( NULL == R || l &lt; <span class="number">0</span> || r &lt; <span class="number">0</span> )</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  QuickSortInternal(R, l, r);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">QuickSortInternal</span> <span class="params">( <span class="keyword">int</span> R[], <span class="keyword">int</span> l, <span class="keyword">int</span> r )</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> temp;</span><br><span class="line">  <span class="keyword">int</span> i = l, j = r;</span><br><span class="line">  <span class="keyword">if</span> (l &lt; r ) &#123;</span><br><span class="line">    temp = R[l];</span><br><span class="line">	<span class="keyword">while</span> ( i != j ) &#123;</span><br><span class="line">	  <span class="keyword">while</span> ( j &gt; i &amp;&amp; R[j] &gt; temp ) --j;</span><br><span class="line">	  <span class="keyword">if</span> ( i &lt; j ) &#123;</span><br><span class="line">	    R[i] = R[j];</span><br><span class="line">		++i;</span><br><span class="line">	  &#125;</span><br><span class="line">	  <span class="keyword">while</span> ( i &lt; j &amp;&amp; R[i] &lt; temp ) ++i;</span><br><span class="line">	  <span class="keyword">if</span> ( i &lt; j ) &#123;</span><br><span class="line">	    R[j] = R[i];</span><br><span class="line">		--j;</span><br><span class="line">	  &#125;</span><br><span class="line">	&#125;</span><br><span class="line">	R[i] = temp;</span><br><span class="line">	QuickSort(R, l, i-<span class="number">1</span>);</span><br><span class="line">	QuickSort(R, i+<span class="number">1</span>, r);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="ci7x922eo0011hwjxz8uk749g" class="article-share-link">Share</a>
       
       
     </footer>
@@ -977,7 +977,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="ci7x89rob001h7ijxgu0lie10" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="ci7x922gi001thwjxp97ef4bi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1018,7 +1018,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="ci7x89rn0000r7ijxz8qnka8k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="ci7x922eq0013hwjxjuqrqgp8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1059,7 +1059,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="ci7x89rn3000t7ijxb85hcrel" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="ci7x922eu0015hwjxlmw0sv8u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1105,7 +1105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="ci7x89rod001j7ijxfrdbiprx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="ci7x922gn001vhwjx18ydt2ei" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1115,14 +1115,14 @@
 
 
   
-    <article id="post-bash/bash-ch03" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-data_structure/ds_ch03" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/19/bash/bash-ch03/" class="article-date">
+    <a href="/2014/11/19/data_structure/ds_ch03/" class="article-date">
   <time datetime="2014-11-19T10:34:26.000Z" itemprop="datePublished">2014-11-19</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
+    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
   </div>
 
   </div>
@@ -1133,7 +1133,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/19/bash/bash-ch03/">高级Bash编程（003）- 转义字符和变量替换</a>
+      <a class="article-title" href="/2014/11/19/data_structure/ds_ch03/">数据结构（003）-直接插入排序</a>
     </h1>
   
 
@@ -1141,36 +1141,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="转义字符的替换">转义字符的替换</h2><p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">a=<span class="number">10</span></span><br><span class="line"><span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"Value of a is <span class="variable">$a</span> \n"</span></span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value of a is 10</span><br><span class="line"><span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>如果不是使用-e 则：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Value <span class="keyword">of</span> a <span class="keyword">is</span> <span class="number">10</span><span class="string">\n</span></span><br></pre></td></tr></table></figure></p>
-<p>面的转义字符都可以用在 echo 中：</p>
+        <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">InsertSort</span><span class="params">( <span class="keyword">int</span> R[], <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( NULL == R || n &lt; <span class="number">0</span> )</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> i, j;</span><br><span class="line">  <span class="keyword">int</span> temp;</span><br><span class="line">  <span class="keyword">for</span> ( i=<span class="number">1</span>; i != n-<span class="number">1</span>; ++i ) &#123;</span><br><span class="line">    temp = R[i];</span><br><span class="line">	j = i - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> ( j &gt;= <span class="number">0</span> &amp;&amp; temp &lt; R[j] ) &#123;</span><br><span class="line">	  R[j+<span class="number">1</span>] = R[j];</span><br><span class="line">	  --j;</span><br><span class="line">	&#125;</span><br><span class="line">	R[j+<span class="number">1</span>] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>转义字符含义</p>
 <blockquote>
-<p>\\     反斜杠<br>\a     警报，响铃<br>\b     退格（删除键）<br>\f     换页(FF)，将当前位置移到下页开头<br>\n     换行<br>\r     回车<br>\t     水平制表符（tab键）<br>\v     垂直制表符<br>可以使用 echo 命令的 -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。</p>
+<p>最好时间复杂度：n （数组正序时）<br>最坏时间复杂度：n2（数组逆序时）<br>平均时间复杂度：n2<br>空间复杂度：1</p>
 </blockquote>
 </blockquote>
-<hr>
-<p>命令替换：命令替换是指Shell可以先执行命令，将输出结果暂时保存，在适当的地方输出。<br>语法：`commond`<br>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">DATE=`date`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Date is <span class="variable">$DATE</span>"</span></span><br><span class="line">USERS=`who | wc <span class="operator">-l</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Logged in user are <span class="variable">$USERS</span>"</span></span><br><span class="line">UP=`date ; uptime`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Uptime is <span class="variable">$UP</span>"</span></span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Date</span> <span class="tag">is</span> <span class="tag">Thu</span> <span class="tag">Jul</span>  2 03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">MST</span> 2009</span><br><span class="line"><span class="tag">Logged</span> <span class="tag">in</span> <span class="tag">user</span> <span class="tag">are</span> 1</span><br><span class="line"><span class="tag">Uptime</span> <span class="tag">is</span> <span class="tag">Thu</span> <span class="tag">Jul</span>  2 03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">MST</span> 2009</span><br><span class="line">03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">up</span> 20 <span class="tag">days</span>, 14<span class="pseudo">:03</span>,  1 <span class="tag">user</span>,  <span class="tag">load</span> <span class="tag">avg</span>: 0<span class="class">.13</span>, 0<span class="class">.07</span>, 0<span class="class">.15</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="变量替换">变量替换</h2><p>形式     说明</p>
-<blockquote>
-<ol>
-<li>\${var}<br>变量本来的值</li>
-<li>\${var:-word}<br>如果变量 var 为空或已被删除(unset)，那么返回 word，但不改变 var 的值。</li>
-<li>\${var:=word}<br>如果变量 var 为空或已被删除(unset)，那么返回 word，并将 var 的值设置为 word。</li>
-<li>\${var:?message}<br>如果变量 var 为空或已被删除(unset)，那么将消息 message 送到标准错误输出，可以用来检测变量 var 是否可以被正常赋值。<br>若此替换出现在Shell脚本中，那么脚本将停止运行。</li>
-<li>\${var:+word}<br>如果变量 var 被定义，那么返回 word，但不改变 var 的值。</li>
-</ol>
-</blockquote>
-<p>实例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo $&#123;var:-"Variable is not <span class="operator"><span class="keyword">set</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">1</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span><br><span class="line"></span><br><span class="line">echo $&#123;var:="</span>Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">2</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span><br><span class="line"></span><br><span class="line">unset var</span><br><span class="line">echo $&#123;var:+"</span>This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">3</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $<span class="keyword">var</span><span class="string">"</span><br><span class="line"></span><br><span class="line">var="</span>Prefix<span class="string">"</span><br><span class="line">echo $&#123;var:+"</span>This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">4</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $<span class="keyword">var</span><span class="string">"</span><br><span class="line"></span><br><span class="line">echo $&#123;var:?"</span>Print this message<span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">5</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span></span></span><br></pre></td></tr></table></figure></p>
-<p>结果：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Variable is not <span class="operator"><span class="keyword">set</span></span><br><span class="line"><span class="number">1</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span></span><br><span class="line">Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span></span><br><span class="line"><span class="number">2</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span></span><br><span class="line"><span class="number">3</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span></span><br><span class="line">This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span></span><br><span class="line"><span class="number">4</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Prefix</span><br><span class="line">Prefix</span><br><span class="line"><span class="number">5</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Prefix</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/19/bash/bash-ch03/" data-id="ci7x89rof001l7ijxr59v2eft" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="ci7x922ey0017hwjxf7xklkr8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1193,7 +1174,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leveldb源码剖析/">leveldb源码剖析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用工具/">常用工具</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leveldb源码剖析/">leveldb源码剖析</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用工具/">常用工具</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
     </div>
   </div>
 
@@ -1206,7 +1187,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -1218,7 +1199,11 @@
       <ul>
         
           <li>
-            <a href="/2014/12/16/tools/mysql/">MYSQL</a>
+            <a href="/2014/12/16/tools/irc/">IRC</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/16/tools/git/">GIT</a>
           </li>
         
           <li>
@@ -1230,11 +1215,7 @@
           </li>
         
           <li>
-            <a href="/2014/12/16/tools/irc/">IRC</a>
-          </li>
-        
-          <li>
-            <a href="/2014/12/16/tools/git/">GIT</a>
+            <a href="/2014/12/16/tools/mysql/">MYSQL</a>
           </li>
         
       </ul>
