@@ -65,6 +65,127 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-tools/mysql" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/mysql/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/mysql/">MYSQL</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1-连接MYSQL">1.连接MYSQL</h2><p><code>mysql -uroot -p</code>        使用密码登录mysql数据库<br><code>mysql -h localhost -uroot -p 123</code>    连接远程服务器</p>
+<h2 id="2-修改密码">2.修改密码</h2><p><code>mysqladmin -uroot -password ab12</code>    给root加个密码<br><code>mysqladmin -uroot -p ab12 -password abce</code>    将root密码改成abce<br><code>update user set password=password(&#39;&#39;) weher user=&#39;root&#39;;</code> 修改user表修改器名称<br><code>flush privileges;</code>    强制刷新权限内存控制</p>
+<h2 id="3-增加新用户">3.增加新用户</h2><p><code>grant select on 数据库.* to 用户名@登录主机 identified by \&quot;密码&quot;</code><br><code>grant select,insert,update,delete on *.* to test1@\&quot;%\&quot; identified by \&quot;abc\&quot;</code> 新增用户;</p>
+<h2 id="4-显示命令">4.显示命令</h2><p><code>show databases;</code>    显示数据库<br><code>use mysql;</code>    使用数据库<br><code>show tables;</code>    显示数据库中的表<br><code>describe 表名;</code>    显示表的描述<br><code>create database 库名;</code>    创建数据库<br><code>use 库名;</code>    使用数据库;<br><code>create table 表名;</code> 创建表</p>
+<p><code>drop database 库名;</code>    删除数据库<br><code>drop table 表名;</code>    删除表</p>
+<p><code>delete from 表名;</code>    将表中的记录清空<br><code>select * from 表名;</code>    查询表</p>
+<h2 id="5-备份数据库">5.备份数据库</h2><p><code>mysqldump --opt school&gt;school.bbb</code>    备份数据库到school.bbb文件中<br><code>msyqldump -uroot -p21center meeting &gt; db_meeting.sql</code> 备份数据库<br><code>mysqldump -uroot -p21center meeting &lt; xxx.sql</code>     恢复数据库</p>
+<h2 id="6-执行sql语句">6.执行sql语句</h2><p><code>mysql -uroot -p &lt; /home/db_meeting.sql</code>     //.sql为大量的sql语句</p>
+<h2 id="7-全局管理权限">7.全局管理权限</h2><p><code>FILE</code> 在MySQL服务器上读写文件。<br><code>PROCESS</code> 显示或杀死属于其它用户的服务线程。<br><code>RELOAD</code> 重载访问控制表，刷新日志等。<br><code>SHUTDOWN</code> 关闭MySQL服务。<br>数据库/数据表/数据列权限：<br><code>ALTER</code> 修改已存在的数据表(例如增加/删除列)和索引。<br><code>CREATE</code> 建立新的数据库或数据表。<br><code>DELETE</code> 删除表的记录。<br><code>DROP</code> 删除数据表或数据库。<br><code>INDEX</code> 建立或删除索引。<br><code>INSERT</code> 增加表的记录。<br><code>SELECT</code> 显示/搜索表的记录。<br><code>UPDATE</code> 修改表中已存在的记录。<br>特别的权限：<br><code>ALL</code> 允许做任何事(和root一样)。<br><code>USAGE</code> 只允许登录–其它什么也不允许做。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="ci7x876f8000662jxtszmlzix" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/gdb" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/gdb/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/gdb/">GDB</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="启动GDB命令">启动GDB命令</h2><p><code>gdb executable</code> 调试可执行文件<br><code>gdb -e executable -c core-file</code> 调试带有core-dump文件的可执行文件</p>
+<h2 id="GDB中使用的命令">GDB中使用的命令</h2><h3 id="查看信息：">查看信息：</h3><p><code>help [topic | comand]</code>  列出gdb帮助</p>
+<p><code>info args</code> 里出运行程序的命令行参数<br><code>info locals</code> 查看局部变量<br><code>bt full</code> 查看所有的变量<br><code>info breakpoints/br [n]</code>  列出断点号,或列出断点号为n的信息<br><code>info watchpoints</code>  列出观察点</p>
+<p><code>where</code> 显示当前的行号和所处的函数</p>
+<h3 id="断点和观察点">断点和观察点</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">break [position] <span class="keyword">if</span> condition</span><br><span class="line">position格式：</span><br><span class="line">    <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">    +<span class="built_in">offset</span></span><br><span class="line">    -<span class="built_in">offset</span></span><br><span class="line">    func</span><br><span class="line">    <span class="built_in">file</span>::func</span><br><span class="line">    <span class="built_in">file</span>::<span class="built_in">number</span>-<span class="built_in">line</span></span><br></pre></td></tr></table></figure>
+<p><code>watch 表达式</code> 当条件满足时设置观察点<br><code>rwatch 表达式</code> 当表达式被读时中断<br><code>awatch 表达式</code> 当表达式被读或写时中断</p>
+<p><code>clear [函数名|行号]</code> 删除断点，无参表示当前断点<br><code>delete(d)  [断点号|断点范围]</code> 删除断点号，无参表示删除所有断点<br><code>disable [断点号|断点范围]</code><br><code>enable [断点号|断点范围]</code></p>
+<h3 id="单步执行">单步执行</h3><p><code>step(s) [n]</code>  进入下一行代码的执行，会进入函数的内部<br><code>next(n) [n]</code>  执行下一行代，不会进入函数内部<br><code>stepi(si) [n]</code> 执行下一条汇编/CPU指令<br><code>nexti(ni) [n]</code></p>
+<p><code>until</code> 继续运行直到到达指定行号，或者地址，函数<br><code>until line-number</code><br><code>until line-number if condition</code></p>
+<p><code>return</code><br><code>return expression</code>   弹出选中的栈帧（stack frame）。如果后面指定参数，则返回表达式的值。</p>
+<p><code>finish</code> 继续执行到函数结束</p>
+<h3 id="程序堆栈">程序堆栈</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [<span class="keyword">n</span>|-<span class="keyword">n</span>|full] 显示当前堆栈的追踪,<span class="keyword">n</span>显示的个数，-<span class="keyword">n</span>显示底层<span class="keyword">n</span>个，full显示所有的局部变量</span><br></pre></td></tr></table></figure>
+<p><code>frame(f) number</code>  选择指定的栈帧<br><code>up [number]</code> 选择的当前栈帧的下一(number)个<br><code>down [number]</code> 选择的当前栈帧的下一(number)个</p>
+<p><code>bt full</code> 打印所有栈中的所有局部变量的值<br><code>info frame [addr]</code> 描述选中的栈帧<br><code>info args</code> 显示选中栈帧的参数，局部变量，异常处理函数。<br><code>info locals</code></p>
+<h3 id="源代码：">源代码：</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span>的形式：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
+<h3 id="打印变量">打印变量</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line"><span class="built_in">format</span>的格式：</span><br><span class="line">  /x  十六进制形式</span><br><span class="line">  /d  有符整数</span><br><span class="line">  /u  无符整数</span><br><span class="line">  /o  十进制</span><br><span class="line">  /t  二进制</span><br><span class="line">  /c  字符</span><br><span class="line">  /f  浮点</span><br><span class="line">  /<span class="operator">a</span>  十六进制地址</span><br><span class="line"><span class="built_in">variable</span>形式：</span><br><span class="line">  <span class="built_in">variable</span>  变量</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> 文件中的变量</span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  文件中的变量</span><br><span class="line">  *array@<span class="built_in">length</span>   数组</span><br></pre></td></tr></table></figure>
+<h3 id="查看内存">查看内存</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu 地址</span><br><span class="line">    <span class="keyword">n</span>   重复<span class="keyword">n</span>次</span><br><span class="line">    f   显示格式。为<span class="keyword">print</span>使用的格式</span><br><span class="line">    <span class="keyword">u</span>   每个单元的大小</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
+<p><code>call expression</code> 类似print,但不打印void</p>
+<h2 id="设置工作文件">设置工作文件</h2><p><code>info files</code>  列出当前文件，共享库<br><code>info share</code></p>
+<p><code>file file</code> 把file当做调试的程序<br><code>core file</code> 把file当作core文件。<br><code>exec file</code> 把exec大概你做可执行程序<br><code>symbol file</code> 从file中读取符号表。<br><code>load file</code> 动态链入file文件，并读取它的符号表<br><code>path directory</code>  把目录directory加入到搜索可执行文件和符号文件的路径中</p>
+<h3 id="控制：">控制：</h3><p><code>run/r</code> 从头开始执行程序<br><code>continue/c</code> 继续执行直到下一个断点或者观察点<br><code>kill</code>  停止程序执行<br><code>quit/q</code>  退出gdb</p>
+<hr>
+<blockquote>
+<p>注意：</p>
+<blockquote>
+<ol>
+<li>编译可执行文件时加上-g选项</li>
+<li>不要用-O,-O2优化选项</li>
+<li>在gdb中执行shell命令使用：shell command</li>
+</ol>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="ci7x876fn000c62jxb4jfd04v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-tools/vim" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2014/12/16/tools/vim/" class="article-date">
@@ -128,7 +249,51 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="ci7vu12q80003i7jxm9t82xt4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="ci7x876f4000362jxnvkssidv" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tools/irc" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/12/16/tools/irc/" class="article-date">
+  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/12/16/tools/irc/">IRC</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>/server chat.freenode.net</code> 连接名为chat.freenode.net的服务器<br><code>/nick new_name</code> 以名为new_name的昵称登录<br><code>/msg nickserv register your_password you_email_address</code>向freenode注册你的昵称</p>
+<h3 id="使用一个备用昵称">使用一个备用昵称</h3><p><code>/nick new_name_2</code>  切换到需要备用昵称<br><code>/msg nickserv group</code> 将当前备用昵称注册</p>
+<p><code>/msg nickserv identify acount_name your_password</code> 向nickserv鉴别你的用户名和密码</p>
+<p><code>/msg nickserv info nick_name</code> 查询某个昵称最后的登录信息<br><code>/join #freenode</code> 加入freenode频道</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="ci7x876fh000862jxb07fapvd" class="article-share-link">Share</a>
       
       
     </footer>
@@ -317,172 +482,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="ci7vu12qk000ai7jxmgbbptiv" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tools/gdb" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/16/tools/gdb/" class="article-date">
-  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/16/tools/gdb/">GDB</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="启动GDB命令">启动GDB命令</h2><p><code>gdb executable</code> 调试可执行文件<br><code>gdb -e executable -c core-file</code> 调试带有core-dump文件的可执行文件</p>
-<h2 id="GDB中使用的命令">GDB中使用的命令</h2><h3 id="查看信息：">查看信息：</h3><p><code>help [topic | comand]</code>  列出gdb帮助</p>
-<p><code>info args</code> 里出运行程序的命令行参数<br><code>info locals</code> 查看局部变量<br><code>bt full</code> 查看所有的变量<br><code>info breakpoints/br [n]</code>  列出断点号,或列出断点号为n的信息<br><code>info watchpoints</code>  列出观察点</p>
-<p><code>where</code> 显示当前的行号和所处的函数</p>
-<h3 id="断点和观察点">断点和观察点</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">break [position] <span class="keyword">if</span> condition</span><br><span class="line">position格式：</span><br><span class="line">    <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">    +<span class="built_in">offset</span></span><br><span class="line">    -<span class="built_in">offset</span></span><br><span class="line">    func</span><br><span class="line">    <span class="built_in">file</span>::func</span><br><span class="line">    <span class="built_in">file</span>::<span class="built_in">number</span>-<span class="built_in">line</span></span><br></pre></td></tr></table></figure>
-<p><code>watch 表达式</code> 当条件满足时设置观察点<br><code>rwatch 表达式</code> 当表达式被读时中断<br><code>awatch 表达式</code> 当表达式被读或写时中断</p>
-<p><code>clear [函数名|行号]</code> 删除断点，无参表示当前断点<br><code>delete(d)  [断点号|断点范围]</code> 删除断点号，无参表示删除所有断点<br><code>disable [断点号|断点范围]</code><br><code>enable [断点号|断点范围]</code></p>
-<h3 id="单步执行">单步执行</h3><p><code>step(s) [n]</code>  进入下一行代码的执行，会进入函数的内部<br><code>next(n) [n]</code>  执行下一行代，不会进入函数内部<br><code>stepi(si) [n]</code> 执行下一条汇编/CPU指令<br><code>nexti(ni) [n]</code></p>
-<p><code>until</code> 继续运行直到到达指定行号，或者地址，函数<br><code>until line-number</code><br><code>until line-number if condition</code></p>
-<p><code>return</code><br><code>return expression</code>   弹出选中的栈帧（stack frame）。如果后面指定参数，则返回表达式的值。</p>
-<p><code>finish</code> 继续执行到函数结束</p>
-<h3 id="程序堆栈">程序堆栈</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [<span class="keyword">n</span>|-<span class="keyword">n</span>|full] 显示当前堆栈的追踪,<span class="keyword">n</span>显示的个数，-<span class="keyword">n</span>显示底层<span class="keyword">n</span>个，full显示所有的局部变量</span><br></pre></td></tr></table></figure>
-<p><code>frame(f) number</code>  选择指定的栈帧<br><code>up [number]</code> 选择的当前栈帧的下一(number)个<br><code>down [number]</code> 选择的当前栈帧的下一(number)个</p>
-<p><code>bt full</code> 打印所有栈中的所有局部变量的值<br><code>info frame [addr]</code> 描述选中的栈帧<br><code>info args</code> 显示选中栈帧的参数，局部变量，异常处理函数。<br><code>info locals</code></p>
-<h3 id="源代码：">源代码：</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span>的形式：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
-<h3 id="打印变量">打印变量</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line"><span class="built_in">format</span>的格式：</span><br><span class="line">  /x  十六进制形式</span><br><span class="line">  /d  有符整数</span><br><span class="line">  /u  无符整数</span><br><span class="line">  /o  十进制</span><br><span class="line">  /t  二进制</span><br><span class="line">  /c  字符</span><br><span class="line">  /f  浮点</span><br><span class="line">  /<span class="operator">a</span>  十六进制地址</span><br><span class="line"><span class="built_in">variable</span>形式：</span><br><span class="line">  <span class="built_in">variable</span>  变量</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> 文件中的变量</span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  文件中的变量</span><br><span class="line">  *array@<span class="built_in">length</span>   数组</span><br></pre></td></tr></table></figure>
-<h3 id="查看内存">查看内存</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu 地址</span><br><span class="line">    <span class="keyword">n</span>   重复<span class="keyword">n</span>次</span><br><span class="line">    f   显示格式。为<span class="keyword">print</span>使用的格式</span><br><span class="line">    <span class="keyword">u</span>   每个单元的大小</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
-<p><code>call expression</code> 类似print,但不打印void</p>
-<h2 id="设置工作文件">设置工作文件</h2><p><code>info files</code>  列出当前文件，共享库<br><code>info share</code></p>
-<p><code>file file</code> 把file当做调试的程序<br><code>core file</code> 把file当作core文件。<br><code>exec file</code> 把exec大概你做可执行程序<br><code>symbol file</code> 从file中读取符号表。<br><code>load file</code> 动态链入file文件，并读取它的符号表<br><code>path directory</code>  把目录directory加入到搜索可执行文件和符号文件的路径中</p>
-<h3 id="控制：">控制：</h3><p><code>run/r</code> 从头开始执行程序<br><code>continue/c</code> 继续执行直到下一个断点或者观察点<br><code>kill</code>  停止程序执行<br><code>quit/q</code>  退出gdb</p>
-<hr>
-<blockquote>
-<p>注意：</p>
-<blockquote>
-<ol>
-<li>编译可执行文件时加上-g选项</li>
-<li>不要用-O,-O2优化选项</li>
-<li>在gdb中执行shell命令使用：shell command</li>
-</ol>
-</blockquote>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="ci7vu12qo000ci7jxhwgwqz5j" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tools/irc" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/16/tools/irc/" class="article-date">
-  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/16/tools/irc/">IRC</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><code>/server chat.freenode.net</code> 连接名为chat.freenode.net的服务器<br><code>/nick new_name</code> 以名为new_name的昵称登录<br><code>/msg nickserv register your_password you_email_address</code>向freenode注册你的昵称</p>
-<h3 id="使用一个备用昵称">使用一个备用昵称</h3><p><code>/nick new_name_2</code>  切换到需要备用昵称<br><code>/msg nickserv group</code> 将当前备用昵称注册</p>
-<p><code>/msg nickserv identify acount_name your_password</code> 向nickserv鉴别你的用户名和密码</p>
-<p><code>/msg nickserv info nick_name</code> 查询某个昵称最后的登录信息<br><code>/join #freenode</code> 加入freenode频道</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="ci7vu12qf0008i7jxb2sqy3fb" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-tools/mysql" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/12/16/tools/mysql/" class="article-date">
-  <time datetime="2014-12-16T10:34:26.000Z" itemprop="datePublished">2014-12-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/12/16/tools/mysql/">MYSQL</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1-连接MYSQL">1.连接MYSQL</h2><p><code>mysql -uroot -p</code>        使用密码登录mysql数据库<br><code>mysql -h localhost -uroot -p 123</code>    连接远程服务器</p>
-<h2 id="2-修改密码">2.修改密码</h2><p><code>mysqladmin -uroot -password ab12</code>    给root加个密码<br><code>mysqladmin -uroot -p ab12 -password abce</code>    将root密码改成abce<br><code>update user set password=password(&#39;&#39;) weher user=&#39;root&#39;;</code> 修改user表修改器名称<br><code>flush privileges;</code>    强制刷新权限内存控制</p>
-<h2 id="3-增加新用户">3.增加新用户</h2><p><code>grant select on 数据库.* to 用户名@登录主机 identified by \&quot;密码&quot;</code><br><code>grant select,insert,update,delete on *.* to test1@\&quot;%\&quot; identified by \&quot;abc\&quot;</code> 新增用户;</p>
-<h2 id="4-显示命令">4.显示命令</h2><p><code>show databases;</code>    显示数据库<br><code>use mysql;</code>    使用数据库<br><code>show tables;</code>    显示数据库中的表<br><code>describe 表名;</code>    显示表的描述<br><code>create database 库名;</code>    创建数据库<br><code>use 库名;</code>    使用数据库;<br><code>create table 表名;</code> 创建表</p>
-<p><code>drop database 库名;</code>    删除数据库<br><code>drop table 表名;</code>    删除表</p>
-<p><code>delete from 表名;</code>    将表中的记录清空<br><code>select * from 表名;</code>    查询表</p>
-<h2 id="5-备份数据库">5.备份数据库</h2><p><code>mysqldump --opt school&gt;school.bbb</code>    备份数据库到school.bbb文件中<br><code>msyqldump -uroot -p21center meeting &gt; db_meeting.sql</code> 备份数据库<br><code>mysqldump -uroot -p21center meeting &lt; xxx.sql</code>     恢复数据库</p>
-<h2 id="6-执行sql语句">6.执行sql语句</h2><p><code>mysql -uroot -p &lt; /home/db_meeting.sql</code>     //.sql为大量的sql语句</p>
-<h2 id="7-全局管理权限">7.全局管理权限</h2><p><code>FILE</code> 在MySQL服务器上读写文件。<br><code>PROCESS</code> 显示或杀死属于其它用户的服务线程。<br><code>RELOAD</code> 重载访问控制表，刷新日志等。<br><code>SHUTDOWN</code> 关闭MySQL服务。<br>数据库/数据表/数据列权限：<br><code>ALTER</code> 修改已存在的数据表(例如增加/删除列)和索引。<br><code>CREATE</code> 建立新的数据库或数据表。<br><code>DELETE</code> 删除表的记录。<br><code>DROP</code> 删除数据表或数据库。<br><code>INDEX</code> 建立或删除索引。<br><code>INSERT</code> 增加表的记录。<br><code>SELECT</code> 显示/搜索表的记录。<br><code>UPDATE</code> 修改表中已存在的记录。<br>特别的权限：<br><code>ALL</code> 允许做任何事(和root一样)。<br><code>USAGE</code> 只允许登录–其它什么也不允许做。</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="ci7vu12qd0006i7jx13vp5co2" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="ci7x876fk000a62jx62r2ci4y" class="article-share-link">Share</a>
       
       
     </footer>
@@ -527,7 +527,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="ci7vu12ru000yi7jx7qxbk9ig" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="ci7x876hu001162jx13376brk" class="article-share-link">Share</a>
       
       
     </footer>
@@ -574,7 +574,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="ci7vu12rw0010i7jxoqtpe1w4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="ci7x876hy001362jx4pzyzd1r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -614,7 +614,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="ci7vu12ry0012i7jx4x2nqbee" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="ci7x876i1001562jxkhhuaid8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -654,7 +654,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="ci7vu12s10014i7jxrjsuxd5e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="ci7x876i7001762jx35tcpr3d" class="article-share-link">Share</a>
       
       
     </footer>
@@ -700,7 +700,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="ci7vu12s40016i7jx61a6ido3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="ci7x876id001962jx17dbniie" class="article-share-link">Share</a>
       
       
     </footer>
@@ -745,7 +745,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="ci7vu12s70018i7jxgscue6g8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="ci7x876if001b62jx7x7ddnm2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -786,7 +786,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="ci7vu12r2000ji7jx2xota9so" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="ci7x876gi000m62jx5mih616r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -832,7 +832,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="ci7vu12sb001ai7jxhjf7ob5a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="ci7x876im001d62jxsn07r97w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -873,7 +873,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="ci7vu12r8000mi7jxwobrp0qs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="ci7x876gq000p62jxyqghz5l5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -919,7 +919,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="ci7vu12sf001ci7jxvcr4u4rf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="ci7x876is001f62jxzvoo63ya" class="article-share-link">Share</a>
       
       
     </footer>
@@ -977,7 +977,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="ci7vu12si001ei7jxazdqkf0l" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="ci7x876iu001h62jxvynqsakp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1018,7 +1018,48 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="ci7vu12rb000oi7jxq4fty3kn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="ci7x876gw000r62jxfyy8o2rr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-data_structure/ds_ch04" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/11/20/data_structure/ds_ch04/" class="article-date">
+  <time datetime="2014-11-20T10:34:26.000Z" itemprop="datePublished">2014-11-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/11/20/data_structure/ds_ch04/">数据结构（004）-折半插入排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> BinInsertSort( <span class="built_in">int</span> R[], <span class="built_in">int</span> n ) &#123;</span><br><span class="line">  <span class="keyword">if</span> ( <span class="literal">NULL</span> == R || n &lt;= <span class="number">1</span> )</span><br><span class="line">    return -<span class="number">1</span>;</span><br><span class="line">  <span class="built_in">int</span> i, j;</span><br><span class="line">  <span class="built_in">int</span> temp, low, high, <span class="built_in">mid</span>;</span><br><span class="line">  <span class="keyword">for</span> ( i=<span class="number">1</span>; i != n-<span class="number">1</span>; ++i ) &#123;</span><br><span class="line">    temp = R[i];</span><br><span class="line">	low = <span class="number">0</span>;</span><br><span class="line">	high = i - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> ( low &lt;= high ) &#123;</span><br><span class="line">	  <span class="built_in">mid</span> = (<span class="built_in">log</span> + high) / <span class="number">2</span>;</span><br><span class="line">	  <span class="keyword">if</span> ( R[<span class="built_in">mid</span>] == temp )</span><br><span class="line">	    break;</span><br><span class="line">	  <span class="keyword">else</span> <span class="keyword">if</span> ( R[<span class="built_in">mid</span>] &gt; temp )</span><br><span class="line">	    high = <span class="built_in">mid</span> - <span class="number">1</span>;</span><br><span class="line">	  <span class="keyword">else</span> </span><br><span class="line">	    low = <span class="built_in">mid</span> + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> ( j=i-<span class="number">1</span>; j!=high; --j )</span><br><span class="line">	  R[j+<span class="number">1</span>] = R[j];</span><br><span class="line">	R[low] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="ci7x876h0000t62jxkd5n8qno" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1064,7 +1105,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="ci7vu12sk001gi7jx8rkp8h5e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="ci7x876ix001j62jxs1ul9t15" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1074,55 +1115,14 @@
 
 
   
-    <article id="post-data_structure/ds_ch04" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-bash/bash-ch03" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/11/20/data_structure/ds_ch04/" class="article-date">
-  <time datetime="2014-11-20T10:34:26.000Z" itemprop="datePublished">2014-11-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/20/data_structure/ds_ch04/">数据结构（004）-折半插入排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <figure class="highlight vbscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> BinInsertSort( <span class="built_in">int</span> R[], <span class="built_in">int</span> n ) &#123;</span><br><span class="line">  <span class="keyword">if</span> ( <span class="literal">NULL</span> == R || n &lt;= <span class="number">1</span> )</span><br><span class="line">    return -<span class="number">1</span>;</span><br><span class="line">  <span class="built_in">int</span> i, j;</span><br><span class="line">  <span class="built_in">int</span> temp, low, high, <span class="built_in">mid</span>;</span><br><span class="line">  <span class="keyword">for</span> ( i=<span class="number">1</span>; i != n-<span class="number">1</span>; ++i ) &#123;</span><br><span class="line">    temp = R[i];</span><br><span class="line">	low = <span class="number">0</span>;</span><br><span class="line">	high = i - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> ( low &lt;= high ) &#123;</span><br><span class="line">	  <span class="built_in">mid</span> = (<span class="built_in">log</span> + high) / <span class="number">2</span>;</span><br><span class="line">	  <span class="keyword">if</span> ( R[<span class="built_in">mid</span>] == temp )</span><br><span class="line">	    break;</span><br><span class="line">	  <span class="keyword">else</span> <span class="keyword">if</span> ( R[<span class="built_in">mid</span>] &gt; temp )</span><br><span class="line">	    high = <span class="built_in">mid</span> - <span class="number">1</span>;</span><br><span class="line">	  <span class="keyword">else</span> </span><br><span class="line">	    low = <span class="built_in">mid</span> + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> ( j=i-<span class="number">1</span>; j!=high; --j )</span><br><span class="line">	  R[j+<span class="number">1</span>] = R[j];</span><br><span class="line">	R[low] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  return <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="ci7vu12rf000qi7jxlmj3t9gf" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-data_structure/ds_ch03" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/19/data_structure/ds_ch03/" class="article-date">
+    <a href="/2014/11/19/bash/bash-ch03/" class="article-date">
   <time datetime="2014-11-19T10:34:26.000Z" itemprop="datePublished">2014-11-19</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/数据结构/">数据结构</a>
+    <a class="article-category-link" href="/categories/高级Bash编程/">高级Bash编程</a>
   </div>
 
   </div>
@@ -1133,7 +1133,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/19/data_structure/ds_ch03/">数据结构（003）-直接插入排序</a>
+      <a class="article-title" href="/2014/11/19/bash/bash-ch03/">高级Bash编程（003）- 转义字符和变量替换</a>
     </h1>
   
 
@@ -1141,17 +1141,36 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">InsertSort</span><span class="params">( <span class="keyword">int</span> R[], <span class="keyword">int</span> n )</span> </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> ( NULL == R || n &lt; <span class="number">0</span> )</span><br><span class="line">    <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">  <span class="keyword">int</span> i, j;</span><br><span class="line">  <span class="keyword">int</span> temp;</span><br><span class="line">  <span class="keyword">for</span> ( i=<span class="number">1</span>; i != n-<span class="number">1</span>; ++i ) &#123;</span><br><span class="line">    temp = R[i];</span><br><span class="line">	j = i - <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">while</span> ( j &gt;= <span class="number">0</span> &amp;&amp; temp &lt; R[j] ) &#123;</span><br><span class="line">	  R[j+<span class="number">1</span>] = R[j];</span><br><span class="line">	  --j;</span><br><span class="line">	&#125;</span><br><span class="line">	R[j+<span class="number">1</span>] = temp;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <h2 id="转义字符的替换">转义字符的替换</h2><p>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">a=<span class="number">10</span></span><br><span class="line"><span class="built_in">echo</span> <span class="operator">-e</span> <span class="string">"Value of a is <span class="variable">$a</span> \n"</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Value of a is 10</span><br><span class="line"><span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果不是使用-e 则：<br><figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Value <span class="keyword">of</span> a <span class="keyword">is</span> <span class="number">10</span><span class="string">\n</span></span><br></pre></td></tr></table></figure></p>
+<p>面的转义字符都可以用在 echo 中：</p>
 <blockquote>
+<p>转义字符含义</p>
 <blockquote>
-<p>最好时间复杂度：n （数组正序时）<br>最坏时间复杂度：n2（数组逆序时）<br>平均时间复杂度：n2<br>空间复杂度：1</p>
+<p>\\     反斜杠<br>\a     警报，响铃<br>\b     退格（删除键）<br>\f     换页(FF)，将当前位置移到下页开头<br>\n     换行<br>\r     回车<br>\t     水平制表符（tab键）<br>\v     垂直制表符<br>可以使用 echo 命令的 -E 选项禁止转义，默认也是不转义的；使用 -n 选项可以禁止插入换行符。</p>
 </blockquote>
 </blockquote>
+<hr>
+<p>命令替换：命令替换是指Shell可以先执行命令，将输出结果暂时保存，在适当的地方输出。<br>语法：`commond`<br>实例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash</span></span><br><span class="line">DATE=`date`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Date is <span class="variable">$DATE</span>"</span></span><br><span class="line">USERS=`who | wc <span class="operator">-l</span>`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Logged in user are <span class="variable">$USERS</span>"</span></span><br><span class="line">UP=`date ; uptime`</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Uptime is <span class="variable">$UP</span>"</span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">Date</span> <span class="tag">is</span> <span class="tag">Thu</span> <span class="tag">Jul</span>  2 03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">MST</span> 2009</span><br><span class="line"><span class="tag">Logged</span> <span class="tag">in</span> <span class="tag">user</span> <span class="tag">are</span> 1</span><br><span class="line"><span class="tag">Uptime</span> <span class="tag">is</span> <span class="tag">Thu</span> <span class="tag">Jul</span>  2 03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">MST</span> 2009</span><br><span class="line">03<span class="pseudo">:59</span><span class="pseudo">:57</span> <span class="tag">up</span> 20 <span class="tag">days</span>, 14<span class="pseudo">:03</span>,  1 <span class="tag">user</span>,  <span class="tag">load</span> <span class="tag">avg</span>: 0<span class="class">.13</span>, 0<span class="class">.07</span>, 0<span class="class">.15</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="变量替换">变量替换</h2><p>形式     说明</p>
+<blockquote>
+<ol>
+<li>\${var}<br>变量本来的值</li>
+<li>\${var:-word}<br>如果变量 var 为空或已被删除(unset)，那么返回 word，但不改变 var 的值。</li>
+<li>\${var:=word}<br>如果变量 var 为空或已被删除(unset)，那么返回 word，并将 var 的值设置为 word。</li>
+<li>\${var:?message}<br>如果变量 var 为空或已被删除(unset)，那么将消息 message 送到标准错误输出，可以用来检测变量 var 是否可以被正常赋值。<br>若此替换出现在Shell脚本中，那么脚本将停止运行。</li>
+<li>\${var:+word}<br>如果变量 var 被定义，那么返回 word，但不改变 var 的值。</li>
+</ol>
+</blockquote>
+<p>实例：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line"></span><br><span class="line">echo $&#123;var:-"Variable is not <span class="operator"><span class="keyword">set</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">1</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span><br><span class="line"></span><br><span class="line">echo $&#123;var:="</span>Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">2</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span><br><span class="line"></span><br><span class="line">unset var</span><br><span class="line">echo $&#123;var:+"</span>This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">3</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $<span class="keyword">var</span><span class="string">"</span><br><span class="line"></span><br><span class="line">var="</span>Prefix<span class="string">"</span><br><span class="line">echo $&#123;var:+"</span>This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span><span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">4</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $<span class="keyword">var</span><span class="string">"</span><br><span class="line"></span><br><span class="line">echo $&#123;var:?"</span>Print this message<span class="string">"&#125;</span><br><span class="line">echo "</span><span class="number">5</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> $&#123;<span class="keyword">var</span>&#125;<span class="string">"</span></span></span><br></pre></td></tr></table></figure></p>
+<p>结果：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Variable is not <span class="operator"><span class="keyword">set</span></span><br><span class="line"><span class="number">1</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span></span><br><span class="line">Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span></span><br><span class="line"><span class="number">2</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Variable <span class="keyword">is</span> <span class="keyword">not</span> <span class="keyword">set</span></span><br><span class="line"><span class="number">3</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span></span><br><span class="line">This <span class="keyword">is</span> <span class="keyword">default</span> <span class="keyword">value</span></span><br><span class="line"><span class="number">4</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Prefix</span><br><span class="line">Prefix</span><br><span class="line"><span class="number">5</span> - <span class="keyword">Value</span> <span class="keyword">of</span> <span class="keyword">var</span> <span class="keyword">is</span> Prefix</span></span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="ci7vu12rj000si7jx22tz4peg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/19/bash/bash-ch03/" data-id="ci7x876j2001l62jxo67ffrfc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1174,7 +1193,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/常用工具/">常用工具</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leveldb源码剖析/">leveldb源码剖析</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用工具/">常用工具</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
     </div>
   </div>
 
@@ -1187,7 +1206,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">22</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">十一月 2014</a><span class="archive-list-count">22</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/10/">十月 2014</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -1199,11 +1218,7 @@
       <ul>
         
           <li>
-            <a href="/2014/12/16/tools/vim/">VIM</a>
-          </li>
-        
-          <li>
-            <a href="/2014/12/16/tools/git/">GIT</a>
+            <a href="/2014/12/16/tools/mysql/">MYSQL</a>
           </li>
         
           <li>
@@ -1211,11 +1226,15 @@
           </li>
         
           <li>
+            <a href="/2014/12/16/tools/vim/">VIM</a>
+          </li>
+        
+          <li>
             <a href="/2014/12/16/tools/irc/">IRC</a>
           </li>
         
           <li>
-            <a href="/2014/12/16/tools/mysql/">MYSQL</a>
+            <a href="/2014/12/16/tools/git/">GIT</a>
           </li>
         
       </ul>
