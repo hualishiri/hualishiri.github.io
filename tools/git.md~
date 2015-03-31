@@ -1,0 +1,203 @@
+title: VIM
+date: 2014-12-16 18:34:26
+categories:
+- 常用工具
+tags:
+---
+##安装
+Ubuntu: sudo apt-get install git
+`git config` 配置git[^git]
+`git config --global` 配置git的全部配置
+`git config --global user.name "You name"` 配置当前用户名
+`git config --global user.email name@host.com` 配置你的Email
+##创建版本库
+`git init` 在需要创建版本库的空目录下创建一个新的版本库
+`git add <file>` 从工作区添加文件到暂存区，可多次使用
+`git commoit -m "commont"` 将暂存区所有的文件同步到到仓库
+##查看工作区和暂存区的状态
+`git status` 查看当前工作区和暂存区状态
+> * 查看工作区下文件是否被管理
+> * 查看工作区下被管理的文件是否被同步到暂存区
+> * 察看暂存区中的文件是否被同步到仓库
+`git diff <file>` 查看[工作区]文件和[仓库]中文件的差别
+##版本管理
+###版本查看
+`git log` 查看`当前版本`之前提交的所有版本信息
+`git log --pretty=oneline` 以简介形式查看`当前版本`之前提交的所有版本信息
+> * `HEAD` 表示当前版本
+> * `HEAD^` 表示上一版本，`HEAD^^` 表示上上版本，以此类推
+> * `HEAD^` 等同于 `HEAD~1`； `HEAD^^^^^`等同于`HEAD~5`
+> * git log中会显示版本号：commit id
+`git reflog` 查看`所有提交`的版本
+###版本回退
+`git reset --hard HEAD^` 根据HEAD回退到上一版本
+`git reset --hard commitid` 根据版本号回退到某一版本
+###工作区和暂存区
+`工作区` 你工作的目录
+`版本库` 你工作目录下的.git文件夹叫版本库，版本库包括`暂存区`和当前`分支`
+`暂存区(stage)` git add及把文件修改添加到暂存区
+`分支(branch,master)` git commit即把文件修改从暂存区添加到当前分支
+`HEAD` 指向当前活动分支的当前版本
+###GIT管理修改
+    Git跟踪的并管理修改，而不是文件。什么是修改？必须新增一行，删除一行都是修改。不是管理文件，该特性造成了,工作区和暂存区和当前分支不一致。
+###撤销修改
+`git checkout -- <file>` 将工作区的修改恢复到和分支中一致
+`git reset HEAD <file>` 将暂存区的修改删除（此时工作区的修改还未变动），回到了上一步
+###删除文件
+> 1. `rm` 首先删除工作区文件
+> * `git checkout -- <file>` 恢复删除的文件
+> 2. `git rm <file>` 将修改提交到暂存区
+> * `git reset HEAD <file>` 将删除撤销
+> 3. `git commit -m "commonts" 将修改提交到当前分支`
+##远程仓库
+###设置远程仓库
+> 1. `ssh-keygen -t rsa -C "youname@email.com"` 在本地Linux产生密钥
+> 2. 设置github中的密钥
+###添加远程库
+`git remote` 查看本地的远程仓库
+`git remote -v` 查看远程仓库的权限信息
+`git remote rm git_name` 删除本地的远程仓库
+`git remote rename git_name` 重命名远程仓库在本地映射的仓库名
+
+`git remote add origin https://github.com/username/repository_name`
+> * https,必须使用https协议；
+> * `origin` 远程库gist在本地的仓库名(不是分支名)，可以和远程仓库名字不同，可以和本地仓库名字不同
+> * `username` github的用户名,不是电子邮件
+> * `repository_name` github上的仓库名
+
+`git push -u origin local_branch_name` 使用当前仓库的local_branch_name分支初始化远程origin仓库
+`git push origin local_branch_name` 将本地版本库当前分支local_brach_name合并到（更新）远程origin库
+> 1. 区分本地`仓库名`和`分支名`；
+> 2. 仓库名即文件夹的名字；
+> 3. 当前仓库，所有分支的名字：`git branch -a`；
+> 4. local_branch_name 本地仓库中当前分支的名字；
+> 5. 远程仓库名对于每一个本地仓库是独立的；即一个本地仓库中的远程仓库名不会出现在另外一个本地仓库中。
+
+###克隆远程仓库
+`git clone https://github.com/username/repository_name` 从远程克隆一个仓库到本地（无需建立文件夹）
+`git clone [-b branch_name] remote_repositoy_name [local_dir]`
+将远程仓库[remote_repository_name]的branch_name分支克隆到本地local_dir的目录下
+
+##分支管理
+###创建合并分支
+> 1. 每一个仓库都有一个主分支(master)；
+> 2. HEAD指向的是当前活动分支的当前活动版本；
+> 3. 每次提交(commit)到master分支，master就会向前移动一步；
+> 4. 当创建心的分支dev,则Git会创建新的指针dev指向master指针，同时将HEAD指向指针dev
+> 5. 提交时，dev向前移动，而master分支则不动；
+> 6. 合并分支既是master指向dev指针即可，然后可以删除dev分支（删除dev指针）。
+
+`git branch` 查看当前所有分支(不包括远程分支)，当前分支前边有个*
+`git branch -a` 查看所有分支（包括远程分支）
+
+`git branch dev` 新建dev分支
+`git checkout -b dev` 新建dev分支，并将当前切换到dev分支
+`git checkout dev` 切换当前分支到dev
+> * 切换分支，是指切换分支，对当前的工作区和暂存区毫不影响，三个是独立的；
+> * 将暂存区的修改提交到当前分支，在提交之前可以任意切换分支。
+
+`git branch -d dev` 删除dev分支
+`git merge dev` 将dev分支合并到**当前分支**上，当两个文件可以快速合并的时候**Fast-forwar**指的是通过将**master**指针移动到**dev**指针合并的；
+
+###解决冲突
+> 1. 当合并出现冲突时，Git会自动合并，如果合并失败，则必须手动合并；
+> 2. 合并失败是，Git会出于冲突合并状态，Git自动将冲突文件合并为一个**冲突文件**；
+> 3. 然后修改冲突文件，在对**冲突文件**进行`git add`和`git commit`即可解决冲突。
+
+`git log --graph` 查看分支历史信息图信息
+`git log --graph --pretty=oneline` 查看简化的分支历史信息图信息
+`git log --graph --pretty=oneline --abbrev-commit` 查看commit id缩写的分支图信息
+
+###分支管理策略
+`git merge --no-ff dev` 禁用**Fast-forward**模式，需要在**master**分支上新建立节点，然后将**dev**的下一节点指向**master**建立的节点上。
+
+> * master分支非常稳定，仅仅用来发布新版本时候用，平时不在上边干活的；
+> * 新建一个dev分支，dev分支不稳定的，需要发布新版本的时候再将dev合并到master；
+> * 然后每个开发人员再从dev分支上建新的分支进行独立开发，开发完后，在合并到dev上。
+
+### Bug分支
+`git stash` 将当前的工作区和暂存区的修改暂时存储起来
+`git stash list` 现实所有暂存的修改
+`git stash pop` 用stash最上层的修改恢复当前工作区和暂存区的现场,同时从stash中删除该修改
+`git stash apply stash@{n}` 将stash中的n恢复当当前的现场，但不从stash中删除
+`git stash drop` 删除stash栈中最上层的内容
+
+修复Bug:
+> 1. 保存当前现场：`git stash`
+> 2. 切换分支：`git checkout master`
+> 3. 新建修复分支：`git checkout -b issue-101`
+> 4. 修复Bug：`git add <file>` `git commit -m "issue-101"`
+> 5. 合并分支：`git checkout master` `git merge isssue-101`
+> 6. 返回现场：`git checkout dev`
+> 7. 恢复现场：`git stash pop`
+
+### Feature分支
+> 1. 新建feature分支
+> 2. 开发，提交
+> 3. 合并到dev分支上
+
+    如果在合并dev上之前，需要删除分支feature,使用`git branch -d feature`会失败，因为删除未合并的分支会提示错误，必须使用：`git branch -D feature`.
+    
+`git branch -D feature` 删除未合并的分支
+###多人协作
+`git remote` 查看远程库信息
+`git remote -v` 现实更详细信息
+`git push origin master` 推送本地分支到远程分支上
+
+`master` 分支是主分支，因此要时刻与远程同步
+`dev` 开发分支，团队所有成员需要在上边开发，所以需要与远程同步
+`bug` bug分支之用语修复Bug，没必要推到远程；
+`feature` feature分支，取决你是否和你的小伙伴合作在上面开发。
+
+> 1. `git clone https://github.com/username/repository.git` 克隆远程库；
+> 2. `git checkout -b dev origin/dev` 建立远程库origin的dev分支到本地，本地分支名字叫dev；
+> 3. `git commit -m "add evn"` 修改本地的dev分支；
+> 4. `git push origin dev`将dev分支push到远程和远程的dev分支合并；
+> 5. 如果第4步推送失败，则说明已经有最新版本，需要进行一下操作：
+> * `git pull` 将最新的提交从origin/dev拉下来，然后本地合并，然后解决冲突；
+> * `git branch --set-upstream dev origin/dev` 如果git pull失败，原因是没有指定本地dev分支与远程origen/dev分支的链接
+> * 在git pull
+
+##标签管理
+###创建标签
+`git tag` 查看所有标签
+`git tag <name>` 在当前分支上打上一个name标签，可以制定一个commit id
+`git tag <name> <hash>` 在某个分支上的某个版本打标签
+`git show <tagname>` 查看某个tag的详细信息
+`git tag -a <tagname> -m "comments"` 对某个tag制定详细信息[^github]
+
+###操作标签
+`git tag -d <tagname>` 删除本地标签
+`git push origin <tagname>` 将本地tagname标签同步到远程仓库
+`git push origin --tags` 一次性推送本地的所有标签
+删除远程标签
+> 1. `git tag -d v0.9` 删除本地标签
+> 2. `git push origin :refs/tags/v0.9` 从远程删除该标签
+
+##使用Github
+    `fork` 可以复制别人的开源项目
+    `clone` 将自己的项目复制到本地
+##自定义Git
+###自定义颜色
+`git config --global color.ui true`
+###忽略特殊文件
+> 1. 工作太配置`.gitignore`文件；
+> 2. 提交`.gitignore`文件到github。
+> 3. Github提供的[`.gitignore`的模版][2]
+###配置别名
+`git config --global alias.co checkout` 将checkout配置成co
+`git config --global alias.unstage 'reset HEAD'` 配置当前文件
+`git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"` 配置图
+> * `--glocal`选项对当前用户起作用，否则只对当前仓库起作用
+> * 每个仓库的配置文件位于`.git/config`,其中alias可以修改映射
+> * 每个用户的配置文件位于主目录下的.gitconfig中，可以修改
+
+---
+参考资料
+[^github]: [github官网][1]
+
+[^git]: [廖雪峰的官方网站][3]
+
+[1]: https://github.com
+[2]: https://github.com/github/gitignore
+[3]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000

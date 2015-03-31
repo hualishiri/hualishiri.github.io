@@ -1,0 +1,205 @@
+title: 高级Bash编程（008）- 循环语句
+date: 2014-11-24 18:34:26
+categories:
+- 高级Bash编程
+tags:
+---
+##for循环的格式：
+```
+for 变量 in 列表
+do
+    command1
+    command2
+    ...
+    commandN
+done
+```
+<!--more-->
+        列表是一组值（数字、字符串等）组成的序列，每个值通过空格分隔。每循环一次，就将列表中的下一个值赋给变量。
+        in 列表是可选的，如果不用它，for 循环使用命令行的位置参数。
+实例：
+```
+for loop in 1 2 3 4 5
+do
+    echo "The value is: $loop"
+done
+```
+结果：
+```
+The value is: 1
+The value is: 2
+The value is: 3
+The value is: 4
+The value is: 5
+```
+---
+实例：
+```
+for str in 'This is a string'
+do
+    echo $str
+done
+```
+结果：
+```
+This is a string
+```
+---
+实例：
+```
+#!/bin/bash
+
+for FILE in $HOME/.bash*
+do 
+	echo $FILE
+done
+```
+---
+##whlie循环
+语法：
+```
+while command
+do
+   Statement(s) to be executed if command is true
+done
+```
+命令执行完毕，控制返回循环顶部，从头开始直至测试条件为假。
+
+实例：
+```
+COUNTER=0
+while [ $COUNTER -lt 5 ]
+do
+    COUNTER='expr $COUNTER+1'
+    echo $COUNTER
+done
+```
+---
+实例：循环读入键盘信息：
+```
+echo 'type <CTRL-D> to terminate'
+echo -n 'enter your most liked film: '
+while read FILM
+do
+    echo "Yeah! great film the $FILM"
+done
+```
+---
+##until循环：
+语法：
+```
+until command
+do
+   Statement(s) to be executed until command is true
+done
+```
+command 一般为条件表达式，如果返回值为 false，则继续执行循环体内的语句，否则跳出循环。
+
+---
+实例：
+```
+#!/bin/bash
+a=0
+until [ ! $a -lt 10 ]
+do
+   echo $a
+   a=`expr $a + 1`
+done
+```
+---
+
+##break命令：
+break命令允许跳出所有循环（终止执行后面的所有循环）。
+实例：
+```
+#!/bin/bash
+while :
+do
+    echo -n "Input a number between 1 to 5: "
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo "Your number is $aNum!"
+        ;;
+        *) echo "You do not select a number between 1 to 5, game is over!"
+            break
+        ;;
+    esac
+done
+```
+在嵌套循环中，break 命令后面还可以跟一个整数，表示跳出第几层循环。（从里边往外边数，1，2，3，4）例如：
+```
+break n
+```
+---
+实例：
+```
+#!/bin/bash
+for var1 in 1 2 3
+do
+   for var2 in 0 5
+   do
+      if [ $var1 -eq 2 -a $var2 -eq 0 ]
+      then
+         break 2
+      else
+         echo "$var1 $var2"
+      fi
+   done
+done
+```
+结果：
+```
+1 0
+1 5
+```
+---
+##continue命令：
+实例：
+```
+#!/bin/bash
+while :						
+do
+    echo -n "Input a number between 1 to 5: "
+    read aNum
+    case $aNum in
+        1|2|3|4|5) echo "Your number is $aNum!"
+        ;;
+        *) echo "You do not select a number between 1 to 5!"
+            continue
+            echo "Game is over!"
+        ;;
+    esac
+done
+```
+结果：
+```
+echo "Game is over!"
+while :表示死循环
+
+```
+---
+实例：
+```
+NUMS="1 2 3 4 5 6 7"
+for NUM in $NUMS
+do
+   Q=`expr $NUM % 2`
+   if [ $Q -eq 0 ]
+   then
+      echo "Number is an even number!!"
+      continue
+   fi
+   echo "Found odd number"
+done
+```
+结果：
+```
+Found odd number
+Number is an even number!!
+Found odd number
+Number is an even number!!
+Found odd number
+Number is an even number!!
+Found odd number
+
+```

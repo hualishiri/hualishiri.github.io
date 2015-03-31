@@ -1,0 +1,94 @@
+title: 高级Bash编程（002）- Shell变量
+date: 2014-11-18 18:34:26
+categories:
+- 高级Bash编程
+tags:
+---
+定义变量时，变量名不加美元符号（$）
+```
+your_name="w3cschool.cc"
+```
+**注意**，变量名和等号之间不能有空格，这可能和你熟悉的所有编程语言都不一样。同时，变量名的命名须遵循如下规则：
+	>* 首个字符必须为字母（a-z，A-Z）。
+	>* 中间不能有空格，可以使用下划线（_）。
+	>* 不能使用标点符号。
+	>* 不能使用bash里的关键字（可用help命令查看保留关键字）。
+
+---
+<!--more-->
+除了显式地直接赋值，还可以用语句给变量赋值，如：
+```
+for file in `ls /etc`
+```
+
+---
+
+只读变量：readonly命令可以将变量定义为只读变量，只读变量的值不能被改变
+```
+#!/bin/bash
+myUrl="http://see.xidian.edu.cn/cpp/shell/"
+readonly myUrl
+myUrl="http://see.xidian.edu.cn/cpp/danpianji/"
+```
+提示，错误
+
+删除变量：
+```
+unset variable_name
+```
+
+变量类型：
+> 1. 局部变量
+    局部变量在脚本或命令中定义，仅在当前shell实例中有效，其他shell启动的程序能访问局部变量。
+> 2. 环境变量
+	所有的程序，包括shell启动的程序，都能访问环境变量，有些程序需要环境变量来保证其正常运行。必要的时候shell脚本也可以定义环境变量。
+> 3. shell变量
+	shell变量是由shell程序设置的特殊变量。shell变量中有一部分是环境变量，有一部分是局部变量，这些变量保证了shell的正常运行
+
+使用一个定义过的变量，只要在变量名前面加美元符号即可，如：
+```
+your_name="qinjx"
+echo $your_name
+echo ${your_name}
+```
+
+特殊变量：
+
+```
+echo $$	//显示当前的shell进程的ID，即PID
+$0	 当前脚本的文件名
+$n	 传递给脚本或函数的参数。n 是一个数字，表示第几个参数。例如，第一个参数是$1，第二个参数是$2。
+$#	 传递给脚本或函数的参数个数。
+$*	 传递给脚本或函数的所有参数。
+$@	 传递给脚本或函数的所有参数。被双引号(" ")包含时，与 $* 稍有不同，下面将会讲到。
+$?	 上个命令的退出状态，或函数的返回值。
+$$	 当前Shell进程ID。对于 Shell 脚本，就是这些脚本所在的进程ID。
+```
+实例：
+```
+#!/bin/bash
+
+echo "File Name: $0"
+echo "First Parameter : $1"
+echo "First Parameter : $2"
+echo "Quoted Values: $@"
+echo "Quoted Values: $*"
+echo "Total Number of Parameters : $#"
+```
+结果：
+```
+$./test.sh Zara Ali
+File Name : ./test.sh
+First Parameter : Zara
+Second Parameter : Ali
+Quoted Values: Zara Ali
+Quoted Values: Zara Ali
+Total Number of Parameters : 2
+```
+
+---
+
+`$* 和 $@ 的区别`
+> + \$* 和 \$@ 都表示传递给函数或脚本的所有参数，不被双引号(" ")包含时，都以"\$1" "\$2" … "\$n" 的形式输出所有参数。
+> + 但是当它们被双引号(" ")包含时，"\$*" 会将所有的参数作为一个整体，以"\$1 \$2 … \$n"的形式输出所有参数；"\$@" 会将各个参数分开，以"\$1" "\$2" … "\$n" 的形式输出所有参数。
+

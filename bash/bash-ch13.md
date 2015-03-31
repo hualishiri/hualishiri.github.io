@@ -1,0 +1,91 @@
+title: 高级Bash编程（013）- curl
+date: 2014-11-29 18:34:26
+categories:
+- 高级Bash编程
+tags:
+---
+```
+curl url
+  -o filename,将下载的文件保存为filename
+  -O,下载文件到本地，文件名为默认
+  -O url1, -O url2,同时下载多个文件
+  -L,强制重定向
+  -C,断点续传
+  --limit-rate rate,对最大网络限速
+  -u username:password,curl授权
+  -u username,
+  -T,上传文件
+  -d/--data “key1=value1&key2=value2”,使用post请求数据
+  --form "fileupload=@filename"，上传文件
+
+```
+<!--more-->
+```
+#下载单个文件，直接stdout显示
+curl http://www.baidu.com
+
+```
+```
+#下载文件保存到本地为local.txt
+curl -o local.txt https://github.com/index.html
+
+```
+```
+#下载文件保存到本地为默认名
+curl -O http://github.com/index.html
+
+```
+```
+#同时下载多个文件
+curl -O http://github.com/file1.txt -O http://github.com/file2.txt
+
+```
+```
+#强制重定向
+curl -L http://github.com
+
+```
+```
+#断点续传
+#程序运行中意外中断
+curl -O http://github.com/index.txt
+#重新启动
+curl -C -O http://github.com/index.txt
+
+```
+```
+#对网络进行限速
+curl --limit-rate 1000B -O http://github.com/index.txt
+
+```
+```
+#curl授权
+curl -u username:password -O http://github.com/index.txt
+#保护密码，历史命令
+curl -u username -O http://github.com/index.txt
+
+```
+```
+#从ftp服务器下载文件
+#列出该目录下所有的文件和文件夹
+curl -u ftpuser:ftppassword -O http://github.com/directory
+#下载文件
+curl -u ftpuser:ftppassword -O http://github.com/file1.txt
+
+```
+```
+#上传文件
+#将文件file1.txt上传
+curl -u user:pass -T file1.txt http://github.com
+#上传多个文件
+curl -u user:pass -T "{file1, file2}" http://github.com
+#从标准输入获取内容存到服务器指定文件中
+curl -u user:pass -T http://github.com/file1.txt
+
+```
+```
+#默认是通过GET方式请求的
+#通过POST方式请求
+curl --data "key1=value&key2=value2" -O http://github.com/fiel1.txt
+
+```

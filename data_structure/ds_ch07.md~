@@ -1,0 +1,23 @@
+title: 数据结构（007）-简单选择排序```
+int SelectSort(int R[], int n) {
+  if (NULL == R || n < 0)
+    return -1;
+  int i, j, k, temp;
+  for (i=0; i!=n; ++i) {
+    k = i;
+	for (j=i+1; j!=n; ++j)
+	  if (R[j] < R[k])
+	    k = j;
+	temp = R[i];
+	R[i] = R[k];
+	R[k] = temp;
+  }
+  return 0;
+}
+```
+date: 2014-11-23 18:34:26
+categories:
+- 数据结构
+tags:
+---
+

@@ -1,0 +1,178 @@
+title: 高级Bash编程（007）- if和case语句
+date: 2014-11-18 18:34:26
+categories:
+- 高级Bash编程
+tags:
+---
+##if语句
+格式：
+```
+if...fi
+if...else...fi
+if...elif...else...fi
+
+if [ expr ]
+then
+	state
+fi
+```
+注意：expression 和方括号([ ])之间必须有空格，否则会有语法错误。
+<!--more-->
+实例：
+```
+#!/bin/sh
+a=10
+b=20
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+fi
+if [ $a != $b ]
+then
+   echo "a is not equal to b"
+fi
+```
+结果：
+```
+a is not equal to b
+```
+---
+实例：
+```
+#!/bin/sh
+a=10
+b=20
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+else
+   echo "a is not equal to b"
+fi
+```
+结果：
+```
+a is not equal to b
+```
+--------------------------------------------------------
+实例：
+```
+#!/bin/sh
+a=10
+b=20
+if [ $a == $b ]
+then
+   echo "a is equal to b"
+elif [ $a -gt $b ]
+then
+   echo "a is greater than b"
+elif [ $a -lt $b ]
+then
+   echo "a is less than b"
+else
+   echo "None of the condition met"
+fi
+```
+结果：
+```
+a is less than b
+```
+--------------------------------------------------------
+实例：
+```
+if test $[2*3] -eq $[1+5]; then echo 'The two numbers are equal!'; fi;
+```
+---
+test 命令用于检查某个条件是否成立，与方括号([ ])类似
+
+实例：
+```
+num1=$[2*3]
+num2=$[1+5]
+if test $[num1] -eq $[num2]
+then
+    echo 'The two numbers are equal!'
+else
+    echo 'The two numbers are not equal!'
+fi
+```
+---
+##case语句
+语法：
+```
+case 值 in
+模式1)
+    command1
+    command2
+    command3
+    ;;
+模式2）
+    command1
+    command2
+    command3
+    ;;
+*)
+    command1
+    command2
+    command3
+    ;;
+esac
+```
+        case工作方式如上所示。取值后面必须为关键字 in，每一模式必须以右括号结束。取值可以为变量或常数。匹配发现取值符合某一模式后，其间所有命令开始执行直至 ;;。;; 与其他语言中的 break 类似，意思是跳到整个 case 语句的最后。
+        取值将检测匹配的每一个模式。一旦模式匹配，则执行完匹配模式相应命令后不再继续其他模式。如果无一匹配模式，使用星号 * 捕获该值，再执行后面的命令。
+        
+---
+实例：
+```
+echo 'Input a number between 1 to 4'
+echo 'Your number is:\c'
+read aNum
+case $aNum in
+    1)  echo 'You select 1'
+    ;;
+    2)  echo 'You select 2'
+    ;;
+    3)  echo 'You select 3'
+    ;;
+    4)  echo 'You select 4'
+    ;;
+    *)  echo 'You do not select a number between 1 to 4'
+    ;;
+esac
+```
+结果：
+```
+Input a number between 1 to 4
+Your number is:3
+You select 3
+```
+----------------------------------------------------
+实例：
+```
+#!/bin/bash
+
+option="${1}"
+case ${option} in
+   -f) FILE="${2}"
+      echo "File name is $FILE"
+      ;;
+   -d) DIR="${2}"
+      echo "Dir name is $DIR"
+      ;;
+   *) 
+      echo "`basename ${0}`:usage: [-f file] | [-d directory]"
+      exit 1 # Command to come out of the program with status 1
+      ;;
+esac
+```
+结果：
+```
+$./test.sh
+test.sh: usage: [ -f filename ] | [ -d directory ]
+$ ./test.sh -f index.htm
+$ vi test.sh
+$ ./test.sh -f index.htm
+File name is index.htm
+$ ./test.sh -d unix
+Dir name is unix
+$
+```

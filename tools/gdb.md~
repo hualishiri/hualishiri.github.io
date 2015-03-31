@@ -1,0 +1,138 @@
+title: GIT
+date: 2014-12-16 18:34:26
+categories:
+- 常用工具
+tags:
+---
+##启动GDB命令
+`gdb executable` 调试可执行文件
+`gdb -e executable -c core-file` 调试带有core-dump文件的可执行文件
+
+##GDB中使用的命令
+###查看信息：
+
+`help [topic | comand]`  列出gdb帮助
+
+`info args` 里出运行程序的命令行参数
+`info locals` 查看局部变量
+`bt full` 查看所有的变量
+`info breakpoints/br [n]`  列出断点号,或列出断点号为n的信息
+`info watchpoints`  列出观察点
+
+`where` 显示当前的行号和所处的函数
+
+###断点和观察点
+```
+break [position] if condition
+position格式：
+    line-number
+    +offset
+    -offset
+    func
+    file::func
+    file::number-line
+```
+`watch 表达式` 当条件满足时设置观察点
+`rwatch 表达式` 当表达式被读时中断
+`awatch 表达式` 当表达式被读或写时中断
+
+`clear [函数名|行号]` 删除断点，无参表示当前断点
+`delete(d)  [断点号|断点范围]` 删除断点号，无参表示删除所有断点
+`disable [断点号|断点范围]`
+`enable [断点号|断点范围]`
+
+###单步执行
+`step(s) [n]`  进入下一行代码的执行，会进入函数的内部
+`next(n) [n]`  执行下一行代，不会进入函数内部
+`stepi(si) [n]` 执行下一条汇编/CPU指令
+`nexti(ni) [n]`
+
+`until` 继续运行直到到达指定行号，或者地址，函数
+`until line-number`
+`until line-number if condition`
+
+`return`
+`return expression`   弹出选中的栈帧（stack frame）。如果后面指定参数，则返回表达式的值。
+
+`finish` 继续执行到函数结束
+
+###程序堆栈
+```
+backtrace(bt) [n|-n|full] 显示当前堆栈的追踪,n显示的个数，-n显示底层n个，full显示所有的局部变量
+```
+`frame(f) number`  选择指定的栈帧
+`up [number]` 选择的当前栈帧的下一(number)个
+`down [number]` 选择的当前栈帧的下一(number)个
+
+`bt full` 打印所有栈中的所有局部变量的值
+`info frame [addr]` 描述选中的栈帧
+`info args` 显示选中栈帧的参数，局部变量，异常处理函数。
+`info locals`
+
+###源代码：
+```
+list(l) [value]
+value的形式：
+  line-number
+  start#,end#
+  func
+  file::line-number
+  'file'::line-number
+  file::func
+```
+
+###打印变量
+```
+print(p) [format] [variable]
+format的格式：
+  /x  十六进制形式
+  /d  有符整数
+  /u  无符整数
+  /o  十进制
+  /t  二进制
+  /c  字符
+  /f  浮点
+  /a  十六进制地址
+variable形式：
+  variable  变量
+  file::variable 文件中的变量
+  'file'::variable  文件中的变量
+  *array@length   数组
+```
+###查看内存
+```
+x /nfu 地址
+    n   重复n次
+    f   显示格式。为print使用的格式
+    u   每个单元的大小
+        b   1byte
+        h   2byte
+        w   4byte
+        g   8byte
+```
+
+`call expression` 类似print,但不打印void
+
+##设置工作文件
+`info files`  列出当前文件，共享库
+`info share`
+
+`file file` 把file当做调试的程序
+`core file` 把file当作core文件。
+`exec file` 把exec大概你做可执行程序
+`symbol file` 从file中读取符号表。
+`load file` 动态链入file文件，并读取它的符号表
+`path directory`  把目录directory加入到搜索可执行文件和符号文件的路径中
+
+###控制：
+`run/r` 从头开始执行程序
+`continue/c` 继续执行直到下一个断点或者观察点
+`kill`  停止程序执行
+`quit/q`  退出gdb
+
+---
+
+>注意：
+>>1. 编译可执行文件时加上-g选项
+2. 不要用-O,-O2优化选项
+3. 在gdb中执行shell命令使用：shell command

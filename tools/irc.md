@@ -1,0 +1,17 @@
+title: IRC
+date: 2014-12-16 18:34:26
+categories:
+- 常用工具
+tags:
+---
+`/server chat.freenode.net` 连接名为chat.freenode.net的服务器
+`/nick new_name` 以名为new_name的昵称登录
+`/msg nickserv register your_password you_email_address`向freenode注册你的昵称
+###使用一个备用昵称
+`/nick new_name_2`  切换到需要备用昵称
+`/msg nickserv group` 将当前备用昵称注册
+
+`/msg nickserv identify acount_name your_password` 向nickserv鉴别你的用户名和密码
+
+`/msg nickserv info nick_name` 查询某个昵称最后的登录信息
+`/join #freenode` 加入freenode频道
