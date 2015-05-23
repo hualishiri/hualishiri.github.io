@@ -99,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia0izvih000816jx1hmvf35f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia0j1o3u00081yjxtoeoalsj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0izvik000a16jxzndc1y7z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0j1o3y000a1yjx2ccva21p" class="article-share-link">Share</a>
       
       
     </footer>
@@ -331,16 +331,15 @@
 <h3 id="Stack_of_Program">Stack of Program</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [n|-n|full]</span><br><span class="line">        list the current all stack frame,n determine the level,'full' <span class="operator"><span class="keyword">show</span> <span class="keyword">all</span> stack frame.</span><br><span class="line"></span><br><span class="line">frame(f) <span class="built_in">number</span></span><br><span class="line">        <span class="keyword">select</span> the certain stack frame;</span></span><br><span class="line">up [number]</span><br><span class="line">        <span class="operator"><span class="keyword">select</span> the <span class="keyword">upper</span> stack frame based <span class="keyword">on</span> the <span class="keyword">current</span> stack frame;</span></span><br><span class="line">down [number]</span><br><span class="line">        <span class="operator"><span class="keyword">select</span> the down stack frame based <span class="keyword">on</span> the <span class="keyword">current</span>;</span></span><br><span class="line"></span><br><span class="line">bt full</span><br><span class="line">        print all the local variables in all the stack frames;</span><br><span class="line">info frame [addr]</span><br><span class="line">        <span class="operator"><span class="keyword">describe</span> the selected stack frame;</span></span><br><span class="line">info args</span><br><span class="line">        <span class="operator"><span class="keyword">describe</span> the selected parameteres, <span class="keyword">local</span> <span class="keyword">variables</span> <span class="keyword">and</span> <span class="keyword">exception</span> functions.</span><br><span class="line">info locals</span></span><br></pre></td></tr></table></figure>
 <h3 id="Source_Code">Source Code</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span> <span class="built_in">format</span>：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
 <h3 id="Print_Variables">Print Variables</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line">**<span class="built_in">format</span>** <span class="built_in">format</span>：</span><br><span class="line">  /x  ;hex</span><br><span class="line">  /d  ;signed <span class="keyword">integer</span></span><br><span class="line">  /u  ;unsigned <span class="keyword">integer</span></span><br><span class="line">  /o  ;decimal</span><br><span class="line">  /t  ;binary</span><br><span class="line">  /c  ;charactor</span><br><span class="line">  /f  ;float</span><br><span class="line">  /<span class="operator">a</span>  ;<span class="operator">the</span> address <span class="keyword">by</span> <span class="operator">the</span> hexadecimal</span><br><span class="line"><span class="built_in">variable</span> <span class="built_in">format</span>：</span><br><span class="line">  <span class="built_in">variable</span></span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> </span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  </span><br><span class="line">  *array@<span class="built_in">length</span></span><br></pre></td></tr></table></figure>
-<h3 id="Memory">Memory</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu address</span><br><span class="line">    <span class="keyword">n</span>   <span class="keyword">n</span> elements;</span><br><span class="line">    f   <span class="keyword">print</span> <span class="keyword">format</span>.same to '<span class="keyword">print</span>';</span><br><span class="line">    <span class="keyword">u</span>   the size of <span class="keyword">one</span> element;</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
-<p>call expression<br>        similar to <strong>print</strong>,but dont print void</p>
-<h3 id="Contral">Contral</h3><p>run/r<br>        run the program from the start;<br>continue/c<br>        run the program util the next breakpoint;<br>kill<br>        terminal the program;<br>quit/q<br>        quit from gdb;</p>
+<h3 id="Memory">Memory</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">x /nfu address</span><br><span class="line">    <span class="keyword">n</span>   <span class="keyword">n</span> elements;</span><br><span class="line">    f   <span class="keyword">print</span> <span class="keyword">format</span>.same to '<span class="keyword">print</span>';</span><br><span class="line">    <span class="keyword">u</span>   the size of <span class="keyword">one</span> element;</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br><span class="line"></span><br><span class="line">call expression</span><br><span class="line">        similar to **<span class="keyword">print</span>**,but dont <span class="keyword">print</span> void</span><br></pre></td></tr></table></figure>
+<h3 id="Contral">Contral</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">run</span>/<span class="literal">r</span></span><br><span class="line">        <span class="keyword">run</span> the <span class="keyword">program</span> from the start;</span><br><span class="line"><span class="keyword">continue</span>/c</span><br><span class="line">        <span class="keyword">run</span> the <span class="keyword">program</span> util the next breakpoint;</span><br><span class="line">kill</span><br><span class="line">        terminal the <span class="keyword">program</span>;</span><br><span class="line">quit/<span class="literal">q</span></span><br><span class="line">        quit from gdb;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="Note:">Note:</h2><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1. Adding the option '-<span class="keyword">g</span>' when compiling the <span class="keyword">program</span>;</span><br><span class="line">2. Don't <span class="keyword">use</span> -O, -O2 option;</span><br><span class="line">3. Execute <span class="keyword">shell</span> commond <span class="keyword">in</span> the gdb: <span class="keyword">shell</span> commond.</span><br></pre></td></tr></table></figure>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia0izvio000c16jxay69p3qv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia0j1o42000c1yjxglsxnvrz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -413,7 +412,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia0izvi8000316jxxk92qh03" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia0j1o3l00031yjx3f0fblbx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -462,7 +461,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia0izvif000616jxgunyl2o9" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia0j1o3r00061yjx6rvknvgp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -507,7 +506,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia0izvkn001e16jxd05im9xl" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia0j1o69001e1yjxpn1glss1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -554,7 +553,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia0izvkw001g16jxds9fugzm" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia0j1o6c001g1yjxu1fblovt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -594,7 +593,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia0izvkz001i16jxw3g4alcg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia0j1o6f001i1yjxukls09v1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -634,7 +633,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia0izvl2001k16jx3pa16ay0" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia0j1o6i001k1yjxzd4nenop" class="article-share-link">Share</a>
       
       
     </footer>
@@ -680,7 +679,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia0izvl8001m16jxe70r4r9u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia0j1o6l001m1yjxoua721o8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -725,7 +724,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia0izvle001o16jxhszprdwb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia0j1o6q001o1yjxp85ap31b" class="article-share-link">Share</a>
       
       
     </footer>
@@ -771,7 +770,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia0izvli001q16jxtctqq8c7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia0j1o6s001q1yjxbwyn3pa7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -812,7 +811,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia0izvk2000z16jxfeuxfpbi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia0j1o5g000z1yjxux0u2n3n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -858,7 +857,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia0izvlk001s16jx5wxtbnz4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia0j1o6u001s1yjxjbt7lo2o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -899,7 +898,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia0izvk5001216jxndl0yjwy" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia0j1o5k00121yjxuhh1rqmh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -957,7 +956,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia0izvlq001u16jxt8asuj78" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia0j1o6y001u1yjx4e1rgwwc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -998,7 +997,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia0izvk7001416jxe7afxols" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia0j1o5n00141yjx8zi25nfa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1039,7 +1038,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia0izvka001616jx0tdu4o01" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia0j1o5p00161yjx800lxu3m" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1085,7 +1084,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia0izvlt001w16jxwgt8tweh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia0j1o70001w1yjxh645z1gn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1131,7 +1130,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia0izvkd001816jx5dz78l9r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia0j1o5t00181yjxthndp8kh" class="article-share-link">Share</a>
       
       
     </footer>
