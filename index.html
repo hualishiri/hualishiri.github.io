@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>舞雩</title>
+  <title>Wu attar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="website">
-<meta property="og:title" content="舞雩">
+<meta property="og:title" content="Wu attar">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="舞雩">
+<meta property="og:site_name" content="Wu attar">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="舞雩">
+<meta name="twitter:title" content="Wu attar">
 <meta name="twitter:description">
   
-    <link rel="alternative" href="/atom.xml" title="舞雩" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="Wu attar" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -33,11 +33,11 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">舞雩</a>
+        <a href="/" id="logo">Wu attar</a>
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">暮春者，春服既成，冠者五六人，童子六七人，浴乎沂，风乎舞雩，咏而归</a>
+          <a href="/" id="subtitle">Wu attar</a>
         </h2>
       
     </div>
@@ -99,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia0g7ye70008o7jxv2o8runn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia0htulh0008unjxe490ald4" class="article-share-link">Share</a>
       
       
     </footer>
@@ -288,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0g7yeb000ao7jxc39p0mlh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0htulk000aunjxstxtfvbe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -305,7 +305,7 @@
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/常用工具/">常用工具</a>
+    <a class="article-category-link" href="/categories/Common-Tools/">Common Tools</a>
   </div>
 
   </div>
@@ -324,35 +324,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="启动GDB命令">启动GDB命令</h2><p><code>gdb executable</code> 调试可执行文件<br><code>gdb -e executable -c core-file</code> 调试带有core-dump文件的可执行文件</p>
-<h2 id="GDB中使用的命令">GDB中使用的命令</h2><h3 id="查看信息：">查看信息：</h3><p><code>help [topic | comand]</code>  列出gdb帮助</p>
-<p><code>info args</code> 里出运行程序的命令行参数<br><code>info locals</code> 查看局部变量<br><code>bt full</code> 查看所有的变量<br><code>info breakpoints/br [n]</code>  列出断点号,或列出断点号为n的信息<br><code>info watchpoints</code>  列出观察点</p>
-<p><code>where</code> 显示当前的行号和所处的函数</p>
-<h3 id="断点和观察点">断点和观察点</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">break [position] <span class="keyword">if</span> condition</span><br><span class="line">position格式：</span><br><span class="line">    <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">    +<span class="built_in">offset</span></span><br><span class="line">    -<span class="built_in">offset</span></span><br><span class="line">    func</span><br><span class="line">    <span class="built_in">file</span>::func</span><br><span class="line">    <span class="built_in">file</span>::<span class="built_in">number</span>-<span class="built_in">line</span></span><br></pre></td></tr></table></figure>
-<p><code>watch 表达式</code> 当条件满足时设置观察点<br><code>rwatch 表达式</code> 当表达式被读时中断<br><code>awatch 表达式</code> 当表达式被读或写时中断</p>
-<p><code>clear [函数名|行号]</code> 删除断点，无参表示当前断点<br><code>delete(d)  [断点号|断点范围]</code> 删除断点号，无参表示删除所有断点<br><code>disable [断点号|断点范围]</code><br><code>enable [断点号|断点范围]</code></p>
-<h3 id="单步执行">单步执行</h3><p><code>step(s) [n]</code>  进入下一行代码的执行，会进入函数的内部<br><code>next(n) [n]</code>  执行下一行代，不会进入函数内部<br><code>stepi(si) [n]</code> 执行下一条汇编/CPU指令<br><code>nexti(ni) [n]</code></p>
-<p><code>until</code> 继续运行直到到达指定行号，或者地址，函数<br><code>until line-number</code><br><code>until line-number if condition</code></p>
-<p><code>return</code><br><code>return expression</code>   弹出选中的栈帧（stack frame）。如果后面指定参数，则返回表达式的值。</p>
-<p><code>finish</code> 继续执行到函数结束</p>
-<h3 id="程序堆栈">程序堆栈</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [<span class="keyword">n</span>|-<span class="keyword">n</span>|full] 显示当前堆栈的追踪,<span class="keyword">n</span>显示的个数，-<span class="keyword">n</span>显示底层<span class="keyword">n</span>个，full显示所有的局部变量</span><br></pre></td></tr></table></figure>
-<p><code>frame(f) number</code>  选择指定的栈帧<br><code>up [number]</code> 选择的当前栈帧的下一(number)个<br><code>down [number]</code> 选择的当前栈帧的下一(number)个</p>
-<p><code>bt full</code> 打印所有栈中的所有局部变量的值<br><code>info frame [addr]</code> 描述选中的栈帧<br><code>info args</code> 显示选中栈帧的参数，局部变量，异常处理函数。<br><code>info locals</code></p>
-<h3 id="源代码：">源代码：</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span>的形式：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
-<h3 id="打印变量">打印变量</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line"><span class="built_in">format</span>的格式：</span><br><span class="line">  /x  十六进制形式</span><br><span class="line">  /d  有符整数</span><br><span class="line">  /u  无符整数</span><br><span class="line">  /o  十进制</span><br><span class="line">  /t  二进制</span><br><span class="line">  /c  字符</span><br><span class="line">  /f  浮点</span><br><span class="line">  /<span class="operator">a</span>  十六进制地址</span><br><span class="line"><span class="built_in">variable</span>形式：</span><br><span class="line">  <span class="built_in">variable</span>  变量</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> 文件中的变量</span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  文件中的变量</span><br><span class="line">  *array@<span class="built_in">length</span>   数组</span><br></pre></td></tr></table></figure>
-<h3 id="查看内存">查看内存</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu 地址</span><br><span class="line">    <span class="keyword">n</span>   重复<span class="keyword">n</span>次</span><br><span class="line">    f   显示格式。为<span class="keyword">print</span>使用的格式</span><br><span class="line">    <span class="keyword">u</span>   每个单元的大小</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
-<p><code>call expression</code> 类似print,但不打印void</p>
-<h2 id="设置工作文件">设置工作文件</h2><p><code>info files</code>  列出当前文件，共享库<br><code>info share</code></p>
-<p><code>file file</code> 把file当做调试的程序<br><code>core file</code> 把file当作core文件。<br><code>exec file</code> 把exec大概你做可执行程序<br><code>symbol file</code> 从file中读取符号表。<br><code>load file</code> 动态链入file文件，并读取它的符号表<br><code>path directory</code>  把目录directory加入到搜索可执行文件和符号文件的路径中</p>
-<h3 id="控制：">控制：</h3><p><code>run/r</code> 从头开始执行程序<br><code>continue/c</code> 继续执行直到下一个断点或者观察点<br><code>kill</code>  停止程序执行<br><code>quit/q</code>  退出gdb</p>
+        <h2 id="Invoking_GDB">Invoking GDB</h2><p><code>gdb executable</code>    ;start with an executable program.<br><code>gdb -e executable -c core-file</code> ;start with both an exec and core.</p>
+<h2 id="The_commonds_in_the_GDB">The commonds in the GDB</h2><h3 id="show_information:">show information:</h3><p><code>help [topic | comand]</code>  ;list the help about commond.</p>
+<p><code>info args</code>     ;list the args in the commond line;<br><code>info locals</code>   ;list all the local variables;<br><code>bt full</code>       ;list all variables;<br><code>info breakpoints/br [n]</code>  ;list all breakpoint or br numberd n;<br><code>info watchpoints</code>          ;list all watchpoints;</p>
+<p><code>where</code>         ;list the current line number and function.</p>
+<h3 id="Breakpoints_and_Watchpoints">Breakpoints and Watchpoints</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">break [position] <span class="keyword">if</span> condition</span><br><span class="line">position <span class="built_in">format</span>：</span><br><span class="line">    <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">    +<span class="built_in">offset</span></span><br><span class="line">    -<span class="built_in">offset</span></span><br><span class="line">    func</span><br><span class="line">    <span class="built_in">file</span>::func</span><br><span class="line">    <span class="built_in">file</span>::<span class="built_in">number</span>-<span class="built_in">line</span></span><br></pre></td></tr></table></figure>
+<p><code>watch cond-expr</code> ;set a watchpoint when meeting condition.<br><code>rwatch expr</code>     ;interrupt when reading expr;<br><code>awatch expr</code>     ;break when ether reading or modifing expr;</p>
+<p><code>clear [function name|line number]</code> ;delete breakpoint<br><code>delete(d)  [breakpoint number|breakpoint range]</code> ;delete breakpoint numberd no.<br><code>disable [breakpoint number|breakpoint range]</code><br><code>enable [breakpoint number|breakpoint range]</code></p>
+<h3 id="Execute_By_One_Step">Execute By One Step</h3><p><code>step(s) [n]</code>     ;execute next line code and will go into the function;<br><code>next(n) [n]</code>     ;execute next line code and will not go into the function;<br><code>stepi(si) [n]</code>   ;execute the next assemble or CPU instruction;<br><code>nexti(ni) [n]</code></p>
+<p><code>until</code>   run until the certain line number, address or function is meet.<br><code>until line-number</code><br><code>until line-number if condition</code></p>
+<p><code>return</code><br><code>return expression</code>   pop the selected stack frame. return the value .</p>
+<p><code>finish</code> the function will be finished.</p>
+<h3 id="Stack_of_Program">Stack of Program</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">backtrace(bt) [<span class="keyword">n</span>|-<span class="keyword">n</span>|full] <span class="keyword">list</span> the current all <span class="keyword">stack</span> frame,<span class="keyword">n</span> determine the level,'full' show all <span class="keyword">stack</span> frame.</span><br></pre></td></tr></table></figure>
+<p><code>frame(f) number</code>   ;select the certain stack frame;<br><code>up [number]</code>       ;select the upper stack frame based on the current stack frame;<br><code>down [number]</code>     ;select the down stack frame based on the current;</p>
+<p><code>bt full</code>           ;print all the local variables in all the stack frames;<br><code>info frame [addr]</code> ;describe the selected stack frame;<br><code>info args</code>         ;describe the selected parameteres, local variables and exception functions.<br><code>info locals</code></p>
+<h3 id="Source_Code">Source Code</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">list(l) [<span class="built_in">value</span>]</span><br><span class="line"><span class="built_in">value</span> <span class="built_in">format</span>：</span><br><span class="line">  <span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  start<span class="comment">#,end#</span></span><br><span class="line">  func</span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">line</span>-<span class="built_in">number</span></span><br><span class="line">  <span class="built_in">file</span>::func</span><br></pre></td></tr></table></figure>
+<h3 id="Print_Variables">Print Variables</h3><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">print(p) [<span class="built_in">format</span>] [<span class="built_in">variable</span>]</span><br><span class="line"><span class="built_in">format</span> <span class="built_in">format</span>：</span><br><span class="line">  /x  ;hex</span><br><span class="line">  /d  ;signed <span class="keyword">integer</span></span><br><span class="line">  /u  ;unsigned <span class="keyword">integer</span></span><br><span class="line">  /o  ;decimal</span><br><span class="line">  /t  ;binary</span><br><span class="line">  /c  ;charactor</span><br><span class="line">  /f  ;float</span><br><span class="line">  /<span class="operator">a</span>  ;<span class="operator">the</span> address <span class="keyword">by</span> <span class="operator">the</span> hexadecimal</span><br><span class="line"><span class="built_in">variable</span> <span class="built_in">format</span>：</span><br><span class="line">  <span class="built_in">variable</span></span><br><span class="line">  <span class="built_in">file</span>::<span class="built_in">variable</span> </span><br><span class="line">  <span class="string">'file'</span>::<span class="built_in">variable</span>  </span><br><span class="line">  *array@<span class="built_in">length</span></span><br></pre></td></tr></table></figure>
+<h3 id="Memory">Memory</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x /nfu address</span><br><span class="line">    <span class="keyword">n</span>   <span class="keyword">n</span> elements;</span><br><span class="line">    f   <span class="keyword">print</span> <span class="keyword">format</span>.same to '<span class="keyword">print</span>';</span><br><span class="line">    <span class="keyword">u</span>   the size of <span class="keyword">one</span> element;</span><br><span class="line">        b   1byte</span><br><span class="line">        <span class="keyword">h</span>   2byte</span><br><span class="line">        w   4byte</span><br><span class="line">        <span class="keyword">g</span>   8byte</span><br></pre></td></tr></table></figure>
+<p><code>call expression</code> similar to ‘print’,but don’t print void</p>
+<h3 id="Contral">Contral</h3><p><code>run/r</code>       ;run the program from the start;<br><code>continue/c</code>  ;run the program util the next breakpoint;<br><code>kill</code>        ;terminal the program;<br><code>quit/q</code>      ;quit from gdb;</p>
 <hr>
 <blockquote>
-<p>注意：</p>
+<p>Note:</p>
 <blockquote>
 <ol>
-<li>编译可执行文件时加上-g选项</li>
-<li>不要用-O,-O2优化选项</li>
-<li>在gdb中执行shell命令使用：shell command</li>
+<li>Adding the option ‘-g’ when compiling the program;</li>
+<li>Don’t use -O, -O2 option;</li>
+<li>Execute shell commond in the gdb: shell commond.</li>
 </ol>
 </blockquote>
 </blockquote>
@@ -360,7 +358,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia0g7yeg000co7jxreie56a4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia0htuln000cunjx3lhdmgm7" class="article-share-link">Share</a>
       
       
     </footer>
@@ -433,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia0g7ydy0003o7jx4dmpny0c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia0htul90003unjxqxen1xja" class="article-share-link">Share</a>
       
       
     </footer>
@@ -482,7 +480,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia0g7ye40006o7jxmgbj0zve" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia0htule0006unjxd3puwq4v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -527,7 +525,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia0g7ygk001do7jx9f19bsjd" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia0htunf001eunjxbg7vcuw6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -574,7 +572,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia0g7ygn001fo7jxm4r9ue4k" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia0htunh001gunjx6aneqhep" class="article-share-link">Share</a>
       
       
     </footer>
@@ -614,7 +612,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia0g7ygq001ho7jxp4esvc3q" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia0htunj001iunjx6c48da61" class="article-share-link">Share</a>
       
       
     </footer>
@@ -654,7 +652,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia0g7ygt001jo7jx0ahp0pie" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia0htunt001kunjxxangjsz9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -700,7 +698,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia0g7ygx001lo7jxcwp4y5qa" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia0htunw001munjxssr3uch6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -745,7 +743,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia0g7yh2001no7jxjhye7jsw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia0htuo0001ounjxz0gdrofa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -791,7 +789,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia0g7yh5001po7jxqkdcbigp" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia0htuo3001qunjxaw0j4x4e" class="article-share-link">Share</a>
       
       
     </footer>
@@ -832,7 +830,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia0g7yfp000yo7jx06y413eu" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia0htumr000zunjxrx2e05bf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -878,7 +876,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia0g7yh9001ro7jxzazido3t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia0htuo6001sunjxs967ry80" class="article-share-link">Share</a>
       
       
     </footer>
@@ -919,7 +917,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia0g7yg00011o7jxpj63t4iv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia0htumu0012unjxkto0xmld" class="article-share-link">Share</a>
       
       
     </footer>
@@ -977,7 +975,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia0g7yhd001to7jxc3yqov4b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia0htuo9001uunjxv3nyqui2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1018,7 +1016,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia0g7yg30013o7jxy20u9ci3" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia0htumx0014unjxxs1dlznb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1059,7 +1057,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia0g7yg60015o7jx10986qt5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia0htun10016unjxgrtnovez" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1105,7 +1103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia0g7yhg001vo7jxdpvba63y" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia0htuob001wunjxpk5pxd87" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1151,7 +1149,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia0g7yga0017o7jx6w416u4g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia0htun50018unjxpgrz9jnm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1174,7 +1172,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/leveldb源码剖析/">leveldb源码剖析</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用工具/">常用工具</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Common-Tools/">Common Tools</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/leveldb源码剖析/">leveldb源码剖析</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/常用工具/">常用工具</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">7</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/设计模式/">设计模式</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/高级Bash编程/">高级Bash编程</a><span class="category-list-count">13</span></li></ul>
     </div>
   </div>
 
@@ -1230,7 +1228,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 Shiri.Huali<br>
+      &copy; 2015 Michael Geller<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
