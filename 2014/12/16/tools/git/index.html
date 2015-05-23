@@ -5,15 +5,15 @@
   
   <title>GIT | Wu attar</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Install12345sudo apt-get install git    #Ubuntu installgit config    #configuration of git[^git]git config --global     #config the global variablesgit config --global user.name &quot;user_name&quot; #set the u">
+  <meta name="description" content="Install12345sudo apt-get install git    #Ubuntu installgit config              #configuration of git[^git]git config --global     #config the global variablesgit config --global user.name &quot;user_name&quot;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GIT">
 <meta property="og:url" content="http://yoursite.com/2014/12/16/tools/git/index.html">
 <meta property="og:site_name" content="Wu attar">
-<meta property="og:description" content="Install12345sudo apt-get install git    #Ubuntu installgit config    #configuration of git[^git]git config --global     #config the global variablesgit config --global user.name &quot;user_name&quot; #set the u">
+<meta property="og:description" content="Install12345sudo apt-get install git    #Ubuntu installgit config              #configuration of git[^git]git config --global     #config the global variablesgit config --global user.name &quot;user_name&quot;">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GIT">
-<meta name="twitter:description" content="Install12345sudo apt-get install git    #Ubuntu installgit config    #configuration of git[^git]git config --global     #config the global variablesgit config --global user.name &quot;user_name&quot; #set the u">
+<meta name="twitter:description" content="Install12345sudo apt-get install git    #Ubuntu installgit config              #configuration of git[^git]git config --global     #config the global variablesgit config --global user.name &quot;user_name&quot;">
   
     <link rel="alternative" href="/atom.xml" title="Wu attar" type="application/atom+xml">
   
@@ -89,14 +89,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Install">Install</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git    <span class="id">#Ubuntu</span> install</span><br><span class="line">git config    <span class="id">#configuration</span> of git[^git]</span><br><span class="line">git config --global     <span class="id">#config</span> the global variables</span><br><span class="line">git config --global user<span class="class">.name</span> <span class="string">"user_name"</span> <span class="id">#set</span> the username</span><br><span class="line">git config --global user<span class="class">.email</span> name@host<span class="class">.com</span>  <span class="id">#set</span> the email of user</span><br></pre></td></tr></table></figure>
-<h2 id="创建版本库">创建版本库</h2><p><code>git init</code> 在需要创建版本库的空目录下创建一个新的版本库<br><code>git add &lt;file&gt;</code> 从工作区添加文件到暂存区，可多次使用<br><code>git commoit -m &quot;commont&quot;</code> 将暂存区所有的文件同步到到仓库</p>
-<h2 id="查看工作区和暂存区的状态">查看工作区和暂存区的状态</h2><p><code>git status</code> 查看当前工作区和暂存区状态</p>
+        <h2 id="Install">Install</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git    <span class="id">#Ubuntu</span> install</span><br><span class="line">git config              <span class="id">#configuration</span> of git[^git]</span><br><span class="line">git config --global     <span class="id">#config</span> the global variables</span><br><span class="line">git config --global user<span class="class">.name</span> <span class="string">"user_name"</span>     <span class="id">#set</span> the username</span><br><span class="line">git config --global user<span class="class">.email</span> name@host<span class="class">.com</span>  <span class="id">#set</span> the email of user</span><br></pre></td></tr></table></figure>
+<h2 id="Creation_of_Repositories">Creation of Repositories</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init        <span class="comment">#create a new repository in the current direcotry;</span></span><br><span class="line">git <span class="built_in">add</span> &lt;<span class="built_in">file</span>&gt;  <span class="comment">#the commond updates the index using the current</span></span><br><span class="line">                <span class="comment">#content found in the working tree, to prepare the</span></span><br><span class="line">                <span class="comment">#content staged for the next commit.</span></span><br><span class="line">git commoit -m <span class="string">"commont"</span>` <span class="comment">#Stores the current content of the index   </span></span><br><span class="line">                          <span class="comment">#in a new commit with a log message.</span></span><br></pre></td></tr></table></figure>
+<h2 id="Show_the_Working_Tree_Status">Show the Working Tree Status</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> status      <span class="comment">#Displays paths that hava differences between </span></span><br><span class="line">                <span class="comment">#the index file and the current HEAD commit,</span></span><br><span class="line">                <span class="comment">#the working tree and the index file,</span></span><br><span class="line">                <span class="comment">#the working tree that are not tracked by Git.</span></span><br><span class="line"></span><br><span class="line">git diff &lt;file&gt; <span class="comment">#Show changes between</span></span><br><span class="line">                <span class="comment">#the working tree and the index file,</span></span><br><span class="line">                <span class="comment">#two  trees,</span></span><br><span class="line"></span><br><span class="line">git show [commit <span class="built_in">no</span>.] <span class="comment">#Show changes between the current commit</span></span><br><span class="line">                      <span class="comment">#and the previous commit.</span></span><br></pre></td></tr></table></figure>
+<h2 id="版本管理">版本管理</h2><h3 id="版本查看">版本查看</h3><p><code>git log</code> 查看<code>当前版本</code>之前提交的所有版本信息<br><code>git log --pretty=oneline</code> 以简介形式查看<code>当前版本</code>之前提交的所有版本信息</p>
 <blockquote>
 <ul>
-<li>查看工作区下文件是否被管理</li>
-<li>查看工作区下被管理的文件是否被同步到暂存区</li>
-<li>察看暂存区中的文件是否被同步到仓库<br><code>git diff &lt;file&gt;</code> 查看[工作区]文件和[仓库]中文件的差别<h2 id="版本管理">版本管理</h2><h3 id="版本查看">版本查看</h3><code>git log</code> 查看<code>当前版本</code>之前提交的所有版本信息<br><code>git log --pretty=oneline</code> 以简介形式查看<code>当前版本</code>之前提交的所有版本信息</li>
 <li><code>HEAD</code> 表示当前版本</li>
 <li><code>HEAD^</code> 表示上一版本，<code>HEAD^^</code> 表示上上版本，以此类推</li>
 <li><code>HEAD^</code> 等同于 <code>HEAD~1</code>； <code>HEAD^^^^^</code>等同于<code>HEAD~5</code></li>
@@ -242,7 +240,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0jh1dq000a59jxchr4iqpb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0k32sz000a6bjxlpq04a1r" class="article-share-link">Share</a>
       
       
     </footer>

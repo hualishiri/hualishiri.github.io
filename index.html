@@ -99,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia0jh1do000859jx3gt3po2g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia0k32sv00086bjxutuf9cgj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,14 +135,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Install">Install</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git    <span class="id">#Ubuntu</span> install</span><br><span class="line">git config    <span class="id">#configuration</span> of git[^git]</span><br><span class="line">git config --global     <span class="id">#config</span> the global variables</span><br><span class="line">git config --global user<span class="class">.name</span> <span class="string">"user_name"</span> <span class="id">#set</span> the username</span><br><span class="line">git config --global user<span class="class">.email</span> name@host<span class="class">.com</span>  <span class="id">#set</span> the email of user</span><br></pre></td></tr></table></figure>
-<h2 id="创建版本库">创建版本库</h2><p><code>git init</code> 在需要创建版本库的空目录下创建一个新的版本库<br><code>git add &lt;file&gt;</code> 从工作区添加文件到暂存区，可多次使用<br><code>git commoit -m &quot;commont&quot;</code> 将暂存区所有的文件同步到到仓库</p>
-<h2 id="查看工作区和暂存区的状态">查看工作区和暂存区的状态</h2><p><code>git status</code> 查看当前工作区和暂存区状态</p>
+        <h2 id="Install">Install</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git    <span class="id">#Ubuntu</span> install</span><br><span class="line">git config              <span class="id">#configuration</span> of git[^git]</span><br><span class="line">git config --global     <span class="id">#config</span> the global variables</span><br><span class="line">git config --global user<span class="class">.name</span> <span class="string">"user_name"</span>     <span class="id">#set</span> the username</span><br><span class="line">git config --global user<span class="class">.email</span> name@host<span class="class">.com</span>  <span class="id">#set</span> the email of user</span><br></pre></td></tr></table></figure>
+<h2 id="Creation_of_Repositories">Creation of Repositories</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init        <span class="comment">#create a new repository in the current direcotry;</span></span><br><span class="line">git <span class="built_in">add</span> &lt;<span class="built_in">file</span>&gt;  <span class="comment">#the commond updates the index using the current</span></span><br><span class="line">                <span class="comment">#content found in the working tree, to prepare the</span></span><br><span class="line">                <span class="comment">#content staged for the next commit.</span></span><br><span class="line">git commoit -m <span class="string">"commont"</span>` <span class="comment">#Stores the current content of the index   </span></span><br><span class="line">                          <span class="comment">#in a new commit with a log message.</span></span><br></pre></td></tr></table></figure>
+<h2 id="Show_the_Working_Tree_Status">Show the Working Tree Status</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> status      <span class="comment">#Displays paths that hava differences between </span></span><br><span class="line">                <span class="comment">#the index file and the current HEAD commit,</span></span><br><span class="line">                <span class="comment">#the working tree and the index file,</span></span><br><span class="line">                <span class="comment">#the working tree that are not tracked by Git.</span></span><br><span class="line"></span><br><span class="line">git diff &lt;file&gt; <span class="comment">#Show changes between</span></span><br><span class="line">                <span class="comment">#the working tree and the index file,</span></span><br><span class="line">                <span class="comment">#two  trees,</span></span><br><span class="line"></span><br><span class="line">git show [commit <span class="built_in">no</span>.] <span class="comment">#Show changes between the current commit</span></span><br><span class="line">                      <span class="comment">#and the previous commit.</span></span><br></pre></td></tr></table></figure>
+<h2 id="版本管理">版本管理</h2><h3 id="版本查看">版本查看</h3><p><code>git log</code> 查看<code>当前版本</code>之前提交的所有版本信息<br><code>git log --pretty=oneline</code> 以简介形式查看<code>当前版本</code>之前提交的所有版本信息</p>
 <blockquote>
 <ul>
-<li>查看工作区下文件是否被管理</li>
-<li>查看工作区下被管理的文件是否被同步到暂存区</li>
-<li>察看暂存区中的文件是否被同步到仓库<br><code>git diff &lt;file&gt;</code> 查看[工作区]文件和[仓库]中文件的差别<h2 id="版本管理">版本管理</h2><h3 id="版本查看">版本查看</h3><code>git log</code> 查看<code>当前版本</code>之前提交的所有版本信息<br><code>git log --pretty=oneline</code> 以简介形式查看<code>当前版本</code>之前提交的所有版本信息</li>
 <li><code>HEAD</code> 表示当前版本</li>
 <li><code>HEAD^</code> 表示上一版本，<code>HEAD^^</code> 表示上上版本，以此类推</li>
 <li><code>HEAD^</code> 等同于 <code>HEAD~1</code>； <code>HEAD^^^^^</code>等同于<code>HEAD~5</code></li>
@@ -288,7 +286,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0jh1dq000a59jxchr4iqpb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0k32sz000a6bjxlpq04a1r" class="article-share-link">Share</a>
       
       
     </footer>
@@ -339,7 +337,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia0jh1du000d59jxrenkl8ip" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia0k32t3000d6bjx8g5nev2t" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,7 +410,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia0jh1df000359jxvbg3kq24" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia0k32sn00036bjx99ca1aem" class="article-share-link">Share</a>
       
       
     </footer>
@@ -461,7 +459,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia0jh1dl000659jx35i9c7wq" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia0k32ss00066bjxi3j8btdi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -506,7 +504,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia0jh1fq001e59jxcl5pay9z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia0k32uu001e6bjxtxgqvd7x" class="article-share-link">Share</a>
       
       
     </footer>
@@ -553,7 +551,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia0jh1g1001g59jxp4hp3ghv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia0k32uw001g6bjx66xcz0yc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -593,7 +591,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia0jh1g3001i59jxf69vzqcc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia0k32uy001i6bjxaydrls7o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -633,7 +631,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia0jh1g6001k59jxxftbch7z" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia0k32v9001k6bjx2ycyntbr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -679,7 +677,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia0jh1g9001m59jxr97zqgfw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia0k32vc001m6bjxumecas7n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -724,7 +722,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia0jh1ge001o59jx0jxhw8bh" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia0k32vh001o6bjxr206xnhx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -770,7 +768,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia0jh1gi001q59jxxcc15ljb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia0k32vk001q6bjxnuvmnqjs" class="article-share-link">Share</a>
       
       
     </footer>
@@ -811,7 +809,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia0jh1f4000z59jxjr41fwav" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia0k32u6000z6bjx3if19tnn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -857,7 +855,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia0jh1gl001s59jxwm92fnkc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia0k32vn001s6bjx9ts31bo5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -898,7 +896,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia0jh1f6001259jxg60u925s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia0k32u900126bjxln3kuowj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -956,7 +954,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia0jh1gp001u59jxx9bjlrqx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia0k32vr001u6bjxbx0htt7u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -997,7 +995,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia0jh1f8001459jxawnyiv5x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia0k32uc00146bjxzdlhc5kn" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1038,7 +1036,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia0jh1fb001659jxld5wrxf8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia0k32ug00166bjxnosbq808" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1084,7 +1082,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia0jh1gr001w59jxacfk6kje" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia0k32vt001w6bjxhvuk301w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1130,7 +1128,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia0jh1fg001859jxcm547phj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia0k32uk00186bjx1vw6chzb" class="article-share-link">Share</a>
       
       
     </footer>
