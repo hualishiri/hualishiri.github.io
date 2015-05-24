@@ -99,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia1xphrw0008a9jxar34xuyc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia1xrjp70008b1jx4sg8icei" class="article-share-link">Share</a>
       
       
     </footer>
@@ -138,6 +138,7 @@
         <h2 id="CONFIGURE_TOOLING">CONFIGURE TOOLING</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"name"</span></span><br></pre></td></tr></table></figure>
 <p>Sets the name you want attached to your commit transaction.<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
 <p>Set the email you want attached to your commit transaction.</p>
+<hr>
 <h2 id="CREATE_REPOSITORIES">CREATE REPOSITORIES</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init [project-<span class="property">name</span>]</span><br></pre></td></tr></table></figure>
 <p>Creates a new local repository with the specified name<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone -<span class="tag">b</span> [branch-name] git@github<span class="class">.com</span>:username/repository_name</span><br></pre></td></tr></table></figure></p>
 <hr>
@@ -148,26 +149,31 @@
 <p>Shows file differences between staging and the last file version<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset [<span class="type">file</span>]</span><br></pre></td></tr></table></figure></p>
 <p>Unstages the file. but preserve its contents<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git commit -m <span class="string">"[descriptive message]"</span></span><br></pre></td></tr></table></figure></p>
 <p>Reconds file snapshots permanently in version history</p>
+<hr>
 <h2 id="GROUP_CHANGES">GROUP CHANGES</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git branch</span><br></pre></td></tr></table></figure>
 <p>Lists all local branches in the current repository<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch [branch-<span class="property">name</span>]</span><br></pre></td></tr></table></figure></p>
 <p>Creates a new branch<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout [branch-<span class="property">name</span>]</span><br></pre></td></tr></table></figure></p>
 <p>Switchs to the specified branch and updates the working direcotry<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="tag">git</span> <span class="tag">merge</span> <span class="attr_selector">[branch]</span></span><br></pre></td></tr></table></figure></p>
 <p>Conbines the specified branch.s history into the current branch<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d [branch-<span class="property">name</span>]</span><br></pre></td></tr></table></figure></p>
 <p>Deletes the specified branch</p>
+<hr>
 <h2 id="REFACTOR_FILENAMES">REFACTOR FILENAMES</h2><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">rm</span> [<span class="keyword">file</span>]</span><br></pre></td></tr></table></figure>
 <p>Deletes the file from the working directory and stages the deletion<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">rm</span> --cached [<span class="keyword">file</span>]</span><br></pre></td></tr></table></figure></p>
 <p>Removes the file from version contral but preserves the file locally<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv [<span class="type">file</span>-original] [<span class="type">file</span>-renamed]</span><br></pre></td></tr></table></figure></p>
 <p>Changes the file name and prepares it for commit</p>
+<hr>
 <h2 id="SAVE_FRAGMENTS">SAVE FRAGMENTS</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git stash</span><br></pre></td></tr></table></figure>
 <p>Temporarily stores all modified tracked files<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash <span class="keyword">pop</span></span><br></pre></td></tr></table></figure></p>
 <p>Restores the most recently stashed files<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stas <span class="type">list</span></span><br></pre></td></tr></table></figure></p>
 <p>Lists all stashed changesets<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git stash drop</span><br></pre></td></tr></table></figure></p>
 <p>Discards the most recently stashed changeset</p>
+<hr>
 <h2 id="REVIEW_HISTORY">REVIEW HISTORY</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="command">log</span></span><br></pre></td></tr></table></figure>
 <p>Lists version history for the current branch<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="command">log</span> <span class="comment">--follow [file]</span></span><br></pre></td></tr></table></figure></p>
 <p>Lists version history for a file,including renames<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff [<span class="keyword">first</span>-barnch] [<span class="keyword">second</span>-branch]</span><br></pre></td></tr></table></figure></p>
 <p>Shows content differences between two branches<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">show</span> [<span class="keyword">commit</span>]</span></span><br></pre></td></tr></table></figure></p>
 <p>Outputs metadata and content changes of the specified commit</p>
+<hr>
 <h2 id="REDO_COMMITS">REDO COMMITS</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">reset</span> [<span class="keyword">commit</span>]</span></span><br></pre></td></tr></table></figure>
 <p>Undoes all commits after [commit], preserving changes locally<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">reset</span> <span class="comment">--hard [commit]</span></span></span><br></pre></td></tr></table></figure></p>
 <p>Discards all history and changes back to the specified commit</p>
@@ -175,7 +181,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia1xphrz000aa9jxqopqnylj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia1xrjpa000ab1jxnnpto4j2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -226,7 +232,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia1xphs2000da9jxjwiuuqwg" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia1xrjpe000db1jxvssuawdy" class="article-share-link">Share</a>
       
       
     </footer>
@@ -299,7 +305,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia1xphrn0003a9jx0oyxxr6g" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia1xrjox0003b1jxwpltp1ah" class="article-share-link">Share</a>
       
       
     </footer>
@@ -348,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia1xphrt0006a9jx9f47da8i" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia1xrjp40006b1jx1ak6m8i6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -393,7 +399,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia1xphtt001ea9jx0746bffv" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia1xrjri001eb1jx819vmgkz" class="article-share-link">Share</a>
       
       
     </footer>
@@ -440,7 +446,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia1xphu2001ga9jxs1q3li4a" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia1xrjrr001gb1jxs6bfb959" class="article-share-link">Share</a>
       
       
     </footer>
@@ -480,7 +486,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia1xphu5001ia9jxq30wold1" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia1xrjru001ib1jxod5xndql" class="article-share-link">Share</a>
       
       
     </footer>
@@ -520,7 +526,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia1xphu7001ka9jxvz7ogim7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia1xrjry001kb1jx5paxh6ww" class="article-share-link">Share</a>
       
       
     </footer>
@@ -566,7 +572,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia1xphua001ma9jxumzyxpok" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia1xrjs1001mb1jx5fq1pcyx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -611,7 +617,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia1xphuf001oa9jxlptqheu7" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia1xrjs5001ob1jx8rueapz2" class="article-share-link">Share</a>
       
       
     </footer>
@@ -657,7 +663,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia1xphui001qa9jxzs3wm7yc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia1xrjs9001qb1jxpv9olpsh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -698,7 +704,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia1xpht7000za9jx3tmwl09n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia1xrjqq000zb1jxb9tkyvrg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -744,7 +750,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia1xphul001sa9jx1lni0cj5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia1xrjsc001sb1jxc5xwpudh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -785,7 +791,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia1xphta0012a9jx1ydrglq4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia1xrjqu0012b1jxo3h8zy6v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -843,7 +849,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia1xphuo001ua9jxwtwtg2tw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia1xrjsi001ub1jxvi9ul9of" class="article-share-link">Share</a>
       
       
     </footer>
@@ -884,7 +890,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia1xphtb0014a9jxavq36079" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia1xrjqw0014b1jx9rtfahte" class="article-share-link">Share</a>
       
       
     </footer>
@@ -925,7 +931,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia1xphte0016a9jx1kzpdx1u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia1xrjqz0016b1jx148c9oer" class="article-share-link">Share</a>
       
       
     </footer>
@@ -971,7 +977,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia1xphuq001wa9jxrufn4ect" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia1xrjsm001wb1jxmhzfjys8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1017,7 +1023,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia1xphtj0018a9jxfbfnq3if" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia1xrjr50018b1jxuizf8i6u" class="article-share-link">Share</a>
       
       
     </footer>
