@@ -99,7 +99,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia0k32sv00086bjxutuf9cgj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/irc/" data-id="cia1ww5sn00087hjxwh36r49u" class="article-share-link">Share</a>
       
       
     </footer>
@@ -135,158 +135,46 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Install">Install</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install git    <span class="id">#Ubuntu</span> install</span><br><span class="line">git config              <span class="id">#configuration</span> of git[^git]</span><br><span class="line">git config --global     <span class="id">#config</span> the global variables</span><br><span class="line">git config --global user<span class="class">.name</span> <span class="string">"user_name"</span>     <span class="id">#set</span> the username</span><br><span class="line">git config --global user<span class="class">.email</span> name@host<span class="class">.com</span>  <span class="id">#set</span> the email of user</span><br></pre></td></tr></table></figure>
-<h2 id="Creation_of_Repositories">Creation of Repositories</h2><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init        <span class="comment">#create a new repository in the current direcotry;</span></span><br><span class="line">git <span class="built_in">add</span> &lt;<span class="built_in">file</span>&gt;  <span class="comment">#the commond updates the index using the current</span></span><br><span class="line">                <span class="comment">#content found in the working tree, to prepare the</span></span><br><span class="line">                <span class="comment">#content staged for the next commit.</span></span><br><span class="line">git commoit -m <span class="string">"commont"</span>` <span class="comment">#Stores the current content of the index   </span></span><br><span class="line">                          <span class="comment">#in a new commit with a log message.</span></span><br></pre></td></tr></table></figure>
-<h2 id="Show_the_Working_Tree_Status">Show the Working Tree Status</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">git</span> status      <span class="comment">#Displays paths that hava differences between </span></span><br><span class="line">                <span class="comment">#the index file and the current HEAD commit,</span></span><br><span class="line">                <span class="comment">#the working tree and the index file,</span></span><br><span class="line">                <span class="comment">#the working tree that are not tracked by Git.</span></span><br><span class="line"></span><br><span class="line">git diff &lt;file&gt; <span class="comment">#Show changes between</span></span><br><span class="line">                <span class="comment">#the working tree and the index file,</span></span><br><span class="line">                <span class="comment">#two  trees,</span></span><br><span class="line"></span><br><span class="line">git show [commit <span class="built_in">no</span>.] <span class="comment">#Show changes between the current commit</span></span><br><span class="line">                      <span class="comment">#and the previous commit.</span></span><br></pre></td></tr></table></figure>
-<h2 id="版本管理">版本管理</h2><h3 id="版本查看">版本查看</h3><p><code>git log</code> 查看<code>当前版本</code>之前提交的所有版本信息<br><code>git log --pretty=oneline</code> 以简介形式查看<code>当前版本</code>之前提交的所有版本信息</p>
-<blockquote>
-<ul>
-<li><code>HEAD</code> 表示当前版本</li>
-<li><code>HEAD^</code> 表示上一版本，<code>HEAD^^</code> 表示上上版本，以此类推</li>
-<li><code>HEAD^</code> 等同于 <code>HEAD~1</code>； <code>HEAD^^^^^</code>等同于<code>HEAD~5</code></li>
-<li>git log中会显示版本号：commit id<br><code>git reflog</code> 查看<code>所有提交</code>的版本<h3 id="版本回退">版本回退</h3><code>git reset --hard HEAD^</code> 根据HEAD回退到上一版本<br><code>git reset --hard commitid</code> 根据版本号回退到某一版本<h3 id="工作区和暂存区">工作区和暂存区</h3><code>工作区</code> 你工作的目录<br><code>版本库</code> 你工作目录下的.git文件夹叫版本库，版本库包括<code>暂存区</code>和当前<code>分支</code><br><code>暂存区(stage)</code> git add及把文件修改添加到暂存区<br><code>分支(branch,master)</code> git commit即把文件修改从暂存区添加到当前分支<br><code>HEAD</code> 指向当前活动分支的当前版本<h3 id="GIT管理修改">GIT管理修改</h3>  Git跟踪的并管理修改，而不是文件。什么是修改？必须新增一行，删除一行都是修改。不是管理文件，该特性造成了,工作区和暂存区和当前分支不一致。<h3 id="撤销修改">撤销修改</h3><code>git checkout -- &lt;file&gt;</code> 将工作区的修改恢复到和分支中一致<br><code>git reset HEAD &lt;file&gt;</code> 将暂存区的修改删除（此时工作区的修改还未变动），回到了上一步<h3 id="删除文件">删除文件</h3></li>
-</ul>
-<ol>
-<li><code>rm</code> 首先删除工作区文件</li>
-</ol>
-<ul>
-<li><code>git checkout -- &lt;file&gt;</code> 恢复删除的文件</li>
-</ul>
-<ol>
-<li><code>git rm &lt;file&gt;</code> 将修改提交到暂存区</li>
-</ol>
-<ul>
-<li><code>git reset HEAD &lt;file&gt;</code> 将删除撤销</li>
-</ul>
-<ol>
-<li><code>git commit -m &quot;commonts&quot; 将修改提交到当前分支</code><h2 id="远程仓库">远程仓库</h2><h3 id="设置远程仓库">设置远程仓库</h3></li>
-<li><code>ssh-keygen -t rsa -C &quot;youname@email.com&quot;</code> 在本地Linux产生密钥</li>
-<li>设置github中的密钥<h3 id="添加远程库">添加远程库</h3><code>git remote</code> 查看本地的远程仓库<br><code>git remote -v</code> 查看远程仓库的权限信息<br><code>git remote rm git_name</code> 删除本地的远程仓库<br><code>git remote rename git_name</code> 重命名远程仓库在本地映射的仓库名</li>
-</ol>
-</blockquote>
-<p><code>git remote add origin https://github.com/username/repository_name</code></p>
-<blockquote>
-<ul>
-<li>https,必须使用https协议；</li>
-<li><code>origin</code> 远程库gist在本地的仓库名(不是分支名)，可以和远程仓库名字不同，可以和本地仓库名字不同</li>
-<li><code>username</code> github的用户名,不是电子邮件</li>
-<li><code>repository_name</code> github上的仓库名</li>
-</ul>
-</blockquote>
-<p><code>git push -u origin local_branch_name</code> 使用当前仓库的local_branch_name分支初始化远程origin仓库<br><code>git push origin local_branch_name</code> 将本地版本库当前分支local_brach_name合并到（更新）远程origin库</p>
-<blockquote>
-<ol>
-<li>区分本地<code>仓库名</code>和<code>分支名</code>；</li>
-<li>仓库名即文件夹的名字；</li>
-<li>当前仓库，所有分支的名字：<code>git branch -a</code>；</li>
-<li>local_branch_name 本地仓库中当前分支的名字；</li>
-<li>远程仓库名对于每一个本地仓库是独立的；即一个本地仓库中的远程仓库名不会出现在另外一个本地仓库中。</li>
-</ol>
-</blockquote>
-<h3 id="克隆远程仓库">克隆远程仓库</h3><p><code>git clone https://github.com/username/repository_name</code> 从远程克隆一个仓库到本地（无需建立文件夹）<br><code>git clone [-b branch_name] remote_repositoy_name [local_dir]</code><br>将远程仓库[remote_repository_name]的branch_name分支克隆到本地local_dir的目录下</p>
-<h2 id="分支管理">分支管理</h2><h3 id="创建合并分支">创建合并分支</h3><blockquote>
-<ol>
-<li>每一个仓库都有一个主分支(master)；</li>
-<li>HEAD指向的是当前活动分支的当前活动版本；</li>
-<li>每次提交(commit)到master分支，master就会向前移动一步；</li>
-<li>当创建心的分支dev,则Git会创建新的指针dev指向master指针，同时将HEAD指向指针dev</li>
-<li>提交时，dev向前移动，而master分支则不动；</li>
-<li>合并分支既是master指向dev指针即可，然后可以删除dev分支（删除dev指针）。</li>
-</ol>
-</blockquote>
-<p><code>git branch</code> 查看当前所有分支(不包括远程分支)，当前分支前边有个*<br><code>git branch -a</code> 查看所有分支（包括远程分支）</p>
-<p><code>git branch dev</code> 新建dev分支<br><code>git checkout -b dev</code> 新建dev分支，并将当前切换到dev分支<br><code>git checkout dev</code> 切换当前分支到dev</p>
-<blockquote>
-<ul>
-<li>切换分支，是指切换分支，对当前的工作区和暂存区毫不影响，三个是独立的；</li>
-<li>将暂存区的修改提交到当前分支，在提交之前可以任意切换分支。</li>
-</ul>
-</blockquote>
-<p><code>git branch -d dev</code> 删除dev分支<br><code>git merge dev</code> 将dev分支合并到<strong>当前分支</strong>上，当两个文件可以快速合并的时候<strong>Fast-forwar</strong>指的是通过将<strong>master</strong>指针移动到<strong>dev</strong>指针合并的；</p>
-<h3 id="解决冲突">解决冲突</h3><blockquote>
-<ol>
-<li>当合并出现冲突时，Git会自动合并，如果合并失败，则必须手动合并；</li>
-<li>合并失败是，Git会出于冲突合并状态，Git自动将冲突文件合并为一个<strong>冲突文件</strong>；</li>
-<li>然后修改冲突文件，在对<strong>冲突文件</strong>进行<code>git add</code>和<code>git commit</code>即可解决冲突。</li>
-</ol>
-</blockquote>
-<p><code>git log --graph</code> 查看分支历史信息图信息<br><code>git log --graph --pretty=oneline</code> 查看简化的分支历史信息图信息<br><code>git log --graph --pretty=oneline --abbrev-commit</code> 查看commit id缩写的分支图信息</p>
-<h3 id="分支管理策略">分支管理策略</h3><p><code>git merge --no-ff dev</code> 禁用<strong>Fast-forward</strong>模式，需要在<strong>master</strong>分支上新建立节点，然后将<strong>dev</strong>的下一节点指向<strong>master</strong>建立的节点上。</p>
-<blockquote>
-<ul>
-<li>master分支非常稳定，仅仅用来发布新版本时候用，平时不在上边干活的；</li>
-<li>新建一个dev分支，dev分支不稳定的，需要发布新版本的时候再将dev合并到master；</li>
-<li>然后每个开发人员再从dev分支上建新的分支进行独立开发，开发完后，在合并到dev上。</li>
-</ul>
-</blockquote>
-<h3 id="Bug分支">Bug分支</h3><p><code>git stash</code> 将当前的工作区和暂存区的修改暂时存储起来<br><code>git stash list</code> 现实所有暂存的修改<br><code>git stash pop</code> 用stash最上层的修改恢复当前工作区和暂存区的现场,同时从stash中删除该修改<br><code>git stash apply stash@{n}</code> 将stash中的n恢复当当前的现场，但不从stash中删除<br><code>git stash drop</code> 删除stash栈中最上层的内容</p>
-<p>修复Bug:</p>
-<blockquote>
-<ol>
-<li>保存当前现场：<code>git stash</code></li>
-<li>切换分支：<code>git checkout master</code></li>
-<li>新建修复分支：<code>git checkout -b issue-101</code></li>
-<li>修复Bug：<code>git add &lt;file&gt;</code> <code>git commit -m &quot;issue-101&quot;</code></li>
-<li>合并分支：<code>git checkout master</code> <code>git merge isssue-101</code></li>
-<li>返回现场：<code>git checkout dev</code></li>
-<li>恢复现场：<code>git stash pop</code></li>
-</ol>
-</blockquote>
-<h3 id="Feature分支">Feature分支</h3><blockquote>
-<ol>
-<li>新建feature分支</li>
-<li>开发，提交</li>
-<li>合并到dev分支上</li>
-</ol>
-</blockquote>
-<pre><code>如果在合并dev上之前，需要删除分支feature,使用<span class="escape">`g</span>it branch -d feature<span class="escape">`会</span>失败，因为删除未合并的分支会提示错误，必须使用：<span class="escape">`g</span>it branch -D feature<span class="escape">`.</span>
-</code></pre><p><code>git branch -D feature</code> 删除未合并的分支</p>
-<h3 id="多人协作">多人协作</h3><p><code>git remote</code> 查看远程库信息<br><code>git remote -v</code> 现实更详细信息<br><code>git push origin master</code> 推送本地分支到远程分支上</p>
-<p><code>master</code> 分支是主分支，因此要时刻与远程同步<br><code>dev</code> 开发分支，团队所有成员需要在上边开发，所以需要与远程同步<br><code>bug</code> bug分支之用语修复Bug，没必要推到远程；<br><code>feature</code> feature分支，取决你是否和你的小伙伴合作在上面开发。</p>
-<blockquote>
-<ol>
-<li><code>git clone https://github.com/username/repository.git</code> 克隆远程库；</li>
-<li><code>git checkout -b dev origin/dev</code> 建立远程库origin的dev分支到本地，本地分支名字叫dev；</li>
-<li><code>git commit -m &quot;add evn&quot;</code> 修改本地的dev分支；</li>
-<li><code>git push origin dev</code>将dev分支push到远程和远程的dev分支合并；</li>
-<li>如果第4步推送失败，则说明已经有最新版本，需要进行一下操作：</li>
-</ol>
-<ul>
-<li><code>git pull</code> 将最新的提交从origin/dev拉下来，然后本地合并，然后解决冲突；</li>
-<li><code>git branch --set-upstream dev origin/dev</code> 如果git pull失败，原因是没有指定本地dev分支与远程origen/dev分支的链接</li>
-<li>在git pull</li>
-</ul>
-</blockquote>
-<h2 id="标签管理">标签管理</h2><h3 id="创建标签">创建标签</h3><p><code>git tag</code> 查看所有标签<br><code>git tag &lt;name&gt;</code> 在当前分支上打上一个name标签，可以制定一个commit id<br><code>git tag &lt;name&gt; &lt;hash&gt;</code> 在某个分支上的某个版本打标签<br><code>git show &lt;tagname&gt;</code> 查看某个tag的详细信息<br><code>git tag -a &lt;tagname&gt; -m &quot;comments&quot;</code> 对某个tag制定详细信息<a href="[github官网][1]">^github</a></p>
-<h3 id="操作标签">操作标签</h3><p><code>git tag -d &lt;tagname&gt;</code> 删除本地标签<br><code>git push origin &lt;tagname&gt;</code> 将本地tagname标签同步到远程仓库<br><code>git push origin --tags</code> 一次性推送本地的所有标签<br>删除远程标签</p>
-<blockquote>
-<ol>
-<li><code>git tag -d v0.9</code> 删除本地标签</li>
-<li><code>git push origin :refs/tags/v0.9</code> 从远程删除该标签</li>
-</ol>
-</blockquote>
-<h2 id="使用Github">使用Github</h2><pre><code><span class="escape">`f</span>ork<span class="escape">` </span>可以复制别人的开源项目
-<span class="escape">`c</span>lone<span class="escape">` </span>将自己的项目复制到本地
-</code></pre><h2 id="自定义Git">自定义Git</h2><h3 id="自定义颜色">自定义颜色</h3><p><code>git config --global color.ui true</code></p>
-<h3 id="忽略特殊文件">忽略特殊文件</h3><blockquote>
-<ol>
-<li>工作太配置<code>.gitignore</code>文件；</li>
-<li>提交<code>.gitignore</code>文件到github。</li>
-<li>Github提供的<a href="https://github.com/github/gitignore" target="_blank" rel="external"><code>.gitignore</code>的模版</a><h3 id="配置别名">配置别名</h3><code>git config --global alias.co checkout</code> 将checkout配置成co<br><code>git config --global alias.unstage &#39;reset HEAD&#39;</code> 配置当前文件<br><code>git config --global alias.lg &quot;log --color --graph --pretty=format:&#39;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&#39; --abbrev-commit&quot;</code> 配置图</li>
-</ol>
-<ul>
-<li><code>--glocal</code>选项对当前用户起作用，否则只对当前仓库起作用</li>
-<li>每个仓库的配置文件位于<code>.git/config</code>,其中alias可以修改映射</li>
-<li>每个用户的配置文件位于主目录下的.gitconfig中，可以修改</li>
-</ul>
-</blockquote>
-<hr>
-<p>参考资料</p>
+        <h2 id="CONFIGURE_TOOLING">CONFIGURE TOOLING</h2><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.name</span> <span class="string">"name"</span></span><br></pre></td></tr></table></figure>
+<p>Sets the name you want attached to your commit transaction.<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user<span class="class">.email</span> <span class="string">"email"</span></span><br></pre></td></tr></table></figure></p>
+<p>Set the email you want attached to your commit transaction.</p>
+<h2 id="CREATE_REPOSITORIES">CREATE REPOSITORIES</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git init [project-<span class="property">name</span>]</span><br></pre></td></tr></table></figure>
+<p>Creates a new local repository with the specified name<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone -<span class="tag">b</span> [branch-name] git@github<span class="class">.com</span>:username/repository_name</span><br></pre></td></tr></table></figure></p>
+<h2 id="MAKE_CHANGES">MAKE CHANGES</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git status</span><br></pre></td></tr></table></figure>
+<p>Lists all new or modified files to be committed<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git diff</span><br></pre></td></tr></table></figure></p>
+<p>Shows file differences not yet staged<br><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">add</span> [<span class="built_in">file</span>]</span><br></pre></td></tr></table></figure></p>
+<p>Snapshots the file in preparation for versioning<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff <span class="comment">--staged</span></span><br></pre></td></tr></table></figure></p>
+<p>Shows file differences between staging and the last file version<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git reset [<span class="type">file</span>]</span><br></pre></td></tr></table></figure></p>
+<p>Unstages the file. but preserve its contents<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git commit -m <span class="string">"[descriptive message]"</span></span><br></pre></td></tr></table></figure></p>
+<p>Reconds file snapshots permanently in version history</p>
+<h2 id="GROUP_CHANGES">GROUP CHANGES</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git branch</span><br></pre></td></tr></table></figure>
+<p>Lists all local branches in the current repository<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch [branch-<span class="property">name</span>]</span><br></pre></td></tr></table></figure></p>
+<p>Creates a new branch<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout [branch-<span class="property">name</span>]</span><br></pre></td></tr></table></figure></p>
+<p>Switchs to the specified branch and updates the working direcotry<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="tag">git</span> <span class="tag">merge</span> <span class="attr_selector">[branch]</span></span><br></pre></td></tr></table></figure></p>
+<p>Conbines the specified branch.s history into the current branch<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git branch -d [branch-<span class="property">name</span>]</span><br></pre></td></tr></table></figure></p>
+<p>Deletes the specified branch</p>
+<h2 id="REFACTOR_FILENAMES">REFACTOR FILENAMES</h2><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">rm</span> [<span class="keyword">file</span>]</span><br></pre></td></tr></table></figure>
+<p>Deletes the file from the working directory and stages the deletion<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="keyword">rm</span> --cached [<span class="keyword">file</span>]</span><br></pre></td></tr></table></figure></p>
+<p>Removes the file from version contral but preserves the file locally<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git mv [<span class="type">file</span>-original] [<span class="type">file</span>-renamed]</span><br></pre></td></tr></table></figure></p>
+<p>Changes the file name and prepares it for commit</p>
+<h2 id="SAVE_FRAGMENTS">SAVE FRAGMENTS</h2><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git stash</span><br></pre></td></tr></table></figure>
+<p>Temporarily stores all modified tracked files<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stash <span class="keyword">pop</span></span><br></pre></td></tr></table></figure></p>
+<p>Restores the most recently stashed files<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git stas <span class="type">list</span></span><br></pre></td></tr></table></figure></p>
+<p>Lists all stashed changesets<br><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$ </span>git stash drop</span><br></pre></td></tr></table></figure></p>
+<p>Discards the most recently stashed changeset</p>
+<h2 id="REVIEW_HISTORY">REVIEW HISTORY</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="command">log</span></span><br></pre></td></tr></table></figure>
+<p>Lists version history for the current branch<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="command">log</span> <span class="comment">--follow [file]</span></span><br></pre></td></tr></table></figure></p>
+<p>Lists version history for a file,including renames<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git diff [<span class="keyword">first</span>-barnch] [<span class="keyword">second</span>-branch]</span><br></pre></td></tr></table></figure></p>
+<p>Shows content differences between two branches<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">show</span> [<span class="keyword">commit</span>]</span></span><br></pre></td></tr></table></figure></p>
+<p>Outputs metadata and content changes of the specified commit</p>
+<h2 id="REDO_COMMITS">REDO COMMITS</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">reset</span> [<span class="keyword">commit</span>]</span></span><br></pre></td></tr></table></figure>
+<p>Undoes all commits after [commit], preserving changes locally<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="operator"><span class="keyword">reset</span> <span class="comment">--hard [commit]</span></span></span><br></pre></td></tr></table></figure></p>
+<p>Discards all history and changes back to the specified commit</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia0k32sz000a6bjxlpq04a1r" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/git/" data-id="cia1ww5ss000a7hjxqwrb77wx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -337,7 +225,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia0k32t3000d6bjx8g5nev2t" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/gdb/" data-id="cia1ww5sw000d7hjxwvztybmr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -410,7 +298,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia0k32sn00036bjx99ca1aem" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/vim/" data-id="cia1ww5sc00037hjxc0xw96ez" class="article-share-link">Share</a>
       
       
     </footer>
@@ -459,7 +347,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia0k32ss00066bjxi3j8btdi" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/12/16/tools/mysql/" data-id="cia1ww5si00067hjxua8l2hx1" class="article-share-link">Share</a>
       
       
     </footer>
@@ -504,7 +392,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia0k32uu001e6bjxtxgqvd7x" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/29/bash/bash-ch13/" data-id="cia1ww5uy001e7hjx32dr7u0w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -551,7 +439,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia0k32uw001g6bjx66xcz0yc" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/28/bash/bash-ch12/" data-id="cia1ww5v9001g7hjxa27jxuv6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -591,7 +479,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia0k32uy001i6bjxaydrls7o" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/27/bash/bash-ch11/" data-id="cia1ww5vc001i7hjxk24br0p3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -631,7 +519,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia0k32v9001k6bjx2ycyntbr" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/26/bash/bash-ch10/" data-id="cia1ww5vg001k7hjxq4eefe4q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -677,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia0k32vc001m6bjxumecas7n" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/25/bash/bash-ch09/" data-id="cia1ww5vj001m7hjxydo5iku9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -722,7 +610,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia0k32vh001o6bjxr206xnhx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/24/bash/bash-ch08/" data-id="cia1ww5vo001o7hjx9dv4vrwc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -768,7 +656,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia0k32vk001q6bjxnuvmnqjs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/bash/bash-ch07/" data-id="cia1ww5vr001q7hjxjyru7mqr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -809,7 +697,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia0k32u6000z6bjx3if19tnn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/23/data_structure/ds_ch07/" data-id="cia1ww5ub000z7hjxwzf70rsb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -855,7 +743,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia0k32vn001s6bjx9ts31bo5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/bash/bash-ch06/" data-id="cia1ww5vu001s7hjxsr4pz8rv" class="article-share-link">Share</a>
       
       
     </footer>
@@ -896,7 +784,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia0k32u900126bjxln3kuowj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/22/data_structure/ds_ch06/" data-id="cia1ww5ue00127hjxw7yaowpe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -954,7 +842,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia0k32vr001u6bjxbx0htt7u" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/bash/bash-ch05/" data-id="cia1ww5vy001u7hjxvk1hs6ju" class="article-share-link">Share</a>
       
       
     </footer>
@@ -995,7 +883,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia0k32uc00146bjxzdlhc5kn" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/21/data_structure/ds_ch05/" data-id="cia1ww5ug00147hjx4d35xsln" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1036,7 +924,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia0k32ug00166bjxnosbq808" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/data_structure/ds_ch04/" data-id="cia1ww5uk00167hjxscqcvkab" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1082,7 +970,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia0k32vt001w6bjxhvuk301w" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/20/bash/bash-ch04/" data-id="cia1ww5w1001w7hjxvq5mwycj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -1128,7 +1016,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia0k32uk00186bjx1vw6chzb" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2014/11/19/data_structure/ds_ch03/" data-id="cia1ww5up00187hjxsa5yq5j7" class="article-share-link">Share</a>
       
       
     </footer>
